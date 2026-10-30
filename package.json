@@ -1,0 +1,16 @@
+{
+  "name": "mapmaker-speedtest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "How long MapMaker maps take to load for a class of 30 students sharing one classroom connection.",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "record": "node src/record.mjs",
+    "simulate": "node src/run-sim.mjs",
+    "validate": "node src/validate.mjs"
+  },
+  "dependencies": {
+    "playwright": "1.48.2"
+  }
+}

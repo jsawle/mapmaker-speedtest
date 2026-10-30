@@ -1,0 +1,73 @@
+# MapMaker classroom speed test
+
+Finds MapMaker maps that will be slow when a whole class opens them at once over poor classroom wifi.
+
+| Component | Version | What it does |
+|---|---|---|
+| Speed test (app) | 0.1.0 | The whole package |
+| Recorder | 0.1.0 | Opens each map in the real MapMaker app and records every download |
+| Classroom simulator | 0.1.0 | Plays a recording out for 30 students sharing one connection |
+| Classroom profiles | 0.1.0 | The connection settings in `config/profiles.json` |
+| Simulator check | 0.1.0 | Compares the simulator with a real throttled browser |
+
+Bump a component's version whenever its maths or data handling changes, and the app version on every release.
+
+## How it works
+
+1. **Record (real browser, real MapMaker).** Each map is opened once, as a map link: `…atlas/index.html?appid=…&webmap=<id>`. It opens in a fresh browser with nothing cached, at 1366 × 768, with no sign-in (students mostly use MapMaker anonymously). Every request is written down: when it started, when the first byte arrived, when it finished, and how big it was. That includes requests from the map's background workers. The map counts as loaded after 3 seconds with no network activity. The recorder then clicks **Zoom in** twice and records that as well. One browser, one map at a time: about the same traffic as one person using MapMaker.
+2. **Simulate the class.** For each map, 30 students start within 5 seconds of each other and share one classroom connection. The simulator keeps the order the recording showed (a request waits for the one it depended on), shares the bandwidth fairly, and adds latency, jitter and packet loss. It reports the typical student, the student at the 90th percentile, and the slowest student.
+   - **Usual lesson:** MapMaker's own files are already cached on the device.
+   - **First time on the device:** nothing is cached.
+3. **Rate.** A map is **OK** when 9 in 10 students have it ready within **10 seconds**. It is **Slow** up to 30 s and **Very slow** beyond that. This is set in `config/profiles.json`.
+
+### Why 10 seconds, and why 9 in 10 students
+
+10 seconds is the long-standing usability limit for keeping someone's attention on a task while they wait (Nielsen). For comparison, Google's web guideline wants a page's main content within 2.5 seconds, judged at the 75th percentile of visits. A whole map is a heavier load than a web page, so 10 seconds is lenient by web standards. In a lesson the class moves when nearly everyone is ready, which is why the rating uses the 90th-percentile student, not the average. The slowest student is shown separately.
+
+## Running it
+
+Go to **Actions → Classroom speed test → Run workflow**.
+
+- `mode: full` records every map, then simulates. Use `limit: 5` for a quick trial.
+- `mode: simulate` re-runs only the simulation on the last recordings, which takes minutes. Use it after editing `config/profiles.json`.
+- `validate` also runs the simulator check on 10 maps.
+
+Results are committed to `results/` (CSV and JSON) and shown on the results page in `docs/`. To publish the page, turn on **Settings → Pages → Deploy from branch → main / docs**.
+
+To run it locally:
+
+```
+npm ci && npx playwright install chromium
+node src/record.mjs --limit 5
+node src/run-sim.mjs
+```
+
+## Classroom profiles (assumptions)
+
+| Profile | Shared speed | Round trip | Jitter | Loss |
+|---|---|---|---|---|
+| Good school wifi | 50 Mbps | 30 ms | 10 ms | 0.1% |
+| Poor classroom wifi | 10 Mbps | 80 ms | 40 ms | 2% |
+| Far from the servers | 20 Mbps | 250 ms | 50 ms | 1% |
+
+These numbers are assumptions, not measurements. They should be replaced with figures from a real classroom: for example, a speed test run on one Chromebook while the class is online.
+
+## Simulator model and its limits
+
+- **Dependencies.** Each request waits for the request that finished most recently before it started in the recording, plus the same gap. That gap is the browser's own work.
+- **Connections.** The first use of a host costs 2 round trips to set up a connection (HTTP/1.1: per connection, at most 6 per host). Each request then costs 1 round trip plus the server's recorded response time, then the download.
+- **Sharing.** Downloads share the class's capacity fairly. Each connection is also capped by the Mathis et al. (1997) packet-loss formula. HTTP/2 requests to one host share one connection. Each request has a chance of one retransmission stall, max(200 ms, 2 × RTT).
+- **Not modelled.** TCP slow start beyond the loss cap; wifi airtime effects beyond "shared capacity"; school web filters; time students spend reading before acting.
+- **Recorded on a cloud computer, not a Chromebook.** Without graphics hardware, the ArcGIS SDK may use a simpler drawing mode, so the browser's own work between requests may differ from a Chromebook's. Check a few maps on a real Chromebook.
+- **Memory** is the main page's JavaScript heap only; background workers use more.
+- **Not tested:** switching on hidden layers, adding layers from Browse, and third-party servers (UNEP-WCMC, NPS and others) under many simultaneous classes. Load-testing other people's servers isn't appropriate.
+
+The **simulator check** (`src/validate.mjs`) loads maps again in a browser throttled to a slow line and compares the real time with the simulator's prediction for one student. The browser's throttling can't produce packet loss or jitter, so the check covers bandwidth, latency and dependencies only.
+
+## Files
+
+- `config/maps.json`: the web maps to test, from the stage-1 scan of the MapMaker content group.
+- `config/profiles.json`: classroom profiles, number of students and threshold.
+- `src/record.mjs`, `src/simulate.mjs`, `src/run-sim.mjs`, `src/validate.mjs`: the recorder, simulator, runner and check.
+- `results/traces/*.json.gz`: one recording per map (used by `mode: simulate`).
+- `docs/index.html`: the results page.

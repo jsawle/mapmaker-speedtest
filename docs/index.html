@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MapMaker Classroom Speed</title>
+<meta name="description" content="How long each MapMaker map takes to load for a class of 30 students sharing one classroom connection.">
+<style>
+:root {
+  --bg: #ffffff; --surface: #f5f6f7; --text: #1b1f23; --muted: #57606a; --border: #d0d7de;
+  --accent: #0b5cad; --ok-bg: #e6f4ea; --ok-fg: #1a5e2a; --slow-bg: #fff4d6; --slow-fg: #7a4d00;
+  --vslow-bg: #fde7e9; --vslow-fg: #9a1c26; --dnf-bg: #ececec; --dnf-fg: #333; --focus: #0b5cad;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111418; --surface: #1b2027; --text: #e6e8eb; --muted: #a3acb6; --border: #39424d;
+    --accent: #7fb6ff; --ok-bg: #173a22; --ok-fg: #9be3ae; --slow-bg: #3d3014; --slow-fg: #ffd77a;
+    --vslow-bg: #43191d; --vslow-fg: #ffb0b6; --dnf-bg: #2b2f34; --dnf-fg: #d6d9dc; --focus: #7fb6ff;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111418; --surface: #1b2027; --text: #e6e8eb; --muted: #a3acb6; --border: #39424d;
+  --accent: #7fb6ff; --ok-bg: #173a22; --ok-fg: #9be3ae; --slow-bg: #3d3014; --slow-fg: #ffd77a;
+  --vslow-bg: #43191d; --vslow-fg: #ffb0b6; --dnf-bg: #2b2f34; --dnf-fg: #d6d9dc; --focus: #7fb6ff;
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+.skip { position: absolute; left: -999px; } .skip:focus { left: 16px; top: 8px; background: var(--bg); padding: 8px; z-index: 10; }
+main { max-width: 1200px; margin: 0 auto; padding: 24px 16px 96px; }
+h1 { font-size: 1.6rem; margin: 0 0 4px; } h2 { font-size: 1.2rem; margin: 32px 0 8px; }
+.lede { color: var(--muted); max-width: 70ch; margin: 0 0 20px; }
+.controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+.controls label { display: flex; flex-direction: column; font-size: .875rem; color: var(--muted); gap: 4px; }
+select, input[type=search] { max-width: 100%; font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 6px 8px; min-height: 40px; }
+.counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0 8px; padding: 0; list-style: none; }
+.counts li { padding: 4px 10px; border-radius: 999px; font-size: .9rem; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: .85rem; font-weight: 600; white-space: nowrap; }
+.r-OK { background: var(--ok-bg); color: var(--ok-fg); } .r-Slow { background: var(--slow-bg); color: var(--slow-fg); }
+.r-Very-slow { background: var(--vslow-bg); color: var(--vslow-fg); } .r-Did-not-finish { background: var(--dnf-bg); color: var(--dnf-fg); }
+.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: .9rem; }
+caption { text-align: left; padding: 8px 12px; color: var(--muted); caption-side: top; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--border); text-align: right; vertical-align: top; }
+th:first-child, td:first-child, th.l, td.l { text-align: left; }
+thead th { position: sticky; top: 0; background: var(--surface); }
+th button { all: unset; cursor: pointer; font-weight: 600; } th button:focus-visible { outline: 3px solid var(--focus); }
+th[aria-sort="ascending"] button::after { content: " ▲"; } th[aria-sort="descending"] button::after { content: " ▼"; }
+td.num { font-variant-numeric: tabular-nums; }
+.flag { display: block; color: var(--muted); font-size: .8rem; text-align: left; }
+.empty { padding: 24px; background: var(--surface); border-radius: 8px; }
+.about table { width: auto; display: block; overflow-x: auto; max-width: 100%; } .about td, .about th { text-align: left; }
+.credit { position: fixed; right: 12px; bottom: 12px; background: var(--surface); color: var(--muted); border: 1px solid var(--border); border-radius: 6px; padding: 4px 10px; font-size: .8rem; }
+@media (max-width: 640px) { .controls { flex-direction: column; align-items: stretch; } .controls label { width: 100%; } select, input[type=search] { width: 100%; } .credit { position: static; display: block; margin: 0 16px 16px auto; width: max-content; } }
+</style>
+</head>
+<body>
+<a class="skip" href="#results">Skip to results</a>
+<main>
+  <h1>MapMaker classroom speed test</h1>
+  <p class="lede">How long each map takes to be ready when a whole class of students opens it at once over one shared classroom connection. A map is rated <strong>OK</strong> when 9 in 10 students have it ready within the time limit.</p>
+
+  <div class="controls" role="group" aria-label="Choose what to show">
+    <label>Classroom connection <select id="profile"></select></label>
+    <label>Lesson <select id="cache">
+      <option value="warm">Usual lesson (MapMaker used before on this device)</option>
+      <option value="cold">First time MapMaker is opened on the device</option>
+    </select></label>
+    <label>Find a map <input id="q" type="search" placeholder="Map name"></label>
+  </div>
+
+  <ul class="counts" id="counts" aria-live="polite"></ul>
+  <div id="results"></div>
+
+  <section class="about" aria-labelledby="about-h">
+    <h2 id="about-h">About this test</h2>
+    <div id="about"></div>
+  </section>
+</main>
+<footer class="credit">Created by Jason Sawle</footer>
+
+<script>
+const APP = "https://www.arcgis.com/apps/instant/atlas/index.html?appid=0cd1cdee853c413a84bfe4b9a6931f0d&webmap=";
+const RATINGS = ["Did not finish", "Very slow", "Slow", "OK"];
+const SYM = { "OK": "✓", "Slow": "!", "Very slow": "!!", "Did not finish": "✕" };
+const cls = (r) => "r-" + String(r).replace(/ /g, "-");
+const fmt = (x) => (x == null ? "—" : String(x));
+const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+let data = null, sortKey = "p90", sortDir = -1;
+const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem("mmspeed." + k); localStorage.setItem("mmspeed." + k, v); } catch { return null; } };
+
+const columns = [
+  { key: "title", label: "Map", l: true, get: (m) => m.title },
+  { key: "rating", label: "Rating", l: true, get: (m, p) => RATINGS.indexOf(rate(m, p)) },
+  { key: "p90", label: "9 in 10 students ready (s)", get: (m, p) => sv(m, p, "p90") },
+  { key: "slowest", label: "Slowest student (s)", get: (m, p) => sv(m, p, "slowest") },
+  { key: "median", label: "Typical student (s)", get: (m, p) => sv(m, p, "median") },
+  { key: "zoom", label: "Zoom in, 9 in 10 (s)", get: (m, p) => m.profiles?.[p]?.zoom?.p90 },
+  { key: "mb", label: "Data per student (MB)", get: (m) => (cache() === "warm" ? m.mbWarm : m.mbCold) },
+  { key: "requests", label: "Requests", get: (m) => m.requests },
+  { key: "heap", label: "Memory (MB)", get: (m) => m.heapMB },
+  { key: "views", label: "Views", get: (m) => m.numViews },
+];
+const cache = () => document.getElementById("cache").value;
+const sv = (m, p, k) => m.profiles?.[p]?.[cache()]?.[k] ?? null;
+const rate = (m, p) => (cache() === "warm" ? m.profiles?.[p]?.rating : m.profiles?.[p]?.ratingFirstLesson) || "Did not finish";
+
+function render() {
+  const p = document.getElementById("profile").value, q = document.getElementById("q").value.trim().toLowerCase();
+  const col = columns.find((c) => c.key === sortKey);
+  let rows = data.maps.filter((m) => !q || m.title.toLowerCase().includes(q));
+  rows.sort((a, b) => {
+    const x = col.get(a, p), y = col.get(b, p);
+    if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
+    return (typeof x === "string" ? x.localeCompare(y) : x - y) * sortDir;
+  });
+  const counts = {}; rows.forEach((m) => (counts[rate(m, p)] = (counts[rate(m, p)] || 0) + 1));
+  document.getElementById("counts").innerHTML = RATINGS.slice().reverse().filter((r) => counts[r])
+    .map((r) => `<li class="${cls(r)}">${SYM[r]} ${r}: ${counts[r]}</li>`).join("");
+  const prof = data.settings.profiles.find((x) => x.id === p);
+  const head = columns.map((c) => `<th scope="col" class="${c.l ? "l" : ""}" aria-sort="${c.key === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"}"><button type="button" data-k="${c.key}">${c.label}</button></th>`).join("");
+  const body = rows.map((m) => {
+    const flags = [];
+    if (m.error) flags.push("Could not load: " + esc(m.error));
+    if (m.openTimedOut) flags.push("Still loading after 2 minutes when recorded");
+    if (m.failedRequests) flags.push(m.failedRequests + " failed request(s) — a layer may be broken");
+    if (m.zoomOk === false && !m.error) flags.push("Zoom test did not run");
+    const r = rate(m, p);
+    return `<tr><th scope="row" class="l"><a href="${APP}${esc(m.id)}" target="_blank" rel="noopener">${esc(m.title)}</a>${flags.map((f) => `<span class="flag">${f}</span>`).join("")}</th>
+      <td class="l"><span class="badge ${cls(r)}">${SYM[r]} ${r}</span></td>
+      ${columns.slice(2).map((c) => `<td class="num">${fmt(c.get(m, p))}</td>`).join("")}</tr>`;
+  }).join("");
+  document.getElementById("results").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="Results table"><table>
+    <caption>${rows.length} maps · ${esc(prof.label)} (${prof.capacity_mbps} Mbps shared by ${data.settings.students} students) · ${cache() === "warm" ? "usual lesson" : "first time on the device"} · OK = 9 in 10 ready within ${data.settings.threshold_s} s</caption>
+    <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
+  document.querySelectorAll("th button").forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset.k; sortDir = k === sortKey ? -sortDir : (k === "title" ? 1 : -1); sortKey = k; render();
+    document.querySelector(`th button[data-k="${k}"]`).focus();
+  }));
+  pref("profile", p); pref("cache", cache());
+}
+
+function renderAbout(validation) {
+  const v = data.versions, s = data.settings;
+  const vrow = (n, x) => `<tr><th scope="row">${n}</th><td>${fmt(x)}</td></tr>`;
+  let html = `<p>Generated ${new Date(data.generatedAt).toLocaleString()}. Each map was opened once in the real MapMaker app on a fresh browser and every download was recorded. A simulator then plays that recording out for ${s.students} students who start within ${s.start_stagger_s} seconds of each other and share one classroom connection.</p>
+  <table tabindex="0"><caption>Versions</caption><tbody>${vrow("Speed test", v.app)}${vrow("Recorder", v.recorder)}${vrow("Classroom simulator", v.simulator)}${vrow("Classroom profiles", v.profiles)}${validation ? vrow("Simulator check", validation.validatorVersion) : ""}</tbody></table>
+  <table tabindex="0"><caption>Classroom connections (assumptions until measured in a real classroom)</caption><thead><tr><th scope="col">Profile</th><th scope="col">Shared speed</th><th scope="col">Round trip</th><th scope="col">Jitter</th><th scope="col">Packet loss</th></tr></thead><tbody>
+  ${s.profiles.map((p) => `<tr><th scope="row">${esc(p.label)}</th><td>${p.capacity_mbps} Mbps</td><td>${p.rtt_ms} ms</td><td>${p.jitter_ms} ms</td><td>${p.loss_pct}%</td></tr>`).join("")}</tbody></table>`;
+  if (data.baseline) html += `<p>Opening MapMaker itself (default map, nothing cached): ${data.baseline.mb} MB in ${data.baseline.requests} requests.</p>`;
+  if (validation?.rows?.length) {
+    html += `<table tabindex="0"><caption>Simulator check: one student, real throttled browser vs prediction</caption><thead><tr><th scope="col">Map</th><th scope="col">Line</th><th scope="col">Real (s)</th><th scope="col">Predicted (s)</th><th scope="col">Predicted ÷ real</th></tr></thead><tbody>
+    ${validation.rows.map((r) => `<tr><th scope="row">${esc(r.title)}</th><td>${r.mbps} Mbps, ${r.rtt_ms} ms</td><td>${fmt(r.real_s)}${r.real_timed_out ? " (timed out)" : ""}</td><td>${fmt(r.predicted_s)}</td><td>${fmt(r.ratio)}</td></tr>`).join("")}</tbody></table>`;
+  }
+  html += `<p><strong>Not included:</strong> school web filters, older or slower Chromebooks drawing the map, switching on extra layers, and how third-party servers cope when many classes use them at once. Memory is the main page only; the map's background workers use more.</p>`;
+  document.getElementById("about").innerHTML = html;
+}
+
+async function init() {
+  try { data = await (await fetch("results.json", { cache: "no-store" })).json(); }
+  catch { document.getElementById("results").innerHTML = `<p class="empty">No results yet. Run the “Classroom speed test” workflow in GitHub Actions.</p>`; return; }
+  let validation = null; try { validation = await (await fetch("validation.json", { cache: "no-store" })).json(); } catch {}
+  const sel = document.getElementById("profile");
+  sel.innerHTML = data.settings.profiles.map((p) => `<option value="${p.id}">${esc(p.label)}</option>`).join("");
+  sel.value = pref("profile") && data.settings.profiles.some((p) => p.id === pref("profile")) ? pref("profile") : (data.settings.profiles.find((p) => p.id === "poor") ? "poor" : data.settings.profiles[0].id);
+  if (pref("cache")) document.getElementById("cache").value = pref("cache");
+  ["profile", "cache"].forEach((id) => document.getElementById(id).addEventListener("change", render));
+  document.getElementById("q").addEventListener("input", render);
+  render(); renderAbout(validation);
+}
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,580 @@
+{
+ "note": "Web maps in the MapMaker content group (36443e95...), from the stage-1 scan of 30 Oct 2026. Regenerate from maps.csv when content changes.",
+ "maps": [
+  {
+   "id": "2dbe9e8146a54fa0a6515c335908cc29",
+   "title": "Federal Lands and American Indian Reservations",
+   "stage1_score": 68.0
+  },
+  {
+   "id": "e14409d2c5bb4c7983c1db03cdbbad9e",
+   "title": "Yellowstone's Great Migration",
+   "stage1_score": 65.0
+  },
+  {
+   "id": "07802bad831a452487acdedcaeafeaa1",
+   "title": "Transportation in the United States",
+   "stage1_score": 64.0
+  },
+  {
+   "id": "a827f0318f1f46f5972ad90e555f25c5",
+   "title": "Elk Migration",
+   "stage1_score": 62.0
+  },
+  {
+   "id": "b939728b0c4847deab2a39ea254ea8c8",
+   "title": "Watersheds",
+   "stage1_score": 58.0
+  },
+  {
+   "id": "9367e7e9b0d24f9195903229d3a73db9",
+   "title": "World Water Map: Gap",
+   "stage1_score": 58.0
+  },
+  {
+   "id": "0c5e5549f73d4bffaaff1e750ce5d38f",
+   "title": "Generations of the United States",
+   "stage1_score": 56.0
+  },
+  {
+   "id": "ff18c77b178f4c9e9241a0039c12a6ec",
+   "title": "National Geographic Okavango Wilderness Project",
+   "stage1_score": 55.5
+  },
+  {
+   "id": "bdf6b246cf5e43e3a079725240794556",
+   "title": "Protected Areas",
+   "stage1_score": 55.0
+  },
+  {
+   "id": "7a06e8e2818941f99a3d40bb32e08118",
+   "title": "Civil War Battlefields",
+   "stage1_score": 54.6
+  },
+  {
+   "id": "5906c7b7a54b44c6b6243add2d9a28b2",
+   "title": "Civil War Battlefields (time-enabled)",
+   "stage1_score": 54.6
+  },
+  {
+   "id": "412824676b7c456f855b4dfaae07f452",
+   "title": "Air Quality",
+   "stage1_score": 52.0
+  },
+  {
+   "id": "f1de050512c44bd698f20a216f763a8d",
+   "title": "Terrestrial Biodiversity",
+   "stage1_score": 50.0
+  },
+  {
+   "id": "71abc18440d94706ad2af962dc8123ec",
+   "title": "Federal Lands in the United States",
+   "stage1_score": 50.0
+  },
+  {
+   "id": "2fad51ae2db347c49b37d64714b02d30",
+   "title": "Global Mangrove Watch",
+   "stage1_score": 50.0
+  },
+  {
+   "id": "5d2d254ccceb4a349a7731b6272a46bd",
+   "title": "Internet Connectivity in the United States",
+   "stage1_score": 49.7
+  },
+  {
+   "id": "f43061e5d36542c0a0afb9fd941a45ba",
+   "title": "World Water Map: Demand",
+   "stage1_score": 49.6
+  },
+  {
+   "id": "c175fc83fb204fb0a98607c4acd7bf79",
+   "title": "Ethnicity in the United States",
+   "stage1_score": 49.3
+  },
+  {
+   "id": "1ba8cd3fc75a49a497be1137fce4c032",
+   "title": "The Battle of Vicksburg",
+   "stage1_score": 48.6
+  },
+  {
+   "id": "0a3d935beaf2487e8119b96eefe3e035",
+   "title": "Dams and Reservoirs",
+   "stage1_score": 48.5
+  },
+  {
+   "id": "3871d636011b4101abfcbc75bef46802",
+   "title": "Water Risk Index",
+   "stage1_score": 47.9
+  },
+  {
+   "id": "dd2b9d10cd1e4b569107480c2629be77",
+   "title": "Florida Wildlife Corridor",
+   "stage1_score": 47.1
+  },
+  {
+   "id": "064cc16579ca4795ab37cab48e3e5f93",
+   "title": "Exploring earthquakes and their causes (Guided Lesson)",
+   "stage1_score": 44.9
+  },
+  {
+   "id": "4dc9e099d77c433cbb90e1442484d0a7",
+   "title": "Refugees and Asylum-seekers (2023)",
+   "stage1_score": 44.6
+  },
+  {
+   "id": "0827429014d44b18bdd38510d7d3860d",
+   "title": "Spanish Colonial Americas (1701-1809)",
+   "stage1_score": 44.3
+  },
+  {
+   "id": "a11986ab7e6f4b4181ad0cd9688a5b54",
+   "title": "Tropical Cyclone Tracks",
+   "stage1_score": 43.2
+  },
+  {
+   "id": "da21867d21994cb3bcf472d09455de69",
+   "title": "Political Boundaries",
+   "stage1_score": 40.6
+  },
+  {
+   "id": "af2c8b702df34275aaca8f8bdbfb218c",
+   "title": "Population Change 1930 and 1940",
+   "stage1_score": 36.9
+  },
+  {
+   "id": "86da5ca74bff42ac9ef0d1b5e5329dae",
+   "title": "United States Congressional Districts",
+   "stage1_score": 35.0
+  },
+  {
+   "id": "ec713f789acc4a7888db3baab5bf80a0",
+   "title": "United States Apportionment 2020",
+   "stage1_score": 35.0
+  },
+  {
+   "id": "95188602f74c4197a39c8f7205589c8c",
+   "title": "Real-Time Earthquakes",
+   "stage1_score": 30.2
+  },
+  {
+   "id": "15959c659930495fb35e44e1062ebfd1",
+   "title": "Tornado Tracks in the United States",
+   "stage1_score": 29.2
+  },
+  {
+   "id": "c56d801d836348d7888f36eef2f59f75",
+   "title": "Seafloor Crustal Age",
+   "stage1_score": 28.0
+  },
+  {
+   "id": "5f9fb65d027b4edcaa2216cc56caa901",
+   "title": "Wildfire Incidents and Perimeters in the United States",
+   "stage1_score": 27.7
+  },
+  {
+   "id": "283cbf3df4484f4c9a65b547d23ec28a",
+   "title": "Geomythology: Where Stories Meet Science (Guided Lesson)",
+   "stage1_score": 27.3
+  },
+  {
+   "id": "e479f4f0b750499fb78a2bb1372237a5",
+   "title": "United States National Register of Historic Places",
+   "stage1_score": 25.6
+  },
+  {
+   "id": "68bb4ffab037408baaad808f20ed3eee",
+   "title": "Where are the world's biomes and why are they there (Guided Lesson)",
+   "stage1_score": 25.0
+  },
+  {
+   "id": "491d9c86abca41acb04034aa9f4b36a9",
+   "title": "Biomes",
+   "stage1_score": 25.0
+  },
+  {
+   "id": "8f15d24d5ee240519ab1a1dc4fb5b985",
+   "title": "Exploring the highs and lows of global temperature (Guided Lesson)",
+   "stage1_score": 24.7
+  },
+  {
+   "id": "bf0764e870ed4fb8bbc7c90bc4291e06",
+   "title": "Members of the North Atlantic Treaty Organization (NATO)",
+   "stage1_score": 23.7
+  },
+  {
+   "id": "939faaccc5fd4a4582a20d56c66a329d",
+   "title": "Active Hurricanes, Cyclones, and Typhoons",
+   "stage1_score": 23.3
+  },
+  {
+   "id": "0f806d1f74b247c7bfdb82b3179837a1",
+   "title": "Global Power Plants",
+   "stage1_score": 23.1
+  },
+  {
+   "id": "4341ec7c61f44e99a3a9eaea0e504731",
+   "title": "Redlining",
+   "stage1_score": 22.8
+  },
+  {
+   "id": "8febb1012bb34a028591d6543a071338",
+   "title": "State Atlas of the USA",
+   "stage1_score": 21.8
+  },
+  {
+   "id": "b074188d06194cb5a05ce260cfa55d25",
+   "title": "Perpetual Planet Mount Everest Expedition",
+   "stage1_score": 21.1
+  },
+  {
+   "id": "e6bede8d784f494bbb21cc6c6ca8ddb8",
+   "title": "The European Union",
+   "stage1_score": 16.8
+  },
+  {
+   "id": "96c74962b8cf44b6b8137db9660a32da",
+   "title": "El Ni\u00f1o Southern Oscillation",
+   "stage1_score": 16.0
+  },
+  {
+   "id": "0a5aff65fdd647b29f887702444b1186",
+   "title": "Early U.S. Cultural Landscapes",
+   "stage1_score": 15.6
+  },
+  {
+   "id": "b0aa37db780f4d71b323bb4a1c7c1163",
+   "title": "In the Path of a Hurricane (Guided Lesson)",
+   "stage1_score": 14.5
+  },
+  {
+   "id": "d578221acda84ab6bdb7263a787bc661",
+   "title": "Pristine Seas",
+   "stage1_score": 12.5
+  },
+  {
+   "id": "41e93cee05bb471a8d70cf3415bd4ba1",
+   "title": "Latitudes and Longitudes",
+   "stage1_score": 12.0
+  },
+  {
+   "id": "eed052f97ac743dfb86a92ab8ccbdb6d",
+   "title": "Sunlight and the Seasons (Guided Lesson)",
+   "stage1_score": 12.0
+  },
+  {
+   "id": "8eb079295f714af382438133a8484dea",
+   "title": "American Indian Reservations",
+   "stage1_score": 10.4
+  },
+  {
+   "id": "e58895820d1d4f99bea1f6744ec3d697",
+   "title": "World Heritage Sites",
+   "stage1_score": 10.1
+  },
+  {
+   "id": "3ec83a9d66454ade8aead0a64872d931",
+   "title": "Roads, Trails, and Rails West",
+   "stage1_score": 9.5
+  },
+  {
+   "id": "6c534d5b2d5c47bcbe1798ce3968df67",
+   "title": "War of 1812 Battles",
+   "stage1_score": 9.5
+  },
+  {
+   "id": "a0bd47b2e4f84e3183c82081eae8ed49",
+   "title": "Climate Regions",
+   "stage1_score": 9.1
+  },
+  {
+   "id": "ba213b54efd74fdb9cf13086fa570ccf",
+   "title": "Climate Regions Uncovered (Guided Lesson)",
+   "stage1_score": 9.1
+  },
+  {
+   "id": "d95ddd4a4b5442c2b4d77aaab60532b6",
+   "title": "1779-1781 Revolutionary Battles",
+   "stage1_score": 8.4
+  },
+  {
+   "id": "bda07736a1b9425ea19fdde282088bd6",
+   "title": "1775-1776 Revolutionary Battles",
+   "stage1_score": 8.4
+  },
+  {
+   "id": "1f6a2a11c56d4042ac9fc3d2f8f5f7f9",
+   "title": "1777-1778 Revolutionary Battles",
+   "stage1_score": 8.4
+  },
+  {
+   "id": "04b5c536d80a4397b49b504918d18030",
+   "title": "Ideas on the move: Silk Road (Guided Lesson)",
+   "stage1_score": 8.0
+  },
+  {
+   "id": "428ef30c69ae4cac9c5c1e0bd51fefd2",
+   "title": "Sea Surface Temperature",
+   "stage1_score": 8.0
+  },
+  {
+   "id": "b2ab19b71cc64d68bcddb99f1dc36973",
+   "title": "Global Land Cover",
+   "stage1_score": 8.0
+  },
+  {
+   "id": "0516fb1ba1ba4934b31b49f58e4e2032",
+   "title": "Black Bears Around Lake Tahoe",
+   "stage1_score": 8.0
+  },
+  {
+   "id": "3b31b93625934540b86e78cf2568cfc9",
+   "title": "Elevation and Depth",
+   "stage1_score": 8.0
+  },
+  {
+   "id": "d5da92f110824400aaa30e31b2e500e9",
+   "title": "Indigenous Territories",
+   "stage1_score": 7.7
+  },
+  {
+   "id": "0671d5a3c9644332bb69e2dfd4d43251",
+   "title": "Sub-Regions of the World",
+   "stage1_score": 7.5
+  },
+  {
+   "id": "e673087c123b4b4bb2da17015680ef63",
+   "title": "PFAS Contamination Sites",
+   "stage1_score": 7.3
+  },
+  {
+   "id": "cdc2ed0afdd8497f97de24a243a318c2",
+   "title": "Sea Changes (Guided Lesson)",
+   "stage1_score": 7.1
+  },
+  {
+   "id": "831c20bedd654dca8392fa69dffbab89",
+   "title": "Continents",
+   "stage1_score": 6.9
+  },
+  {
+   "id": "99eeb4f2461f4ce28fa0eccf81505f11",
+   "title": "Wildfire Causes and Effects in the United States (Guided Lesson)",
+   "stage1_score": 6.7
+  },
+  {
+   "id": "09d9e798949c4c8db6770a6341854f33",
+   "title": "Drought Intensity",
+   "stage1_score": 6.7
+  },
+  {
+   "id": "5a63cae1c0e54d239eb9318ea6ef24c7",
+   "title": "Ocean Surface Currents",
+   "stage1_score": 6.4
+  },
+  {
+   "id": "a19c24b3a1d9446fa4329d4477cded1c",
+   "title": "Indigenous North America - Patterns on the Land",
+   "stage1_score": 6.1
+  },
+  {
+   "id": "b182a63fae4546aba6855f80782c6616",
+   "title": "Coral Bleaching Heat Stress",
+   "stage1_score": 6.0
+  },
+  {
+   "id": "10c281ce109a43f999ef92318085d4c3",
+   "title": "Trans-Atlantic Slave Trade",
+   "stage1_score": 5.0
+  },
+  {
+   "id": "819f60a5a3344d958d24f505849abaaa",
+   "title": "US Slavery and Slave Trade, 1850",
+   "stage1_score": 4.0
+  },
+  {
+   "id": "c9f7face49de4c2393696b086da741ab",
+   "title": "Where the Winds Blow (Guided Lesson)",
+   "stage1_score": 4.0
+  },
+  {
+   "id": "aa8135223a0e401bb46e11881d6df489",
+   "title": "Global Cities",
+   "stage1_score": 3.5
+  },
+  {
+   "id": "86b6cdb66fea47a0a413120a0b49ae95",
+   "title": "Volcanoes Around the World",
+   "stage1_score": 2.3
+  },
+  {
+   "id": "2008733e277c4335a0393df9c2b6fbb6",
+   "title": "Cultural diffusion: the Expansion of Islam (Guided Lesson)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "19d2e98392834d2bbd816c61e8094142",
+   "title": "Arctic Sea Ice Extent (Max.)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "8ad350ece0da4ab58e512b998d01aa74",
+   "title": "Average Wind Speeds",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "51a15d5dd0054155bd2cd11001a3f1b3",
+   "title": "Average Annual Precipitation",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "5fa568ba43af4b999ff3e7b8e98d6045",
+   "title": "Cholera Outbreak, 1854",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "8cd5f8d4556b4868bd010f0da20e2d13",
+   "title": "Climate Change Indicators",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "c7f73c6fa8934c1e8b521098dec311ad",
+   "title": "Coyote Habitat in the United States",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "2ddced657a95421494dc1f95f63be9c1",
+   "title": "Investigating volcanoes, tectonic plates, and the risks they pose (Guided Lesson)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "bdf21ce5b2244150a16875209775ccd9",
+   "title": "Intra-Americas Slave Trade",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "b296947d717643e5805378a5c3f5e6eb",
+   "title": "Light Pollution",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "9966020554ae4b468c5ca9b62739e2a2",
+   "title": "K\u00f6ppen-Geiger Climate Classification System",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "4823eee6799a4a6e8e000bc685e50080",
+   "title": "Global Tectonic Plates",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "981e893443a1442ab9a334105ba12873",
+   "title": "Human Footprint",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "85997c9571e74256af71dc20566b47f1",
+   "title": "Major Earthquakes (1950-2023)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "16127f8086aa49e489aed1414914533e",
+   "title": "Plate Boundaries",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "58f69eb6ec8b40649f6e39be199c2bb0",
+   "title": "Pittsburgh, Pennsylvania (1903-1906)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "e0bc7263581f4bd5a8a416de167be7ff",
+   "title": "Plate Tectonics",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "8224f1cfc2694150be5d39693fc6f76c",
+   "title": "Population Density",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "8fee28e670f14e91abe685e5095154a5",
+   "title": "Oregon Trail",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "586d8b72f5b04d68ba6c32c943c904f7",
+   "title": "Modeled Sea Level Rise in the United States",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "075254fbed374ed3b49814b252bf297e",
+   "title": "Making Mountains: An Orogen Story (Guided Lesson)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "0c35d03afb884412ad84b442209ab64b",
+   "title": "Marine Biodiversity",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "c69ed6f0677d4eb98d362f6d176dadf9",
+   "title": "Ocean Currents in Motion",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "e9ad129739a64ab39867f7faf37511e4",
+   "title": "Surface Air Temperature (Average Annual)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "fc861baec03a438bb611bdd6a2a92306",
+   "title": "The Dream of the West (Guided Lesson)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "1796b9ad47734217bec054492ef07074",
+   "title": "Significant Volcanic Eruptions",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "88b2015479344fce817ec4398f3774f1",
+   "title": "Sunken ships of WWII",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "5b416343c50a4d94ab3c31395d8c13c7",
+   "title": "Satellite Imagery (2014)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "0ce87928403d4b338c71fd245dc0be65",
+   "title": "Revolutionary War Battles",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "503a4d0e9dc34cb0b70aa26c43785493",
+   "title": "Transportation Noise in the United States",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "12d5f742b0fd4aefbcc0ce02c05f6ccd",
+   "title": "Urban Heat Severity in the United States",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "ab04cabea30645c8947836ba6ae04753",
+   "title": "Where Rivers Run (Guided Lesson)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "770d5650a48d40d9bb993c2afcf175ad",
+   "title": "Where the City Ends (Guided Lesson)",
+   "stage1_score": 0.0
+  },
+  {
+   "id": "12cb84bfc8bb4910baae810172fd8294",
+   "title": "World Time Zones",
+   "stage1_score": 0.0
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+  "profiles_version": "0.1.0",
+  "note": "Classroom line profiles. All numbers are ASSUMPTIONS until calibrated against a real classroom. capacity_mbps is the usable throughput the whole class shares (the tighter of the classroom access point and the class's share of the school's internet link). rtt_ms is round-trip time to the servers; jitter_ms is extra random delay per request; loss_pct is packet loss.",
+  "students": 30,
+  "start_stagger_s": 5,
+  "think_before_zoom_s": 2,
+  "threshold_s": 10,
+  "threshold_percentile": 90,
+  "profiles": [
+    {
+      "id": "good",
+      "label": "Good school wifi",
+      "capacity_mbps": 50,
+      "rtt_ms": 30,
+      "jitter_ms": 10,
+      "loss_pct": 0.1
+    },
+    {
+      "id": "poor",
+      "label": "Poor classroom wifi",
+      "capacity_mbps": 10,
+      "rtt_ms": 80,
+      "jitter_ms": 40,
+      "loss_pct": 2
+    },
+    {
+      "id": "far",
+      "label": "Far from the servers (international)",
+      "capacity_mbps": 20,
+      "rtt_ms": 250,
+      "jitter_ms": 50,
+      "loss_pct": 1
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+name: Classroom speed test
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "full = record every map, then simulate. simulate = re-run only the simulation on the last recordings (after changing config/profiles.json)."
+        type: choice
+        options: [full, simulate]
+        default: full
+      limit:
+        description: "Only record the first N maps (0 = all). Use 5 for a quick trial."
+        default: "0"
+      validate:
+        description: "Also check the simulator against a real throttled browser (10 maps, adds up to ~1 hour)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: speedtest
+  cancel-in-progress: false
+
+jobs:
+  record:
+    if: inputs.mode == 'full'
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Record maps (shard ${{ matrix.shard }} of 4)
+        run: |
+          rm -rf results/traces && mkdir -p results/traces
+          node src/record.mjs --shard ${{ matrix.shard }}/4 --limit ${{ inputs.limit }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: traces-${{ matrix.shard }}
+          path: results/traces
+          retention-days: 30
+
+  validate:
+    if: inputs.mode == 'full' && inputs.validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: node src/validate.mjs --limit 10
+      - uses: actions/upload-artifact@v4
+        with:
+          name: validation
+          path: results/validation.*
+          retention-days: 30
+
+  simulate:
+    needs: [record, validate]
+    if: always() && (needs.record.result == 'success' || inputs.mode == 'simulate')
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Collect new recordings
+        if: inputs.mode == 'full'
+        run: rm -rf results/traces && mkdir -p results/traces
+      - uses: actions/download-artifact@v4
+        if: inputs.mode == 'full'
+        with:
+          pattern: traces-*
+          merge-multiple: true
+          path: results/traces
+      - uses: actions/download-artifact@v4
+        if: needs.validate.result == 'success'
+        with:
+          name: validation
+          path: results
+      - name: Test the simulator
+        run: npm test
+      - name: Simulate 30-student classes
+        run: node src/run-sim.mjs
+      - name: Publish results
+        run: |
+          [ -f results/validation.json ] && cp results/validation.json docs/validation.json || true
+          touch results/traces/.gitkeep
+          git config user.name "speedtest-bot"
+          git config user.email "speedtest-bot@users.noreply.github.com"
+          git add results docs
+          git commit -m "Speed test results $(date -u +%Y-%m-%d)" || echo "No changes"
+          git push
