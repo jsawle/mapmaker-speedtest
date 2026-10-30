@@ -14,7 +14,7 @@ const require = createRequire(import.meta.url);
 export const { chromium } = require("playwright");
 
 export { CACHEABLE_TYPES };
-export const RECORDER_VERSION = "0.1.0";
+export const RECORDER_VERSION = "0.2.0";
 const APP_URL = process.env.APP_URL || "https://www.arcgis.com/apps/instant/atlas/index.html?appid=0cd1cdee853c413a84bfe4b9a6931f0d";
 const VIEWPORT = { width: 1366, height: 768 };        // common school Chromebook screen
 const CROS_UA = "Mozilla/5.0 (X11; CrOS x86_64 15917.71.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36";
@@ -73,7 +73,17 @@ export async function recordOne(browser, target, appShellUrls, opts = {}) {
     const t = req.timing();
     let sizes = { responseBodySize: 0, responseHeadersSize: 0 };
     if (!failed) { try { sizes = await req.sizes(); } catch {} }
-    let status = 0; try { status = (await req.response())?.status() ?? 0; } catch {}
+    let status = 0, cacheControl = null;
+    try {
+      const resp = await req.response();
+      status = resp?.status() ?? 0;
+      if (resp) {
+        const h = resp.headers();
+        cacheControl = h["cache-control"] ?? "";
+        var validators = !!(h["etag"] || h["last-modified"]);
+      }
+    } catch {}
+    const failure = failed ? (req.failure()?.errorText || "failed") : null;
     if (!isBaseline && /\/content\/items\/[0-9a-f]{32}\/data/.test(req.url()) && req.url().includes(target.id)) sawMapData = true;
     const start = t.startTime > 0 ? t.startTime : info.wall;
     const ttfb = t.responseStart >= 0 ? start + t.responseStart : start;
@@ -82,7 +92,9 @@ export async function recordOne(browser, target, appShellUrls, opts = {}) {
     const { host, path: p } = stripUrl(req.url());
     done.push({
       phase: info.phase, host, path: p, type: req.resourceType(), method: req.method(), status,
-      startWall: start, ttfbWall: ttfb, endWall: end, bytes, failed: !!failed,
+      startWall: start, ttfbWall: ttfb, endWall: end, bytes, failed: !!failed, failure, cacheControl,
+      validators: typeof validators === "boolean" ? validators : false,
+      inBaseline: !isBaseline && appShellUrls.all?.has(req.url()),
       fromCache: !failed && bytes === 0 && end - start < 2,
       appShell: !isBaseline && appShellUrls.has(req.url()) && CACHEABLE_TYPES.has(req.resourceType()),
     });
@@ -136,6 +148,8 @@ export async function recordOne(browser, target, appShellUrls, opts = {}) {
       phase: d.phase, host: d.host, path: d.path, type: d.type, method: d.method, status: d.status,
       start: r1(d.startWall - navStart), ttfb: r1(d.ttfbWall - navStart), end: r1(d.endWall - navStart),
       bytes: d.bytes, protocol: protoByHost[d.host] || "h2", appShell: d.appShell, fromCache: d.fromCache, failed: d.failed,
+      ...(d.failure ? { failure: d.failure } : {}), cacheControl: d.cacheControl, validators: d.validators,
+      inBaseline: isBaseline ? true : !!d.inBaseline,
     }))
     .sort((a, b) => a.start - b.start);
   const lastEnd = (p) => Math.max(0, ...requests.filter((r) => r.phase === p).map((r) => r.end));
@@ -178,6 +192,7 @@ async function main() {
   // The default MapMaker view: tells us which files belong to the app itself (cached after first use).
   const base = await recordOne(browser, {}, new Set());
   const appShellUrls = new Set(base.fullUrls.filter((u) => CACHEABLE_TYPES.has(u.type)).map((u) => u.url));
+  appShellUrls.all = new Set(base.fullUrls.map((u) => u.url)); // everything the default MapMaker view fetched
   if (!args.shard || args.shard.startsWith("1/")) save(base.trace);
   console.log(`baseline: ${base.trace.requests.length} requests, ${(base.trace.requests.reduce((a, r) => a + r.bytes, 0) / 1e6).toFixed(1)} MB, app files ${appShellUrls.size}`);
 

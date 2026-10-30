@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { buildDag, simulateClass, waterFill, mathisBytesPerMs, percentile } from "../src/simulate.mjs";
+import { buildDag, simulateClass, waterFill, mathisBytesPerMs, percentile, maxAgeOf, cacheRule } from "../src/simulate.mjs";
 
 const prof = (o) => ({ capacity_mbps: 10, rtt_ms: 100, jitter_ms: 0, loss_pct: 0, ...o });
 const near = (a, b, tol = 0.002) => assert.ok(Math.abs(a - b) <= tol, `${a} vs ${b}`);
@@ -73,6 +73,30 @@ test("zoom phase starts after the map is ready plus thinking time", () => {
   near(r.readyS, 0.3); near(r.zoomS, 0.1 + 1.0); // connection already open
 });
 
+test("usual lesson: cached app files cost a round trip each but almost no data", () => {
+  const reqs = [one(1_250_000, { appShell: true }), { ...one(0), start: 20 }];
+  const dag = buildDag(reqs, 0);
+  const run = (cache) => simulateClass({ phases: { open: dag }, profile: prof(), students: 1, staggerS: 0, cache })[0].readyS;
+  near(run("fresh"), 0.01 + 0.2 + 0.1);                  // app file free; 2nd request: setup + RTT
+  near(run("revalidate"), 0.2 + 0.1 + 300 / 1_250_000 + 0.01 + 0.1); // setup + RTT + 300 B, gap, RTT
+  near(run("cold"), 0.2 + 0.1 + 1.0 + 0.01 + 0.1);
+});
+
+test("the line is shared per connection, not per request", () => {
+  // student A: 10 requests on one HTTP/2 connection; student B: 1 request. Fair TCP gives each connection half.
+  const many = buildDag(Array.from({ length: 10 }, () => one(125_000)), 0);
+  const single = buildDag([one(1_250_000)], 0);
+  const a = simulateClass({ phases: { open: many }, profile: prof(), students: 2, staggerS: 0 });
+  const b = simulateClass({ phases: { open: single }, profile: prof(), students: 2, staggerS: 0 });
+  near(a[0].readyS, b[0].readyS, 0.005); // same total bytes, same share -> same time
+});
+
+test("requests waiting for a new connection all wait for it", () => {
+  const dag = buildDag(Array.from({ length: 3 }, () => one(0)), 0);
+  const [r] = simulateClass({ phases: { open: dag }, profile: prof(), students: 1, staggerS: 0 });
+  near(r.readyS, 0.2 + 0.1);
+});
+
 test("percentile picks the student at that rank", () => {
   const v = Array.from({ length: 30 }, (_, i) => i + 1);
   assert.equal(percentile(v, 90), 27); assert.equal(percentile(v, 50), 15);
@@ -92,4 +116,24 @@ test("a class that cannot finish within the cap is reported as Infinity, not dro
   const dag = buildDag([one(50_000_000)], 0); // 30 x 50 MB on 10 Mbps = 20 min
   const res = simulateClass({ phases: { open: dag }, profile: prof(), students: 30, maxS: 60 });
   assert.ok(res.every((r) => r.readyS === Infinity));
+});
+
+test("cache headers are read the way a browser reads them", () => {
+  assert.equal(maxAgeOf("max-age=1800"), 1800);
+  assert.equal(maxAgeOf("public, max-age=86400"), 86400);
+  assert.equal(maxAgeOf("no-store"), -1);
+  assert.equal(maxAgeOf("no-cache"), 0);
+  assert.equal(maxAgeOf("public, max-age=31536000, immutable"), Infinity);
+  assert.equal(maxAgeOf(""), 0);
+  assert.equal(maxAgeOf(undefined), null);
+});
+
+test("a week after last use: long-lived files are free, short-lived ones are re-checked, new data is downloaded", () => {
+  const rule = cacheRule(7 * 86400);
+  assert.equal(rule({ inBaseline: true, cacheControl: "max-age=31536000", validators: true }), "free");
+  assert.equal(rule({ inBaseline: true, cacheControl: "max-age=1800", validators: true }), "revalidate");
+  assert.equal(rule({ inBaseline: true, cacheControl: "max-age=1800", validators: false }), "download");
+  assert.equal(rule({ inBaseline: true, cacheControl: "no-store", validators: true }), "download");
+  assert.equal(rule({ inBaseline: false, cacheControl: "max-age=31536000", validators: true }), "download");
+  assert.equal(cacheRule(600)({ inBaseline: true, cacheControl: "max-age=1800", validators: true }), "free");
 });

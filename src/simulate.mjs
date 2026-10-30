@@ -7,13 +7,15 @@
 //    recording, plus the same gap (that gap is the browser's own work: parsing, drawing, deciding what to ask next).
 //  * Each request costs: connection set-up (2 round trips, first use of a host only; per connection for HTTP/1.1,
 //    max 6 per host), then 1 round trip + the server's recorded response time, then the download.
-//  * Downloads share the class's capacity fairly (water-filling), and each TCP connection is also capped by the
-//    Mathis et al. (1997) loss formula: rate <= MSS / (RTT * sqrt(2p/3)). HTTP/2 requests to one host share one connection.
+//  * The class's capacity is shared fairly between connections (TCP is fair per connection), and each connection is
+//    also capped by the Mathis et al. (1997) loss formula: rate <= MSS / (RTT * sqrt(2p/3)). HTTP/2 requests to one
+//    host share one connection; HTTP/1.1 requests each have their own.
 //  * Packet loss near the end of a response cannot be repaired quickly, so each request has a chance of one
 //    retransmission timeout stall (max(200 ms, 2 x RTT)).
-//  * Cached requests (warm runs: the app's own files) cost nothing.
+//  * MapMaker's own files: first time = downloaded; usual lesson = a round trip each to check they haven't changed
+//    (their cache lifetime is 30 minutes); same lesson = free.
 
-export const SIMULATOR_VERSION = "0.1.0";
+export const SIMULATOR_VERSION = "0.2.0";
 const MSS = 1460;
 
 export function mulberry32(seed) {
@@ -63,7 +65,8 @@ export function buildDag(requests, phaseT0) {
     const gap = Math.max(0, parent >= 0 ? r.start - pend : r.start - phaseT0);
     const serverMs = Math.max(0, (r.ttfb ?? r.start) - r.start);
     return { host: r.host, bytes: Math.max(0, r.bytes || 0), protocol: r.protocol || "h2",
-             appShell: !!r.appShell, fromCache: !!r.fromCache, parent, gap, serverMs };
+             appShell: !!r.appShell, fromCache: !!r.fromCache, parent, gap, serverMs,
+             inBaseline: r.inBaseline, cacheControl: r.cacheControl, validators: r.validators };
   });
   const children = reqs.map(() => []);
   const roots = [];
@@ -93,30 +96,46 @@ export function waterFill(caps, capacity) {
 /**
  * Simulate one class.
  * phases: { open: dag, zoom: dag | null }
+ * cache: "cold"       — first time on the device: everything downloaded as recorded
+ *        "revalidate" — usual lesson: MapMaker's own files are in the browser cache but older than their
+ *                       max-age (30 min), so each costs a "has it changed?" round trip and a ~300-byte reply
+ *        "fresh"      — MapMaker was opened in the last 30 minutes: its own files cost nothing
  * Returns per-student { readyS, zoomS, bytes } (seconds; Infinity if not finished by maxS).
  */
+export const REVALIDATE_BYTES = 300;
 export function simulateClass({ phases, profile, students = 30, staggerS = 5, thinkBeforeZoomS = 2,
-                                warm = false, seed = 1, maxS = 600, setupRtts = 2 }) {
+                                cache = "cold", cacheOf = null, warm, seed = 1, maxS = 600, setupRtts = 2 }) {
+  if (warm === true) cache = "fresh";
+  // cacheOf(r) -> "free" | "revalidate" | "download" overrides the simple modes below
+  const simple = (r) => (!r.appShell || cache === "cold" ? "download" : cache === "fresh" ? "free" : "revalidate");
+  const modeOf = cacheOf || simple;
+  const modes = new Map();
+  for (const p of ["open", "zoom"]) if (phases[p]) modes.set(p, phases[p].reqs.map((r) => modeOf(r)));
   const rand = mulberry32(seed);
   const capacity = (profile.capacity_mbps * 1e6) / 8 / 1000; // bytes per ms
   const baseRtt = profile.rtt_ms, jitter = profile.jitter_ms || 0, loss = profile.loss_pct || 0;
   const rto = Math.max(200, 2 * baseRtt);
-  const groupCap = mathisBytesPerMs(baseRtt, loss);
+  const connCap = mathisBytesPerMs(baseRtt, loss);
   const maxMs = maxS * 1000;
+  const isH2 = (r) => r.protocol === "h2" || r.protocol === "h3";
+  const instant = (p, k) => phases[p].reqs[k].fromCache || modes.get(p)[k] === "free";
+  const bytesOf = (p, k) => (modes.get(p)[k] === "revalidate" ? Math.min(phases[p].reqs[k].bytes, REVALIDATE_BYTES) : phases[p].reqs[k].bytes);
 
   const phaseNames = ["open", "zoom"].filter((p) => phases[p]);
   const S = [];
   for (let s = 0; s < students; s++) {
     S.push({
       start: rand() * staggerS * 1000,
-      h2Hosts: new Set(), h1Open: new Map(), h1Active: new Map(), h1Queue: new Map(),
+      h2Ready: new Map(), h1Open: new Map(), h1Active: new Map(), h1Queue: new Map(),
       phase: {}, bytes: 0,
     });
     for (const p of phaseNames) S[s].phase[p] = { done: 0, end: null, t0: null };
   }
 
   const timers = new MinHeap();   // { t, kind: 'eligible'|'latencyEnd', s, p, k }
-  const transfers = new Set();    // flow objects { s, p, k, remaining, group }
+  // Connections share the line fairly (TCP is fair per connection). Requests on one connection share it equally,
+  // tracked with a per-connection "virtual service" counter so each step costs O(connections), not O(requests).
+  const conns = new Map();        // key -> { V, n, heap of { t: target V, s, p, k } }
   let t = 0;
 
   const startPhase = (s, p, t0) => {
@@ -133,7 +152,7 @@ export function simulateClass({ phases, profile, students = 30, staggerS = 5, th
   const finish = (s, p, k, when) => {
     const dag = phases[p], st = S[s].phase[p];
     const r = dag.reqs[k];
-    if (r.protocol !== "h2" && r.protocol !== "h3" && !(r.fromCache || (warm && r.appShell))) {
+    if (!isH2(r) && !instant(p, k)) {
       const key = r.host;
       S[s].h1Active.set(key, S[s].h1Active.get(key) - 1);
       const q = S[s].h1Queue.get(key);
@@ -147,10 +166,12 @@ export function simulateClass({ phases, profile, students = 30, staggerS = 5, th
   const begin = (ev) => {
     const { s, p, k } = ev;
     const r = phases[p].reqs[k], stu = S[s];
-    if (r.fromCache || (warm && r.appShell)) { finish(s, p, k, ev.t); return; }
-    let setup = 0;
-    if (r.protocol === "h2" || r.protocol === "h3") {
-      if (!stu.h2Hosts.has(r.host)) { stu.h2Hosts.add(r.host); setup = setupRtts * baseRtt; }
+    if (instant(p, k)) { finish(s, p, k, ev.t); return; }
+    let setup = 0, readyAt = ev.t;
+    if (isH2(r)) {
+      // every request to this host waits until its one connection is set up
+      if (!stu.h2Ready.has(r.host)) stu.h2Ready.set(r.host, ev.t + setupRtts * baseRtt);
+      readyAt = Math.max(ev.t, stu.h2Ready.get(r.host));
     } else {
       const active = stu.h1Active.get(r.host) || 0;
       if (!ev.dequeued && active >= 6) {
@@ -162,40 +183,43 @@ export function simulateClass({ phases, profile, students = 30, staggerS = 5, th
       if (open < 6 && active + 1 > open) { stu.h1Open.set(r.host, open + 1); setup = setupRtts * baseRtt; }
     }
     const rtt = baseRtt + rand() * jitter;
-    const pkts = Math.max(1, Math.ceil(r.bytes / MSS));
+    const pkts = Math.max(1, Math.ceil(bytesOf(p, k) / MSS));
     const stall = rand() < 1 - Math.pow(1 - loss / 100, Math.min(pkts, 3)) ? rto : 0;
-    timers.push({ t: ev.t + setup + rtt + r.serverMs + stall, kind: "latencyEnd", s, p, k });
+    timers.push({ t: readyAt + setup + rtt + r.serverMs + stall, kind: "latencyEnd", s, p, k });
   };
 
   for (let s = 0; s < students; s++) startPhase(s, "open", S[s].start);
 
-  while ((timers.size || transfers.size) && t < maxMs) {
-    // current rates
-    const flows = [...transfers];
-    const groupCount = new Map();
-    for (const f of flows) groupCount.set(f.group, (groupCount.get(f.group) || 0) + 1);
-    const rates = waterFill(flows.map((f) => groupCap / groupCount.get(f.group)), capacity);
-
+  while ((timers.size || conns.size) && t < maxMs) {
+    const G = [...conns.values()];
+    const perConn = G.length ? Math.min(connCap, capacity / G.length) : 0; // equal caps, so water-filling is a min()
     let next = timers.size ? timers.peek().t : Infinity;
-    flows.forEach((f, i) => { if (rates[i] > 0) next = Math.min(next, t + f.remaining / rates[i]); });
+    for (const g of G) next = Math.min(next, t + ((g.heap.peek().t - g.V) * g.n) / perConn);
     if (!isFinite(next)) break;
     next = Math.min(Math.max(next, t), maxMs);
     const dt = next - t;
-    flows.forEach((f, i) => { f.remaining -= rates[i] * dt; });
+    for (const g of G) g.V += (perConn / g.n) * dt;
     t = next;
 
-    for (const f of flows) {
-      if (f.remaining <= 1e-6) { transfers.delete(f); finish(f.s, f.p, f.k, t); }
+    for (const [key, g] of conns) {
+      while (g.heap.size && g.heap.peek().t <= g.V + 1e-6) {
+        const f = g.heap.pop(); g.n--;
+        finish(f.s, f.p, f.k, t);
+      }
+      if (!g.n) conns.delete(key);
     }
     while (timers.size && timers.peek().t <= t + 1e-9) {
       const ev = timers.pop();
       if (ev.kind === "eligible") begin(ev);
       else {
         const r = phases[ev.p].reqs[ev.k];
-        S[ev.s].bytes += r.bytes;
-        if (r.bytes <= 0) { finish(ev.s, ev.p, ev.k, ev.t); continue; }
-        const group = (r.protocol === "h2" || r.protocol === "h3") ? `${ev.s}|${r.host}` : `${ev.s}|${ev.p}|${ev.k}`;
-        transfers.add({ s: ev.s, p: ev.p, k: ev.k, remaining: r.bytes, group });
+        const b = bytesOf(ev.p, ev.k);
+        S[ev.s].bytes += b;
+        if (b <= 0) { finish(ev.s, ev.p, ev.k, ev.t); continue; }
+        const key = isH2(r) ? `${ev.s}|${r.host}` : `${ev.s}|${ev.p}|${ev.k}`;
+        let g = conns.get(key);
+        if (!g) { g = { V: 0, n: 0, heap: new MinHeap() }; conns.set(key, g); }
+        g.heap.push({ t: g.V + b, s: ev.s, p: ev.p, k: ev.k }); g.n++;
       }
     }
   }
@@ -208,6 +232,32 @@ export function simulateClass({ phases, profile, students = 30, staggerS = 5, th
       bytes: stu.bytes,
     };
   });
+}
+
+/** Seconds a response may be reused without asking; -1 = must not be stored. null = header not recorded. */
+export function maxAgeOf(cc) {
+  if (cc == null) return null;
+  const c = String(cc).toLowerCase();
+  if (/no-store/.test(c)) return -1;
+  if (/no-cache/.test(c)) return 0;
+  if (/immutable/.test(c)) return Infinity;
+  const m = c.match(/(?:^|[,\s])max-age=(\d+)/);
+  return m ? +m[1] : 0;
+}
+
+/**
+ * Browser-cache rule for one request when MapMaker was last used `secondsSince` ago on this device.
+ * Only files the default MapMaker view also fetched can be in the cache (a new map's own data never is).
+ */
+export function cacheRule(secondsSince) {
+  return (r) => {
+    if (!r.inBaseline && !(r.inBaseline === undefined && r.appShell)) return "download";
+    const ma = maxAgeOf(r.cacheControl);
+    if (ma == null) return r.appShell ? "revalidate" : "download";  // older recordings without headers
+    if (ma < 0) return "download";
+    if (ma >= secondsSince) return "free";
+    return r.validators ? "revalidate" : "download";
+  };
 }
 
 export function percentile(values, pct) {
