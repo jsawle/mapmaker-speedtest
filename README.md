@@ -4,11 +4,12 @@ Finds MapMaker maps that will be slow when a whole class opens them at once over
 
 | Component | Version | What it does |
 |---|---|---|
-| Speed test (app) | 0.2.0 | The whole package |
+| Speed test (app) | 0.3.0 | The whole package |
 | Recorder | 0.2.0 | Opens each map in the real MapMaker app and records every download, with its cache headers |
 | Classroom simulator | 0.2.0 | Plays a recording out for 30 students sharing one connection |
 | Classroom profiles | 0.2.0 | The connection settings in `config/profiles.json` |
 | Simulator check | 0.1.0 | Compares the simulator with a real throttled browser |
+| Delay-by-source split | 0.1.0 | Splits each map's delay into MapMaker app, ArcGIS code, basemap and map data (`src/categories.mjs`) |
 
 Bump a component's version whenever its maths or data handling changes, and the app version on every release.
 
@@ -21,7 +22,14 @@ Bump a component's version whenever its maths or data handling changes, and the 
    - **First time on the device:** nothing is cached.
    - **Second map in the same lesson:** MapMaker was opened 10 minutes ago.
 3. **Compare with MapMaker itself.** The default MapMaker view is simulated the same way. "Extra over MapMaker" (map time minus MapMaker's own time) is the fairest way to rank maps, because no map can load faster than the app around it.
-4. **Rate.** A map is **OK** when 9 in 10 students have it ready within **10 seconds**. It is **Slow** up to 30 s and **Very slow** beyond that. This is set in `config/profiles.json`.
+4. **Split the delay by source.** Every request is put in one of four groups:
+   - **MapMaker app:** MapMaker's own files, set-up calls and content-group searches. The same for every map.
+   - **ArcGIS code:** ArcGIS SDK files, which vary with the layer types a map uses.
+   - **Basemap:** basemap tiles, styles and fonts.
+   - **Map data:** the map's layers, images and item details.
+
+   The class is then simulated again with each group made free. The difference is how many seconds sooner 9 in 10 students would be ready without that group. The groups overlap in time, so the four figures don't add up to the total. The largest one is the map's **main cause**.
+5. **Rate.** A map is **OK** when 9 in 10 students have it ready within **10 seconds**. It is **Slow** up to 30 s and **Very slow** beyond that. This is set in `config/profiles.json`.
 
 ### Why 10 seconds, and why 9 in 10 students
 
@@ -69,6 +77,7 @@ The **simulator check** (`src/validate.mjs`) loads maps again in a browser throt
 
 ## Version history
 
+- **0.3.0.** Delay split by source (MapMaker app / ArcGIS code / basemap / map data) with a main cause per map, and a flag for any single download over 1 MB.
 - **0.2.0.** Simulator 0.2.0: the line is shared per connection; requests wait for their connection to be set up; browser caching follows each file's recorded cache headers; it is about 100 times faster. Recorder 0.2.0: records cache headers, and separates requests the map cancelled (normal) from real errors. Profiles 0.2.0: usual lesson = MapMaker last used 7 days ago. Results: MapMaker's own default map as a reference, and "extra over MapMaker" for ranking.
 - **0.1.0.** First release.
 

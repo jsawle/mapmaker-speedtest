@@ -66,7 +66,7 @@ export function buildDag(requests, phaseT0) {
     const serverMs = Math.max(0, (r.ttfb ?? r.start) - r.start);
     return { host: r.host, bytes: Math.max(0, r.bytes || 0), protocol: r.protocol || "h2",
              appShell: !!r.appShell, fromCache: !!r.fromCache, parent, gap, serverMs,
-             inBaseline: r.inBaseline, cacheControl: r.cacheControl, validators: r.validators };
+             inBaseline: r.inBaseline, cacheControl: r.cacheControl, validators: r.validators, cat: r.cat };
   });
   const children = reqs.map(() => []);
   const roots = [];

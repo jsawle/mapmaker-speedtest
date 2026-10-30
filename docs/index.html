@@ -28,7 +28,7 @@ body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 syst
 a { color: var(--accent); }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
 .skip { position: absolute; left: -999px; } .skip:focus { left: 16px; top: 8px; background: var(--bg); padding: 8px; z-index: 10; }
-main { max-width: 1200px; margin: 0 auto; padding: 24px 16px 96px; }
+main { max-width: 1440px; margin: 0 auto; padding: 24px 16px 96px; }
 h1 { font-size: 1.6rem; margin: 0 0 4px; } h2 { font-size: 1.2rem; margin: 32px 0 8px; }
 .lede { color: var(--muted); max-width: 70ch; margin: 0 0 20px; }
 .controls { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: end; padding: 12px; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
@@ -48,6 +48,7 @@ thead th { position: sticky; top: 0; background: var(--surface); }
 th button { all: unset; cursor: pointer; font-weight: 600; } th button:focus-visible { outline: 3px solid var(--focus); }
 th[aria-sort="ascending"] button::after { content: " ▲"; } th[aria-sort="descending"] button::after { content: " ▼"; }
 td.num { font-variant-numeric: tabular-nums; }
+.src { min-width: 12.5rem; white-space: nowrap; } .src span { display: block; }
 .flag { display: block; color: var(--muted); font-size: .8rem; text-align: left; }
 .empty { padding: 24px; background: var(--surface); border-radius: 8px; }
 .about table { width: auto; display: block; overflow-x: auto; max-width: 100%; } .about td, .about th { text-align: left; }
@@ -60,6 +61,7 @@ td.num { font-variant-numeric: tabular-nums; }
 <main>
   <h1>MapMaker classroom speed test</h1>
   <p class="lede">How long each map takes to be ready when a whole class of students opens it at once over one shared classroom connection. A map is rated <strong>OK</strong> when 9 in 10 students have it ready within the time limit. <strong>Extra over MapMaker</strong> is how much longer the map takes than MapMaker's own default map, which is the fairest way to compare maps.</p>
+  <p class="lede"><strong>Where the delay comes from</strong> shows how many seconds sooner 9 in 10 students would be ready if one part cost nothing: the <strong>MapMaker app</strong> (the same for every map), the <strong>ArcGIS code</strong> the map's layer types need, the map's <strong>basemap</strong>, or the map's own <strong>data</strong> (layers and images). The parts overlap in time, so they don't add up to the total. Usual lesson only.</p>
 
   <div class="controls" role="group" aria-label="Choose what to show">
     <label>Classroom connection <select id="profile"></select></label>
@@ -67,6 +69,13 @@ td.num { font-variant-numeric: tabular-nums; }
       <option value="usual">Usual lesson (MapMaker used on this device last week)</option>
       <option value="first">First time MapMaker is opened on the device</option>
       <option value="fresh">Second map in the same lesson</option>
+    </select></label>
+    <label>Main cause <select id="cause">
+      <option value="">Any</option>
+      <option value="data">Map data</option>
+      <option value="basemap">Basemap</option>
+      <option value="app">MapMaker app</option>
+      <option value="sdk">ArcGIS code</option>
     </select></label>
     <label>Find a map <input id="q" type="search" placeholder="Map name"></label>
   </div>
@@ -99,6 +108,9 @@ const columns = [
   { key: "slowest", label: "Slowest student (s)", get: (m, p) => sv(m, p, "slowest") },
   { key: "median", label: "Typical student (s)", get: (m, p) => sv(m, p, "median") },
   { key: "zoom", label: "Zoom in, 9 in 10 (s)", get: (m, p) => m.profiles?.[p]?.zoom?.p90 },
+  { key: "cause", label: "Main cause", l: true, get: (m, p) => SRC[m.profiles?.[p]?.mainCause] ?? null, fmt: (v) => v ?? "—" },
+  { key: "sources", label: "Where the delay comes from (s)", l: true, sortable: false, get: (m, p) => m.profiles?.[p]?.bySource,
+    cls: "src", fmt: (v) => !v ? "—" : Object.keys(SRC).map((k) => `<span>${SRC[k]}: ${fmt(v[k])}</span>`).join("") },
   { key: "mb", label: "Data per student, first time (MB)", get: (m) => m.mbCold },
   { key: "requests", label: "Requests", get: (m) => m.requests },
   { key: "heap", label: "Memory (MB)", get: (m) => m.heapMB },
@@ -107,12 +119,14 @@ const columns = [
 const cache = () => document.getElementById("cache").value;
 const sv = (m, p, k) => m.profiles?.[p]?.[cache()]?.[k] ?? null;
 const rate = (m, p) => ({ usual: m.profiles?.[p]?.rating, first: m.profiles?.[p]?.ratingFirst, fresh: m.profiles?.[p]?.ratingFresh }[cache()]) || "Did not finish";
+const SRC = { app: "MapMaker app", sdk: "ArcGIS code", basemap: "Basemap", data: "Map data" };
 const LESSON = { usual: "usual lesson", first: "first time on the device", fresh: "second map in the same lesson" };
 
 function render() {
   const p = document.getElementById("profile").value, q = document.getElementById("q").value.trim().toLowerCase();
   const col = columns.find((c) => c.key === sortKey);
-  let rows = data.maps.filter((m) => !q || m.title.toLowerCase().includes(q));
+  const cause = document.getElementById("cause").value;
+  let rows = data.maps.filter((m) => (!q || m.title.toLowerCase().includes(q)) && (!cause || m.profiles?.[p]?.mainCause === cause));
   rows.sort((a, b) => {
     const x = col.get(a, p), y = col.get(b, p);
     if (x == null && y == null) return 0; if (x == null) return 1; if (y == null) return -1;
@@ -123,17 +137,22 @@ function render() {
     .map((r) => `<li class="${cls(r)}">${SYM[r]} ${r}: ${counts[r]}</li>`).join("");
   const prof = data.settings.profiles.find((x) => x.id === p);
   const ref = data.baseline?.profiles?.[p] ? { p90: data.baseline.profiles[p][cache()]?.p90, rating: rate(data.baseline, p) } : null;
-  const head = columns.map((c) => `<th scope="col" class="${c.l ? "l" : ""}" aria-sort="${c.key === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"}"><button type="button" data-k="${c.key}">${c.label}</button></th>`).join("");
+  const head = columns.map((c) => c.sortable === false ? `<th scope="col" class="${c.l ? "l" : ""}">${c.label}</th>` : `<th scope="col" class="${c.l ? "l" : ""}" aria-sort="${c.key === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"}"><button type="button" data-k="${c.key}">${c.label}</button></th>`).join("");
   const body = rows.map((m) => {
     const flags = [];
     if (m.error) flags.push("Could not load: " + esc(m.error));
     if (m.openTimedOut) flags.push("Still loading after 2 minutes when recorded");
     if (m.failedRequests) flags.push(m.failedRequests + " request(s) returned an error" + (m.errorHosts?.length ? " (" + m.errorHosts.map(esc).join(", ") + ")" : "") + " — a layer may be broken");
     if (m.zoomOk === false && !m.error) flags.push("Zoom test did not run");
+    (m.bigFiles || []).forEach((b) => {
+      const svc = b.path.match(/services\/(.+?)\/(FeatureServer|MapServer|ImageServer|VectorTileServer)/);
+      const name = svc ? svc[1].replace(/_/g, " ") + " layer" : /resources\/media\//.test(b.path) ? "image in the map" : b.path.split("/").pop();
+      flags.push(`Large single download: ${fmt(b.mb)} MB (${esc(name)})`);
+    });
     const r = rate(m, p);
     return `<tr><th scope="row" class="l"><a href="${APP}${esc(m.id)}" target="_blank" rel="noopener">${esc(m.title)}</a>${flags.map((f) => `<span class="flag">${f}</span>`).join("")}</th>
       <td class="l"><span class="badge ${cls(r)}">${SYM[r]} ${r}</span></td>
-      ${columns.slice(2).map((c) => `<td class="num">${fmt(c.get(m, p))}</td>`).join("")}</tr>`;
+      ${columns.slice(2).map((c) => `<td class="${c.l ? "l" : "num"}${c.cls ? " " + c.cls : ""}">${c.fmt ? c.fmt(c.get(m, p)) : fmt(c.get(m, p))}</td>`).join("")}</tr>`;
   }).join("");
   document.getElementById("results").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="Results table"><table>
     <caption>${rows.length} maps · ${esc(prof.label)} (${prof.capacity_mbps} Mbps shared by ${data.settings.students} students) · ${LESSON[cache()]} · OK = 9 in 10 ready within ${data.settings.threshold_s} s${ref ? ` · <strong>MapMaker on its own: 9 in 10 ready in ${fmt(ref.p90)} s (${ref.rating})</strong>` : ""}</caption>
@@ -149,7 +168,7 @@ function renderAbout(validation) {
   const v = data.versions, s = data.settings;
   const vrow = (n, x) => `<tr><th scope="row">${n}</th><td>${fmt(x)}</td></tr>`;
   let html = `<p>Generated ${new Date(data.generatedAt).toLocaleString()}. Each map was opened once in the real MapMaker app on a fresh browser and every download was recorded. A simulator then plays that recording out for ${s.students} students who start within ${s.start_stagger_s} seconds of each other and share one classroom connection.</p>
-  <table tabindex="0"><caption>Versions</caption><tbody>${vrow("Speed test", v.app)}${vrow("Recorder", v.recorder)}${vrow("Classroom simulator", v.simulator)}${vrow("Classroom profiles", v.profiles)}${validation ? vrow("Simulator check", validation.validatorVersion) : ""}</tbody></table>
+  <table tabindex="0"><caption>Versions</caption><tbody>${vrow("Speed test", v.app)}${vrow("Recorder", v.recorder)}${vrow("Classroom simulator", v.simulator)}${vrow("Classroom profiles", v.profiles)}${v.sources ? vrow("Delay-by-source split", v.sources) : ""}${validation ? vrow("Simulator check", validation.validatorVersion) : ""}</tbody></table>
   <table tabindex="0"><caption>Classroom connections (assumptions until measured in a real classroom)</caption><thead><tr><th scope="col">Profile</th><th scope="col">Shared speed</th><th scope="col">Round trip</th><th scope="col">Jitter</th><th scope="col">Packet loss</th></tr></thead><tbody>
   ${s.profiles.map((p) => `<tr><th scope="row">${esc(p.label)}</th><td>${p.capacity_mbps} Mbps</td><td>${p.rtt_ms} ms</td><td>${p.jitter_ms} ms</td><td>${p.loss_pct}%</td></tr>`).join("")}</tbody></table>`;
   if (data.baseline) html += `<p>Opening MapMaker itself (default map, nothing cached): ${fmt(data.baseline.mbCold)} MB in ${fmt(data.baseline.requests)} requests, of which ${fmt(data.baseline.appFiles)} are MapMaker's own files (${fmt(data.baseline.appFilesMB)} MB)${data.baseline.appCacheControl ? `, cached for <code>${data.baseline.appCacheControl.map(esc).join("</code>, <code>")}</code>` : ""}.</p>
@@ -170,7 +189,7 @@ async function init() {
   sel.innerHTML = data.settings.profiles.map((p) => `<option value="${p.id}">${esc(p.label)}</option>`).join("");
   sel.value = pref("profile") && data.settings.profiles.some((p) => p.id === pref("profile")) ? pref("profile") : (data.settings.profiles.find((p) => p.id === "poor") ? "poor" : data.settings.profiles[0].id);
   if (pref("cache")) document.getElementById("cache").value = pref("cache");
-  ["profile", "cache"].forEach((id) => document.getElementById(id).addEventListener("change", render));
+  ["profile", "cache", "cause"].forEach((id) => document.getElementById(id).addEventListener("change", render));
   document.getElementById("q").addEventListener("input", render);
   render(); renderAbout(validation);
 }
