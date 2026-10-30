@@ -1,10 +1,17 @@
 {
- "generatedAt": "2026-10-30T13:15:11.662Z",
+ "generatedAt": "2026-10-30T13:40:58.230Z",
  "versions": {
-  "app": "0.2.0",
+  "app": "0.3.0",
   "recorder": "0.2.0",
   "simulator": "0.2.0",
-  "profiles": "0.2.0"
+  "profiles": "0.2.0",
+  "sources": "0.1.0"
+ },
+ "sourceLabels": {
+  "app": "MapMaker app",
+  "sdk": "ArcGIS code",
+  "basemap": "Basemap",
+  "data": "Map data"
  },
  "settings": {
   "students": 30,
@@ -57,6 +64,19 @@
   "mbZoom": 0,
   "heapMB": 49.4,
   "hosts": 11,
+  "mbBySource": {
+   "app": 3.8,
+   "sdk": 0.3,
+   "basemap": 1.2,
+   "data": 0.9
+  },
+  "requestsBySource": {
+   "app": 871,
+   "sdk": 76,
+   "basemap": 22,
+   "data": 71
+  },
+  "bigFiles": [],
   "failedRequests": 0,
   "cancelledRequests": 0,
   "errorHosts": [],
@@ -81,7 +101,14 @@
     "aloneS": 8.6,
     "rating": "OK",
     "ratingFirst": "Slow",
-    "ratingFresh": "OK"
+    "ratingFresh": "OK",
+    "bySource": {
+     "app": 3.3,
+     "sdk": 0,
+     "basemap": 0.3,
+     "data": 1.6
+    },
+    "mainCause": "app"
    },
    "poor": {
     "usual": {
@@ -103,7 +130,14 @@
     "aloneS": 13.9,
     "rating": "Slow",
     "ratingFirst": "Very slow",
-    "ratingFresh": "Slow"
+    "ratingFresh": "Slow",
+    "bySource": {
+     "app": 12,
+     "sdk": 0.3,
+     "basemap": 0.6,
+     "data": 2.6
+    },
+    "mainCause": "app"
    },
    "far": {
     "usual": {
@@ -125,7 +159,14 @@
     "aloneS": 25.9,
     "rating": "Slow",
     "ratingFirst": "Very slow",
-    "ratingFresh": "Slow"
+    "ratingFresh": "Slow",
+    "bySource": {
+     "app": 14.2,
+     "sdk": 0.6,
+     "basemap": 1.3,
+     "data": 5.2
+    },
+    "mainCause": "app"
    }
   },
   "appFiles": 858,
@@ -156,6 +197,25 @@
    "mbZoom": 13.2,
    "heapMB": 60.6,
    "hosts": 17,
+   "mbBySource": {
+    "app": 4.5,
+    "sdk": 1.8,
+    "basemap": 0.5,
+    "data": 6.4
+   },
+   "requestsBySource": {
+    "app": 968,
+    "sdk": 184,
+    "basemap": 12,
+    "data": 225
+   },
+   "bigFiles": [
+    {
+     "host": "p3eplmys2rvchkjx.svcs.arcgis.com",
+     "path": "/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Continents/FeatureServer/0/query",
+     "mb": 1.4
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 9,
    "errorHosts": [],
@@ -185,6 +245,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 7.9,
+      "sdk": 7,
+      "basemap": 2.1,
+      "data": 30.1
+     },
+     "mainCause": "data",
      "extraS": 41,
      "extraFirstS": 33.9,
      "extraFreshS": 41.2
@@ -214,6 +281,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 34.4,
+      "sdk": 34.6,
+      "basemap": 10.7,
+      "data": 154.9
+     },
+     "mainCause": "data",
      "extraS": 216.3,
      "extraFirstS": 168.3,
      "extraFreshS": 217.4
@@ -243,6 +317,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 25.6,
+      "sdk": 19.5,
+      "basemap": 8,
+      "data": 88.8
+     },
+     "mainCause": "data",
      "extraS": 117.1,
      "extraFirstS": 94.9,
      "extraFreshS": 118.6
@@ -266,6 +347,19 @@
    "mbZoom": 7.3,
    "heapMB": 45.5,
    "hosts": 13,
+   "mbBySource": {
+    "app": 3.8,
+    "sdk": 0.2,
+    "basemap": 0.9,
+    "data": 7.3
+   },
+   "requestsBySource": {
+    "app": 867,
+    "sdk": 50,
+    "basemap": 48,
+    "data": 79
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 6,
    "errorHosts": [],
@@ -295,6 +389,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 5.9,
+      "sdk": 0.1,
+      "basemap": 5.2,
+      "data": 33.5
+     },
+     "mainCause": "data",
      "extraS": 36.7,
      "extraFirstS": 28.8,
      "extraFreshS": 36.9
@@ -324,6 +425,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 25.1,
+      "sdk": 1.3,
+      "basemap": 32,
+      "data": 167.6
+     },
+     "mainCause": "data",
      "extraS": 207,
      "extraFirstS": 148.3,
      "extraFreshS": 207.7
@@ -353,6 +461,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.1,
+      "sdk": 0.8,
+      "basemap": 9,
+      "data": 105.3
+     },
+     "mainCause": "data",
      "extraS": 110.7,
      "extraFirstS": 89.5,
      "extraFreshS": 112.6
@@ -376,6 +491,19 @@
    "mbZoom": 0.7,
    "heapMB": 54.8,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 3.4,
+    "data": 3.6
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 141,
+    "basemap": 77,
+    "data": 102
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 3,
    "errorHosts": [],
@@ -405,6 +533,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 7.1,
+      "sdk": 5.1,
+      "basemap": 15.7,
+      "data": 17.7
+     },
+     "mainCause": "data",
      "extraS": 36.2,
      "extraFirstS": 30.1,
      "extraFreshS": 36.7
@@ -434,6 +569,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29,
+      "sdk": 28.2,
+      "basemap": 80.5,
+      "data": 86.9
+     },
+     "mainCause": "data",
      "extraS": 204.4,
      "extraFirstS": 156.5,
      "extraFreshS": 205.7
@@ -463,6 +605,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.7,
+      "sdk": 21.1,
+      "basemap": 41.5,
+      "data": 56.3
+     },
+     "mainCause": "data",
      "extraS": 111.4,
      "extraFirstS": 89.5,
      "extraFreshS": 113.5
@@ -486,6 +635,25 @@
    "mbZoom": 2.1,
    "heapMB": 66,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4.5,
+    "sdk": 1.8,
+    "basemap": 3.4,
+    "data": 2.9
+   },
+   "requestsBySource": {
+    "app": 942,
+    "sdk": 190,
+    "basemap": 77,
+    "data": 253
+   },
+   "bigFiles": [
+    {
+     "host": "services.arcgis.com",
+     "path": "/BG6nSlhZSAWtExvp/arcgis/rest/services/Elk_WY_Cody_Routes_Ver1_2019/FeatureServer/0/query",
+     "mb": 1.5
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 15,
    "errorHosts": [],
@@ -515,6 +683,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 7.1,
+      "sdk": 6.1,
+      "basemap": 15.8,
+      "data": 17.7
+     },
+     "mainCause": "data",
      "extraS": 38.5,
      "extraFirstS": 33.3,
      "extraFreshS": 38.9
@@ -544,6 +719,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 35.4,
+      "sdk": 37,
+      "basemap": 79.9,
+      "data": 75.1
+     },
+     "mainCause": "basemap",
      "extraS": 201,
      "extraFirstS": 151.9,
      "extraFreshS": 201.2
@@ -573,6 +755,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.2,
+      "sdk": 23,
+      "basemap": 41.5,
+      "data": 44.5
+     },
+     "mainCause": "data",
      "extraS": 106,
      "extraFirstS": 91,
      "extraFreshS": 108.2
@@ -596,6 +785,30 @@
    "mbZoom": 1.1,
    "heapMB": 87.2,
    "hosts": 17,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.4,
+    "basemap": 2.2,
+    "data": 5
+   },
+   "requestsBySource": {
+    "app": 920,
+    "sdk": 81,
+    "basemap": 127,
+    "data": 77
+   },
+   "bigFiles": [
+    {
+     "host": "cdn.arcgis.com",
+     "path": "/sharing/rest/content/items/cdc2ed0afdd8497f97de24a243a318c2/resources/media/a9a3913c-78e9-4ed2-93dc-b3687c9c15fd.jpeg",
+     "mb": 3
+    },
+    {
+     "host": "landsat2.arcgis.com",
+     "path": "/arcgis/rest/services/Landsat8_Views/ImageServer/rasterFunctionInfos",
+     "mb": 1.1
+    }
+   ],
    "failedRequests": 4,
    "cancelledRequests": 8,
    "errorHosts": [
@@ -627,6 +840,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 5.7,
+      "sdk": 0.5,
+      "basemap": 11.5,
+      "data": 23
+     },
+     "mainCause": "data",
      "extraS": 31.5,
      "extraFirstS": 24.8,
      "extraFreshS": 32.1
@@ -656,6 +876,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.5,
+      "sdk": 2,
+      "basemap": 68.7,
+      "data": 120.8
+     },
+     "mainCause": "data",
      "extraS": 192.5,
      "extraFirstS": 139.1,
      "extraFreshS": 189.7
@@ -685,6 +912,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.3,
+      "sdk": 1.4,
+      "basemap": 26.2,
+      "data": 64.7
+     },
+     "mainCause": "data",
      "extraS": 87.6,
      "extraFirstS": 68.8,
      "extraFreshS": 91
@@ -708,6 +942,19 @@
    "mbZoom": 10.1,
    "heapMB": 55,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4.4,
+    "sdk": 1.8,
+    "basemap": 1.3,
+    "data": 5.4
+   },
+   "requestsBySource": {
+    "app": 947,
+    "sdk": 156,
+    "basemap": 37,
+    "data": 99
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 15,
    "errorHosts": [],
@@ -737,6 +984,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 7.4,
+      "sdk": 7.6,
+      "basemap": 3,
+      "data": 26.3
+     },
+     "mainCause": "data",
      "extraS": 35.5,
      "extraFirstS": 31.9,
      "extraFreshS": 36.6
@@ -766,6 +1020,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 33.1,
+      "sdk": 34.5,
+      "basemap": 12.3,
+      "data": 130
+     },
+     "mainCause": "data",
      "extraS": 190.2,
      "extraFirstS": 158.2,
      "extraFreshS": 190.9
@@ -795,6 +1056,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.4,
+      "sdk": 19.2,
+      "basemap": 3.3,
+      "data": 78.1
+     },
+     "mainCause": "data",
      "extraS": 108.1,
      "extraFirstS": 91.3,
      "extraFreshS": 108.7
@@ -818,6 +1086,19 @@
    "mbZoom": 17.6,
    "heapMB": 52.5,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 1,
+    "data": 5.6
+   },
+   "requestsBySource": {
+    "app": 905,
+    "sdk": 136,
+    "basemap": 33,
+    "data": 90
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -847,6 +1128,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 6.9,
+      "sdk": 6.1,
+      "basemap": 3.4,
+      "data": 29.8
+     },
+     "mainCause": "data",
      "extraS": 35,
      "extraFirstS": 31,
      "extraFreshS": 35.8
@@ -876,6 +1164,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 28.9,
+      "sdk": 27.1,
+      "basemap": 7.2,
+      "data": 135.8
+     },
+     "mainCause": "data",
      "extraS": 180.1,
      "extraFirstS": 149.2,
      "extraFreshS": 181.7
@@ -905,6 +1200,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 25,
+      "sdk": 17.2,
+      "basemap": 1.2,
+      "data": 78.3
+     },
+     "mainCause": "data",
      "extraS": 101.1,
      "extraFirstS": 91.2,
      "extraFreshS": 103
@@ -928,6 +1230,19 @@
    "mbZoom": 1.3,
    "heapMB": 60.6,
    "hosts": 17,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1.1,
+    "basemap": 4.9,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 928,
+    "sdk": 143,
+    "basemap": 333,
+    "data": 109
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 60,
    "errorHosts": [],
@@ -957,6 +1272,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 5.9,
+      "sdk": 3.7,
+      "basemap": 25.6,
+      "data": 2.3
+     },
+     "mainCause": "basemap",
      "extraS": 26.4,
      "extraFirstS": 19.4,
      "extraFreshS": 27.4
@@ -986,6 +1308,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29,
+      "sdk": 16,
+      "basemap": 130.7,
+      "data": 4
+     },
+     "mainCause": "basemap",
      "extraS": 158,
      "extraFirstS": 105,
      "extraFreshS": 155.9
@@ -1015,6 +1344,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.4,
+      "sdk": 9.7,
+      "basemap": 57.6,
+      "data": 7.6
+     },
+     "mainCause": "basemap",
      "extraS": 70.5,
      "extraFirstS": 50.8,
      "extraFreshS": 72.1
@@ -1038,6 +1374,25 @@
    "mbZoom": 3,
    "heapMB": 54,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4.5,
+    "sdk": 1.8,
+    "basemap": 0.8,
+    "data": 2.9
+   },
+   "requestsBySource": {
+    "app": 955,
+    "sdk": 185,
+    "basemap": 52,
+    "data": 62
+   },
+   "bigFiles": [
+    {
+     "host": "p3eplmys2rvchkjx.svcs.arcgis.com",
+     "path": "/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Continents/FeatureServer/0/query",
+     "mb": 1.4
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -1067,6 +1422,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 6.9,
+      "sdk": 6.9,
+      "basemap": 4.3,
+      "data": 11.3
+     },
+     "mainCause": "data",
      "extraS": 23.1,
      "extraFirstS": 17.8,
      "extraFreshS": 23.9
@@ -1096,6 +1458,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 49.1,
+      "sdk": 33.9,
+      "basemap": 38.1,
+      "data": 67.1
+     },
+     "mainCause": "data",
      "extraS": 154.6,
      "extraFirstS": 92.1,
      "extraFreshS": 153.4
@@ -1125,6 +1494,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.9,
+      "sdk": 17.1,
+      "basemap": 11,
+      "data": 34.3
+     },
+     "mainCause": "data",
      "extraS": 65.9,
      "extraFirstS": 45.9,
      "extraFreshS": 68.1
@@ -1148,6 +1524,19 @@
    "mbZoom": 2.6,
    "heapMB": 83.1,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4.5,
+    "sdk": 1.8,
+    "basemap": 1,
+    "data": 3.6
+   },
+   "requestsBySource": {
+    "app": 967,
+    "sdk": 151,
+    "basemap": 73,
+    "data": 275
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 6,
    "errorHosts": [],
@@ -1177,6 +1566,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 7.6,
+      "sdk": 6.9,
+      "basemap": 1.4,
+      "data": 17.8
+     },
+     "mainCause": "data",
      "extraS": 25.8,
      "extraFirstS": 22.6,
      "extraFreshS": 26.1
@@ -1206,6 +1602,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 35,
+      "sdk": 35.4,
+      "basemap": 7.5,
+      "data": 88
+     },
+     "mainCause": "data",
      "extraS": 146.8,
      "extraFirstS": 114.1,
      "extraFreshS": 147.4
@@ -1235,6 +1638,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.2,
+      "sdk": 20.6,
+      "basemap": 4.4,
+      "data": 56.7
+     },
+     "mainCause": "data",
      "extraS": 85.2,
      "extraFirstS": 71.7,
      "extraFreshS": 85.3
@@ -1258,6 +1668,19 @@
    "mbZoom": 0.6,
    "heapMB": 63.9,
    "hosts": 10,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 2.4,
+    "data": 1.5
+   },
+   "requestsBySource": {
+    "app": 903,
+    "sdk": 99,
+    "basemap": 46,
+    "data": 135
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -1287,6 +1710,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 5.6,
+      "sdk": 2.9,
+      "basemap": 5.1,
+      "data": 86.5
+     },
+     "mainCause": "data",
      "extraS": 101.3,
      "extraFirstS": 94.5,
      "extraFreshS": 101.9
@@ -1316,6 +1746,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21,
+      "sdk": 12.6,
+      "basemap": 24.9,
+      "data": 80.1
+     },
+     "mainCause": "data",
      "extraS": 143,
      "extraFirstS": 97.9,
      "extraFreshS": 143.3
@@ -1345,6 +1782,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.1,
+      "sdk": 9.4,
+      "basemap": 6,
+      "data": 104.1
+     },
+     "mainCause": "data",
      "extraS": 135.7,
      "extraFirstS": 119.5,
      "extraFreshS": 138.2
@@ -1368,6 +1812,19 @@
    "mbZoom": 5.8,
    "heapMB": 51.9,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4.5,
+    "sdk": 1.8,
+    "basemap": 0,
+    "data": 3.3
+   },
+   "requestsBySource": {
+    "app": 955,
+    "sdk": 162,
+    "basemap": 16,
+    "data": 140
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 2,
    "errorHosts": [],
@@ -1397,6 +1854,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.5,
+      "sdk": 7.2,
+      "basemap": 0.2,
+      "data": 16.5
+     },
+     "mainCause": "data",
      "extraS": 21.5,
      "extraFirstS": 16.3,
      "extraFreshS": 21.9
@@ -1426,6 +1890,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 35.1,
+      "sdk": 35.9,
+      "basemap": 2.1,
+      "data": 81.6
+     },
+     "mainCause": "data",
      "extraS": 133.3,
      "extraFirstS": 84.7,
      "extraFreshS": 134.4
@@ -1455,6 +1926,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22,
+      "sdk": 17.3,
+      "basemap": 0.7,
+      "data": 43.1
+     },
+     "mainCause": "data",
      "extraS": 63.4,
      "extraFirstS": 41.6,
      "extraFreshS": 66
@@ -1478,6 +1956,25 @@
    "mbZoom": 1.4,
    "heapMB": 62.6,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4.2,
+    "sdk": 0.9,
+    "basemap": 0.9,
+    "data": 2.8
+   },
+   "requestsBySource": {
+    "app": 946,
+    "sdk": 132,
+    "basemap": 71,
+    "data": 117
+   },
+   "bigFiles": [
+    {
+     "host": "services2.arcgis.com",
+     "path": "/j80Jz20at6Bi0thr/arcgis/rest/services/OceanSurfaceCurrents/FeatureServer/1/query",
+     "mb": 1.1
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 3,
    "errorHosts": [],
@@ -1507,6 +2004,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.6,
+      "sdk": 3.2,
+      "basemap": 5.3,
+      "data": 14
+     },
+     "mainCause": "data",
      "extraS": 19.3,
      "extraFirstS": 12.1,
      "extraFreshS": 20
@@ -1536,6 +2040,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 32.3,
+      "sdk": 16.6,
+      "basemap": 33.8,
+      "data": 67.6
+     },
+     "mainCause": "data",
      "extraS": 123.6,
      "extraFirstS": 68.7,
      "extraFreshS": 120.6
@@ -1565,6 +2076,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.8,
+      "sdk": 8.7,
+      "basemap": 10.5,
+      "data": 32
+     },
+     "mainCause": "data",
      "extraS": 52,
      "extraFirstS": 28.1,
      "extraFreshS": 55
@@ -1588,6 +2106,19 @@
    "mbZoom": 1.3,
    "heapMB": 54.2,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 3.7,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 108,
+    "basemap": 240,
+    "data": 42
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 34,
    "errorHosts": [],
@@ -1617,6 +2148,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.8,
+      "sdk": 4,
+      "basemap": 16.9,
+      "data": 1.8
+     },
+     "mainCause": "basemap",
      "extraS": 18.6,
      "extraFirstS": 12.4,
      "extraFreshS": 19.6
@@ -1646,6 +2184,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.1,
+      "sdk": 16.7,
+      "basemap": 91,
+      "data": 5
+     },
+     "mainCause": "basemap",
      "extraS": 118.1,
      "extraFirstS": 69.5,
      "extraFreshS": 118.3
@@ -1675,6 +2220,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.9,
+      "sdk": 7.2,
+      "basemap": 34.1,
+      "data": 4.3
+     },
+     "mainCause": "basemap",
      "extraS": 53.4,
      "extraFirstS": 34.3,
      "extraFreshS": 56.5
@@ -1698,6 +2250,19 @@
    "mbZoom": 1.5,
    "heapMB": 81.2,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.1,
+    "basemap": 1.9,
+    "data": 0.8
+   },
+   "requestsBySource": {
+    "app": 919,
+    "sdk": 82,
+    "basemap": 151,
+    "data": 46
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 31,
    "errorHosts": [],
@@ -1727,6 +2292,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 8.2,
+      "sdk": 3.6,
+      "basemap": 10.1,
+      "data": 4.2
+     },
+     "mainCause": "basemap",
      "extraS": 17.2,
      "extraFirstS": 10.6,
      "extraFreshS": 17.5
@@ -1756,6 +2328,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 48.7,
+      "sdk": 17.2,
+      "basemap": 62.8,
+      "data": 18.8
+     },
+     "mainCause": "basemap",
      "extraS": 110.2,
      "extraFirstS": 56.2,
      "extraFreshS": 107
@@ -1785,6 +2364,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.6,
+      "sdk": 9.3,
+      "basemap": 19.1,
+      "data": 9.1
+     },
+     "mainCause": "app",
      "extraS": 40.4,
      "extraFirstS": 23.7,
      "extraFreshS": 42.8
@@ -1808,6 +2394,19 @@
    "mbZoom": 1,
    "heapMB": 59.1,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 0.7,
+    "basemap": 3.7,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 937,
+    "sdk": 99,
+    "basemap": 109,
+    "data": 60
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 9,
    "errorHosts": [],
@@ -1837,6 +2436,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.7,
+      "sdk": 1.7,
+      "basemap": 14.7,
+      "data": 1.7
+     },
+     "mainCause": "basemap",
      "extraS": 17.7,
      "extraFirstS": 11.1,
      "extraFreshS": 18.2
@@ -1866,6 +2472,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.1,
+      "sdk": 8.3,
+      "basemap": 86.4,
+      "data": 7.5
+     },
+     "mainCause": "basemap",
      "extraS": 108.8,
      "extraFirstS": 61.9,
      "extraFreshS": 109.9
@@ -1895,6 +2508,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.8,
+      "sdk": 4.3,
+      "basemap": 46.8,
+      "data": 4.9
+     },
+     "mainCause": "basemap",
      "extraS": 56.5,
      "extraFirstS": 39.4,
      "extraFreshS": 58.9
@@ -1918,6 +2538,19 @@
    "mbZoom": 3.2,
    "heapMB": 64.3,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 2,
+    "data": 1.9
+   },
+   "requestsBySource": {
+    "app": 928,
+    "sdk": 138,
+    "basemap": 40,
+    "data": 112
+   },
+   "bigFiles": [],
    "failedRequests": 1,
    "cancelledRequests": 7,
    "errorHosts": [
@@ -1949,6 +2582,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.9,
+      "sdk": 1.7,
+      "basemap": 11.3,
+      "data": 11
+     },
+     "mainCause": "basemap",
      "extraS": 18.2,
      "extraFirstS": 12.1,
      "extraFreshS": 19.4
@@ -1978,6 +2618,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.9,
+      "sdk": 9.5,
+      "basemap": 49.4,
+      "data": 47.7
+     },
+     "mainCause": "basemap",
      "extraS": 106.8,
      "extraFirstS": 57.9,
      "extraFreshS": 107.9
@@ -2007,6 +2654,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.7,
+      "sdk": 5.1,
+      "basemap": 22.7,
+      "data": 22.3
+     },
+     "mainCause": "basemap",
      "extraS": 51.2,
      "extraFirstS": 31.1,
      "extraFreshS": 53.7
@@ -2030,6 +2684,19 @@
    "mbZoom": 3.7,
    "heapMB": 65.2,
    "hosts": 17,
+   "mbBySource": {
+    "app": 4.2,
+    "sdk": 1,
+    "basemap": 1.6,
+    "data": 2
+   },
+   "requestsBySource": {
+    "app": 951,
+    "sdk": 119,
+    "basemap": 76,
+    "data": 74
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 3,
    "errorHosts": [],
@@ -2059,6 +2726,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.7,
+      "sdk": 3.2,
+      "basemap": 6.4,
+      "data": 10.1
+     },
+     "mainCause": "data",
      "extraS": 15.4,
      "extraFirstS": 13.1,
      "extraFreshS": 16.3
@@ -2088,6 +2762,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 34.5,
+      "sdk": 15.5,
+      "basemap": 35.7,
+      "data": 50.5
+     },
+     "mainCause": "data",
      "extraS": 106,
      "extraFirstS": 66.5,
      "extraFreshS": 102.8
@@ -2117,6 +2798,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.5,
+      "sdk": 9,
+      "basemap": 12.9,
+      "data": 26.9
+     },
+     "mainCause": "data",
      "extraS": 47,
      "extraFirstS": 35.3,
      "extraFreshS": 48.8
@@ -2140,6 +2828,19 @@
    "mbZoom": 4.7,
    "heapMB": 71,
    "hosts": 19,
+   "mbBySource": {
+    "app": 4.6,
+    "sdk": 1.7,
+    "basemap": 2.1,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 978,
+    "sdk": 139,
+    "basemap": 79,
+    "data": 93
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -2169,6 +2870,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.4,
+      "sdk": 6.5,
+      "basemap": 9.6,
+      "data": 0
+     },
+     "mainCause": "basemap",
      "extraS": 16.2,
      "extraFirstS": 10.5,
      "extraFreshS": 17
@@ -2198,6 +2906,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 36.3,
+      "sdk": 32.4,
+      "basemap": 49.7,
+      "data": 0
+     },
+     "mainCause": "basemap",
      "extraS": 105.8,
      "extraFirstS": 57.4,
      "extraFreshS": 106.5
@@ -2227,6 +2942,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 25.3,
+      "sdk": 15.8,
+      "basemap": 23.7,
+      "data": 6.6
+     },
+     "mainCause": "app",
      "extraS": 50,
      "extraFirstS": 29.3,
      "extraFreshS": 51.6
@@ -2250,6 +2972,19 @@
    "mbZoom": 0.9,
    "heapMB": 53.2,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 3.7,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 926,
+    "sdk": 115,
+    "basemap": 176,
+    "data": 52
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 12,
    "errorHosts": [],
@@ -2279,6 +3014,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.5,
+      "sdk": 1.8,
+      "basemap": 15.8,
+      "data": 0.8
+     },
+     "mainCause": "basemap",
      "extraS": 18.4,
      "extraFirstS": 12.2,
      "extraFreshS": 18.9
@@ -2308,6 +3050,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 25.6,
+      "sdk": 8.5,
+      "basemap": 87.6,
+      "data": 5.4
+     },
+     "mainCause": "basemap",
      "extraS": 105,
      "extraFirstS": 56.9,
      "extraFreshS": 104.6
@@ -2337,6 +3086,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.4,
+      "sdk": 6.5,
+      "basemap": 47.7,
+      "data": 3.5
+     },
+     "mainCause": "basemap",
      "extraS": 58,
      "extraFirstS": 37.6,
      "extraFreshS": 60.8
@@ -2360,6 +3116,19 @@
    "mbZoom": 1.8,
    "heapMB": 54.5,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 3,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 929,
+    "sdk": 152,
+    "basemap": 146,
+    "data": 92
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 16,
    "errorHosts": [],
@@ -2389,6 +3158,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.2,
+      "sdk": 3.2,
+      "basemap": 14.2,
+      "data": 2.3
+     },
+     "mainCause": "basemap",
      "extraS": 19.2,
      "extraFirstS": 12,
      "extraFreshS": 19.5
@@ -2418,6 +3194,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.3,
+      "sdk": 16.7,
+      "basemap": 71.3,
+      "data": 10.2
+     },
+     "mainCause": "basemap",
      "extraS": 103.9,
      "extraFirstS": 57.8,
      "extraFreshS": 105.7
@@ -2447,6 +3230,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.8,
+      "sdk": 13.4,
+      "basemap": 39.4,
+      "data": 8.4
+     },
+     "mainCause": "basemap",
      "extraS": 61.4,
      "extraFirstS": 40.2,
      "extraFreshS": 63.1
@@ -2470,6 +3260,19 @@
    "mbZoom": 1.2,
    "heapMB": 51.6,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 2.2,
+    "data": 0.5
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 141,
+    "basemap": 84,
+    "data": 362
+   },
+   "bigFiles": [],
    "failedRequests": 8,
    "cancelledRequests": 137,
    "errorHosts": [
@@ -2501,6 +3304,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.4,
+      "sdk": 5.9,
+      "basemap": 9.3,
+      "data": 2.7
+     },
+     "mainCause": "basemap",
      "extraS": 17,
      "extraFirstS": 10.5,
      "extraFreshS": 17.5
@@ -2530,6 +3340,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.4,
+      "sdk": 28,
+      "basemap": 51.7,
+      "data": 13.3
+     },
+     "mainCause": "basemap",
      "extraS": 103.6,
      "extraFirstS": 55.5,
      "extraFreshS": 104.7
@@ -2559,6 +3376,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.3,
+      "sdk": 19.4,
+      "basemap": 24.7,
+      "data": 11.6
+     },
+     "mainCause": "basemap",
      "extraS": 58.9,
      "extraFirstS": 38.7,
      "extraFreshS": 59.8
@@ -2582,6 +3406,19 @@
    "mbZoom": 0.9,
    "heapMB": 58.8,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 2.5,
+    "data": 1
+   },
+   "requestsBySource": {
+    "app": 915,
+    "sdk": 116,
+    "basemap": 154,
+    "data": 40
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 24,
    "errorHosts": [],
@@ -2611,6 +3448,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.9,
+      "sdk": 1.6,
+      "basemap": 13.7,
+      "data": 5.3
+     },
+     "mainCause": "basemap",
      "extraS": 14.6,
      "extraFirstS": 8.2,
      "extraFreshS": 15.5
@@ -2640,6 +3484,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 30.8,
+      "sdk": 10.2,
+      "basemap": 69.9,
+      "data": 23.2
+     },
+     "mainCause": "basemap",
      "extraS": 103.6,
      "extraFirstS": 54.3,
      "extraFreshS": 104.6
@@ -2669,6 +3520,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.8,
+      "sdk": 4.7,
+      "basemap": 26.5,
+      "data": 11.6
+     },
+     "mainCause": "basemap",
      "extraS": 42.2,
      "extraFirstS": 25.3,
      "extraFreshS": 45.8
@@ -2692,6 +3550,19 @@
    "mbZoom": 1.5,
    "heapMB": 67.5,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1,
+    "basemap": 3.1,
+    "data": 0.7
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 125,
+    "basemap": 124,
+    "data": 58
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 5,
    "errorHosts": [],
@@ -2721,6 +3592,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4,
+      "sdk": 3.5,
+      "basemap": 12,
+      "data": 3.4
+     },
+     "mainCause": "basemap",
      "extraS": 17.5,
      "extraFirstS": 13.8,
      "extraFreshS": 18.1
@@ -2750,6 +3628,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.2,
+      "sdk": 15.3,
+      "basemap": 63.6,
+      "data": 18.5
+     },
+     "mainCause": "basemap",
      "extraS": 102.6,
      "extraFirstS": 65.1,
      "extraFreshS": 103.1
@@ -2779,6 +3664,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21,
+      "sdk": 13.3,
+      "basemap": 26.4,
+      "data": 13.4
+     },
+     "mainCause": "basemap",
      "extraS": 52.7,
      "extraFirstS": 36,
      "extraFreshS": 53.1
@@ -2802,6 +3694,19 @@
    "mbZoom": 2.3,
    "heapMB": 51.4,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1,
+    "basemap": 3.1,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 153,
+    "basemap": 107,
+    "data": 77
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 15,
    "errorHosts": [],
@@ -2831,6 +3736,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.3,
+      "sdk": 3.6,
+      "basemap": 14,
+      "data": 1.4
+     },
+     "mainCause": "basemap",
      "extraS": 14.8,
      "extraFirstS": 9.6,
      "extraFreshS": 15.4
@@ -2860,6 +3772,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.9,
+      "sdk": 17.1,
+      "basemap": 81,
+      "data": 3.4
+     },
+     "mainCause": "basemap",
      "extraS": 102,
      "extraFirstS": 56.5,
      "extraFreshS": 101.5
@@ -2889,6 +3808,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.7,
+      "sdk": 8.4,
+      "basemap": 40.5,
+      "data": 4.2
+     },
+     "mainCause": "basemap",
      "extraS": 46.5,
      "extraFirstS": 25.4,
      "extraFreshS": 48.4
@@ -2912,6 +3838,19 @@
    "mbZoom": 16.8,
    "heapMB": 51.7,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 1.3,
+    "data": 2.2
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 141,
+    "basemap": 38,
+    "data": 74
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -2941,6 +3880,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.2,
+      "sdk": 5.9,
+      "basemap": 2,
+      "data": 9.4
+     },
+     "mainCause": "data",
      "extraS": 15.5,
      "extraFirstS": 14.8,
      "extraFreshS": 16
@@ -2970,6 +3916,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 30.7,
+      "sdk": 27.2,
+      "basemap": 10.7,
+      "data": 52.7
+     },
+     "mainCause": "data",
      "extraS": 99.6,
      "extraFirstS": 73,
      "extraFreshS": 99.9
@@ -2999,6 +3952,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.6,
+      "sdk": 14.8,
+      "basemap": 4.7,
+      "data": 24.1
+     },
+     "mainCause": "data",
      "extraS": 47.4,
      "extraFirstS": 41.1,
      "extraFreshS": 50.4
@@ -3022,6 +3982,19 @@
    "mbZoom": 1.9,
    "heapMB": 59.4,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1.1,
+    "basemap": 2.2,
+    "data": 1.2
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 153,
+    "basemap": 119,
+    "data": 119
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 25,
    "errorHosts": [],
@@ -3051,6 +4024,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.2,
+      "sdk": 3.5,
+      "basemap": 10.7,
+      "data": 4.1
+     },
+     "mainCause": "basemap",
      "extraS": 15.6,
      "extraFirstS": 10.6,
      "extraFreshS": 15.8
@@ -3080,6 +4060,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.9,
+      "sdk": 17.5,
+      "basemap": 51.1,
+      "data": 7.1
+     },
+     "mainCause": "basemap",
      "extraS": 95.9,
      "extraFirstS": 50,
      "extraFreshS": 104.8
@@ -3109,6 +4096,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.4,
+      "sdk": 10.1,
+      "basemap": 23.6,
+      "data": 18.4
+     },
+     "mainCause": "basemap",
      "extraS": 46.1,
      "extraFirstS": 27.5,
      "extraFreshS": 49
@@ -3132,6 +4126,19 @@
    "mbZoom": 1.8,
    "heapMB": 53.7,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2.4,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 928,
+    "sdk": 151,
+    "basemap": 133,
+    "data": 92
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -3161,6 +4168,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.6,
+      "sdk": 2.7,
+      "basemap": 9.8,
+      "data": 2.6
+     },
+     "mainCause": "basemap",
      "extraS": 13.4,
      "extraFirstS": 7.2,
      "extraFreshS": 14.7
@@ -3190,6 +4204,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 27.1,
+      "sdk": 16.4,
+      "basemap": 65.6,
+      "data": 11.7
+     },
+     "mainCause": "basemap",
      "extraS": 95.3,
      "extraFirstS": 43.8,
      "extraFreshS": 93.2
@@ -3219,6 +4240,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.7,
+      "sdk": 9.8,
+      "basemap": 29.2,
+      "data": 8.5
+     },
+     "mainCause": "basemap",
      "extraS": 44,
      "extraFirstS": 27.1,
      "extraFreshS": 45
@@ -3242,6 +4270,19 @@
    "mbZoom": 5.8,
    "heapMB": 56.7,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 1.7,
+    "data": 1.2
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 140,
+    "basemap": 64,
+    "data": 120
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -3271,6 +4312,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.3,
+      "sdk": 5.8,
+      "basemap": 4.9,
+      "data": 5.3
+     },
+     "mainCause": "app",
      "extraS": 14.7,
      "extraFirstS": 14.7,
      "extraFreshS": 15.3
@@ -3300,6 +4348,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 31.9,
+      "sdk": 32.2,
+      "basemap": 27.3,
+      "data": 13.2
+     },
+     "mainCause": "sdk",
      "extraS": 94.9,
      "extraFirstS": 68.1,
      "extraFreshS": 99.1
@@ -3329,6 +4384,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.2,
+      "sdk": 16.8,
+      "basemap": 12.3,
+      "data": 18.6
+     },
+     "mainCause": "app",
      "extraS": 44.5,
      "extraFirstS": 34,
      "extraFreshS": 47.8
@@ -3352,6 +4414,19 @@
    "mbZoom": 1,
    "heapMB": 56.9,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.4,
+    "basemap": 0.5,
+    "data": 1.4
+   },
+   "requestsBySource": {
+    "app": 909,
+    "sdk": 87,
+    "basemap": 46,
+    "data": 52
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 7,
    "errorHosts": [],
@@ -3381,6 +4456,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.7,
+      "sdk": 6.3,
+      "basemap": 3,
+      "data": 6.7
+     },
+     "mainCause": "app",
      "extraS": 13,
      "extraFirstS": 5.9,
      "extraFreshS": 13.8
@@ -3410,6 +4492,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 32.3,
+      "sdk": 27.2,
+      "basemap": 25,
+      "data": 35.9
+     },
+     "mainCause": "data",
      "extraS": 94.7,
      "extraFirstS": 40.2,
      "extraFreshS": 92.9
@@ -3439,6 +4528,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.5,
+      "sdk": 18.1,
+      "basemap": 6.4,
+      "data": 18
+     },
+     "mainCause": "app",
      "extraS": 45.9,
      "extraFirstS": 23.1,
      "extraFreshS": 47.6
@@ -3462,6 +4558,19 @@
    "mbZoom": 1.7,
    "heapMB": 58.7,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2,
+    "data": 0.9
+   },
+   "requestsBySource": {
+    "app": 926,
+    "sdk": 157,
+    "basemap": 115,
+    "data": 117
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 14,
    "errorHosts": [],
@@ -3491,6 +4600,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.5,
+      "sdk": 3.5,
+      "basemap": 9.4,
+      "data": 4.4
+     },
+     "mainCause": "basemap",
      "extraS": 17,
      "extraFirstS": 10.2,
      "extraFreshS": 17.2
@@ -3520,6 +4636,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.6,
+      "sdk": 17.1,
+      "basemap": 46.1,
+      "data": 5.9
+     },
+     "mainCause": "basemap",
      "extraS": 92.9,
      "extraFirstS": 49.6,
      "extraFreshS": 93.5
@@ -3549,6 +4672,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.2,
+      "sdk": 11.7,
+      "basemap": 23,
+      "data": 18.8
+     },
+     "mainCause": "basemap",
      "extraS": 50.6,
      "extraFirstS": 26.8,
      "extraFreshS": 52.1
@@ -3572,6 +4702,19 @@
    "mbZoom": 2.5,
    "heapMB": 58.8,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2.6,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 142,
+    "basemap": 109,
+    "data": 60
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 25,
    "errorHosts": [],
@@ -3601,6 +4744,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6,
+      "sdk": 3.8,
+      "basemap": 11.2,
+      "data": 1.4
+     },
+     "mainCause": "basemap",
      "extraS": 13.8,
      "extraFirstS": 8.1,
      "extraFreshS": 14.3
@@ -3630,6 +4780,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 28.5,
+      "sdk": 17,
+      "basemap": 66.5,
+      "data": 5
+     },
+     "mainCause": "basemap",
      "extraS": 92.1,
      "extraFirstS": 40.7,
      "extraFreshS": 90.1
@@ -3659,6 +4816,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.1,
+      "sdk": 10.6,
+      "basemap": 22.6,
+      "data": 4.7
+     },
+     "mainCause": "basemap",
      "extraS": 44.1,
      "extraFirstS": 26.1,
      "extraFreshS": 45.1
@@ -3682,6 +4846,19 @@
    "mbZoom": 2.5,
    "heapMB": 55.1,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2.3,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 928,
+    "sdk": 152,
+    "basemap": 136,
+    "data": 92
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -3711,6 +4888,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.1,
+      "sdk": 3.5,
+      "basemap": 10.2,
+      "data": 2.1
+     },
+     "mainCause": "basemap",
      "extraS": 12.6,
      "extraFirstS": 7.4,
      "extraFreshS": 13.5
@@ -3740,6 +4924,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.4,
+      "sdk": 16.6,
+      "basemap": 62.6,
+      "data": 9.6
+     },
+     "mainCause": "basemap",
      "extraS": 91.5,
      "extraFirstS": 41.5,
      "extraFreshS": 91
@@ -3769,6 +4960,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17,
+      "sdk": 8.1,
+      "basemap": 23.6,
+      "data": 6.7
+     },
+     "mainCause": "basemap",
      "extraS": 37.6,
      "extraFirstS": 16.8,
      "extraFreshS": 41.7
@@ -3792,6 +4990,19 @@
    "mbZoom": 3.8,
    "heapMB": 55.3,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1,
+    "basemap": 2.2,
+    "data": 0.5
+   },
+   "requestsBySource": {
+    "app": 929,
+    "sdk": 140,
+    "basemap": 95,
+    "data": 57
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 14,
    "errorHosts": [],
@@ -3821,6 +5032,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 8.3,
+      "sdk": 3.9,
+      "basemap": 13,
+      "data": 4.7
+     },
+     "mainCause": "basemap",
      "extraS": 16,
      "extraFirstS": 9.8,
      "extraFreshS": 16.2
@@ -3850,6 +5068,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.4,
+      "sdk": 16.4,
+      "basemap": 57.4,
+      "data": 0.6
+     },
+     "mainCause": "basemap",
      "extraS": 90.4,
      "extraFirstS": 43.4,
      "extraFreshS": 96.5
@@ -3879,6 +5104,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.7,
+      "sdk": 9.3,
+      "basemap": 23.3,
+      "data": 8.6
+     },
+     "mainCause": "basemap",
      "extraS": 42.3,
      "extraFirstS": 24.5,
      "extraFreshS": 42.9
@@ -3902,6 +5134,19 @@
    "mbZoom": 6.7,
    "heapMB": 51.9,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 1.3,
+    "data": 0.9
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 141,
+    "basemap": 35,
+    "data": 98
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 10,
    "errorHosts": [],
@@ -3931,6 +5176,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.9,
+      "sdk": 5.5,
+      "basemap": 5.9,
+      "data": 4.2
+     },
+     "mainCause": "app",
      "extraS": 12.7,
      "extraFirstS": 9.1,
      "extraFreshS": 13.6
@@ -3960,6 +5212,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 30.8,
+      "sdk": 28.3,
+      "basemap": 31.8,
+      "data": 20.9
+     },
+     "mainCause": "basemap",
      "extraS": 90.2,
      "extraFirstS": 41.6,
      "extraFreshS": 90.8
@@ -3989,6 +5248,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21,
+      "sdk": 13.2,
+      "basemap": 14.2,
+      "data": 10.2
+     },
+     "mainCause": "app",
      "extraS": 37.2,
      "extraFirstS": 16.4,
      "extraFreshS": 41
@@ -4012,6 +5278,19 @@
    "mbZoom": 3,
    "heapMB": 47.8,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.8,
+    "data": 2.4
+   },
+   "requestsBySource": {
+    "app": 909,
+    "sdk": 98,
+    "basemap": 132,
+    "data": 51
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 18,
    "errorHosts": [],
@@ -4041,6 +5320,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.4,
+      "sdk": 1.7,
+      "basemap": 4.4,
+      "data": 11.6
+     },
+     "mainCause": "data",
      "extraS": 13.7,
      "extraFirstS": 11.9,
      "extraFreshS": 14.3
@@ -4070,6 +5356,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.1,
+      "sdk": 7.4,
+      "basemap": 21.8,
+      "data": 55.8
+     },
+     "mainCause": "data",
      "extraS": 89.9,
      "extraFirstS": 62.7,
      "extraFreshS": 90.6
@@ -4099,6 +5392,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.5,
+      "sdk": 4.7,
+      "basemap": 6.7,
+      "data": 34.9
+     },
+     "mainCause": "data",
      "extraS": 45.8,
      "extraFirstS": 36.7,
      "extraFreshS": 48.7
@@ -4122,6 +5422,19 @@
    "mbZoom": 2,
    "heapMB": 54.7,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 3.2,
+    "data": 0
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 97,
+    "basemap": 90,
+    "data": 32
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 2,
    "errorHosts": [],
@@ -4151,6 +5464,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.7,
+      "sdk": 1.5,
+      "basemap": 12.6,
+      "data": 0.5
+     },
+     "mainCause": "basemap",
      "extraS": 13.8,
      "extraFirstS": 7.9,
      "extraFreshS": 14.6
@@ -4180,6 +5500,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.9,
+      "sdk": 7,
+      "basemap": 75.1,
+      "data": 2.3
+     },
+     "mainCause": "basemap",
      "extraS": 88,
      "extraFirstS": 39.8,
      "extraFreshS": 88.7
@@ -4209,6 +5536,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21,
+      "sdk": 4.4,
+      "basemap": 41.7,
+      "data": 2.4
+     },
+     "mainCause": "basemap",
      "extraS": 50.8,
      "extraFirstS": 34.8,
      "extraFreshS": 52.8
@@ -4232,6 +5566,19 @@
    "mbZoom": 0.8,
    "heapMB": 55.4,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 2.8,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 98,
+    "basemap": 96,
+    "data": 34
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 16,
    "errorHosts": [],
@@ -4261,6 +5608,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.6,
+      "sdk": 1.7,
+      "basemap": 10.5,
+      "data": 0.5
+     },
+     "mainCause": "basemap",
      "extraS": 11.7,
      "extraFirstS": 5.1,
      "extraFreshS": 12.2
@@ -4290,6 +5644,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 27.2,
+      "sdk": 8.1,
+      "basemap": 71.5,
+      "data": 3.2
+     },
+     "mainCause": "basemap",
      "extraS": 85.9,
      "extraFirstS": 35.5,
      "extraFreshS": 84.7
@@ -4319,6 +5680,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.3,
+      "sdk": 5.4,
+      "basemap": 32.5,
+      "data": 2.6
+     },
+     "mainCause": "basemap",
      "extraS": 39.2,
      "extraFirstS": 16.2,
      "extraFreshS": 41.8
@@ -4342,6 +5710,19 @@
    "mbZoom": 1.7,
    "heapMB": 61.3,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4.2,
+    "sdk": 0.9,
+    "basemap": 0.6,
+    "data": 1.6
+   },
+   "requestsBySource": {
+    "app": 945,
+    "sdk": 106,
+    "basemap": 49,
+    "data": 102
+   },
+   "bigFiles": [],
    "failedRequests": 1,
    "cancelledRequests": 5,
    "errorHosts": [
@@ -4373,6 +5754,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.7,
+      "sdk": 3.6,
+      "basemap": 3.4,
+      "data": 8
+     },
+     "mainCause": "data",
      "extraS": 10.9,
      "extraFirstS": 4.5,
      "extraFreshS": 11.9
@@ -4402,6 +5790,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 35.4,
+      "sdk": 13.4,
+      "basemap": 25.1,
+      "data": 36.6
+     },
+     "mainCause": "data",
      "extraS": 85.4,
      "extraFirstS": 33.3,
      "extraFreshS": 86.6
@@ -4431,6 +5826,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.1,
+      "sdk": 7.5,
+      "basemap": 7.5,
+      "data": 19.6
+     },
+     "mainCause": "app",
      "extraS": 33.2,
      "extraFirstS": 8.9,
      "extraFreshS": 36.3
@@ -4454,6 +5856,25 @@
    "mbZoom": 3.7,
    "heapMB": 48.6,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.7,
+    "data": 1.1
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 98,
+    "basemap": 64,
+    "data": 32
+   },
+   "bigFiles": [
+    {
+     "host": "services2.arcgis.com",
+     "path": "/j80Jz20at6Bi0thr/arcgis/rest/services/OceanSurfaceCurrents/FeatureServer/1/query",
+     "mb": 1.1
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -4483,6 +5904,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 10.2,
+      "sdk": 2.1,
+      "basemap": 10.8,
+      "data": 7.2
+     },
+     "mainCause": "basemap",
      "extraS": 13,
      "extraFirstS": 7.2,
      "extraFreshS": 13.2
@@ -4512,6 +5940,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 44,
+      "sdk": 13.9,
+      "basemap": 46.7,
+      "data": 30.8
+     },
+     "mainCause": "basemap",
      "extraS": 84.6,
      "extraFirstS": 43.7,
      "extraFreshS": 82
@@ -4541,6 +5976,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.9,
+      "sdk": 5.1,
+      "basemap": 10.9,
+      "data": 16.6
+     },
+     "mainCause": "app",
      "extraS": 31.2,
      "extraFirstS": 21.2,
      "extraFreshS": 33.2
@@ -4564,6 +6006,19 @@
    "mbZoom": 2.9,
    "heapMB": 61,
    "hosts": 18,
+   "mbBySource": {
+    "app": 4.6,
+    "sdk": 1.7,
+    "basemap": 1.6,
+    "data": 0.5
+   },
+   "requestsBySource": {
+    "app": 968,
+    "sdk": 161,
+    "basemap": 105,
+    "data": 168
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 5,
    "errorHosts": [],
@@ -4593,6 +6048,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 9.2,
+      "sdk": 7.1,
+      "basemap": 4.9,
+      "data": 2.9
+     },
+     "mainCause": "app",
      "extraS": 13.1,
      "extraFirstS": 10.8,
      "extraFreshS": 13.5
@@ -4622,6 +6084,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 38,
+      "sdk": 32.9,
+      "basemap": 23.3,
+      "data": 10.9
+     },
+     "mainCause": "app",
      "extraS": 82.9,
      "extraFirstS": 51.1,
      "extraFreshS": 83.1
@@ -4651,6 +6120,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.7,
+      "sdk": 17.6,
+      "basemap": 8.5,
+      "data": 9.2
+     },
+     "mainCause": "app",
      "extraS": 37.4,
      "extraFirstS": 25.6,
      "extraFreshS": 40
@@ -4674,6 +6150,19 @@
    "mbZoom": 1.8,
    "heapMB": 50.7,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 2.9,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 914,
+    "sdk": 101,
+    "basemap": 59,
+    "data": 44
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -4703,6 +6192,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 1.3,
+      "basemap": 9.6,
+      "data": 0.2
+     },
+     "mainCause": "basemap",
      "extraS": 12,
      "extraFirstS": 6.1,
      "extraFreshS": 12.7
@@ -4732,6 +6228,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.2,
+      "sdk": 9.4,
+      "basemap": 64.1,
+      "data": 2
+     },
+     "mainCause": "basemap",
      "extraS": 82.2,
      "extraFirstS": 35,
      "extraFreshS": 83.6
@@ -4761,6 +6264,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.5,
+      "sdk": 3.2,
+      "basemap": 34.2,
+      "data": 3.7
+     },
+     "mainCause": "basemap",
      "extraS": 42.6,
      "extraFirstS": 22.1,
      "extraFreshS": 44.5
@@ -4784,6 +6294,19 @@
    "mbZoom": 3,
    "heapMB": 141.7,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2.2,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 928,
+    "sdk": 142,
+    "basemap": 92,
+    "data": 59
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 9,
    "errorHosts": [],
@@ -4813,6 +6336,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.1,
+      "sdk": 3.9,
+      "basemap": 10.1,
+      "data": 1.1
+     },
+     "mainCause": "basemap",
      "extraS": 11.1,
      "extraFirstS": 7.3,
      "extraFreshS": 12
@@ -4842,6 +6372,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 31,
+      "sdk": 15.9,
+      "basemap": 55.2,
+      "data": 6.8
+     },
+     "mainCause": "basemap",
      "extraS": 82,
      "extraFirstS": 40.4,
      "extraFreshS": 83.5
@@ -4871,6 +6408,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20,
+      "sdk": 8.5,
+      "basemap": 23.7,
+      "data": 3.1
+     },
+     "mainCause": "basemap",
      "extraS": 33.3,
      "extraFirstS": 17.5,
      "extraFreshS": 35.4
@@ -4894,6 +6438,19 @@
    "mbZoom": 3.5,
    "heapMB": 64.6,
    "hosts": 19,
+   "mbBySource": {
+    "app": 4.6,
+    "sdk": 1.9,
+    "basemap": 1.4,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 976,
+    "sdk": 196,
+    "basemap": 76,
+    "data": 162
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 8,
    "errorHosts": [],
@@ -4923,6 +6480,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 8.3,
+      "sdk": 7.7,
+      "basemap": 2.5,
+      "data": 2.9
+     },
+     "mainCause": "app",
      "extraS": 12.8,
      "extraFirstS": 10.7,
      "extraFreshS": 13.5
@@ -4952,6 +6516,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 39.7,
+      "sdk": 38.7,
+      "basemap": 18.6,
+      "data": 8.2
+     },
+     "mainCause": "app",
      "extraS": 80.8,
      "extraFirstS": 49.5,
      "extraFreshS": 81.1
@@ -4981,6 +6552,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.3,
+      "sdk": 20.5,
+      "basemap": 4.2,
+      "data": 8.1
+     },
+     "mainCause": "app",
      "extraS": 35.4,
      "extraFirstS": 22,
      "extraFreshS": 38.2
@@ -5004,6 +6582,19 @@
    "mbZoom": 3.9,
    "heapMB": 62.4,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.9,
+    "data": 0.6
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 99,
+    "basemap": 120,
+    "data": 54
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -5033,6 +6624,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.7,
+      "sdk": 1.8,
+      "basemap": 8.8,
+      "data": 3.3
+     },
+     "mainCause": "basemap",
      "extraS": 10.9,
      "extraFirstS": 5.7,
      "extraFreshS": 11.4
@@ -5062,6 +6660,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.6,
+      "sdk": 9.6,
+      "basemap": 53.5,
+      "data": 16.4
+     },
+     "mainCause": "basemap",
      "extraS": 80.2,
      "extraFirstS": 28.5,
      "extraFreshS": 77.8
@@ -5091,6 +6696,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.3,
+      "sdk": 8,
+      "basemap": 21.2,
+      "data": 8.9
+     },
+     "mainCause": "app",
      "extraS": 37,
      "extraFirstS": 19.5,
      "extraFreshS": 38
@@ -5114,6 +6726,19 @@
    "mbZoom": 4.6,
    "heapMB": 57.2,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1,
+    "basemap": 2.5,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 152,
+    "basemap": 104,
+    "data": 52
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 13,
    "errorHosts": [],
@@ -5143,6 +6768,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.7,
+      "sdk": 3.8,
+      "basemap": 10,
+      "data": 0.7
+     },
+     "mainCause": "basemap",
      "extraS": 11,
      "extraFirstS": 7.3,
      "extraFreshS": 11.7
@@ -5172,6 +6804,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.3,
+      "sdk": 17.8,
+      "basemap": 54.6,
+      "data": 7.7
+     },
+     "mainCause": "basemap",
      "extraS": 79.9,
      "extraFirstS": 37.7,
      "extraFreshS": 79.5
@@ -5201,6 +6840,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.1,
+      "sdk": 10.6,
+      "basemap": 24.4,
+      "data": 5.1
+     },
+     "mainCause": "basemap",
      "extraS": 38.7,
      "extraFirstS": 25.3,
      "extraFreshS": 40.9
@@ -5224,6 +6870,19 @@
    "mbZoom": 2.6,
    "heapMB": 52,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 1.3,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 905,
+    "sdk": 142,
+    "basemap": 45,
+    "data": 95
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -5253,6 +6912,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 8.1,
+      "sdk": 6.7,
+      "basemap": 7.2,
+      "data": 2.2
+     },
+     "mainCause": "app",
      "extraS": 12.9,
      "extraFirstS": 5.8,
      "extraFreshS": 13.2
@@ -5282,6 +6948,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 32.2,
+      "sdk": 30.8,
+      "basemap": 35.8,
+      "data": 9.1
+     },
+     "mainCause": "basemap",
      "extraS": 79.9,
      "extraFirstS": 28.5,
      "extraFreshS": 79.4
@@ -5311,6 +6984,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.3,
+      "sdk": 16.8,
+      "basemap": 15.8,
+      "data": 6.7
+     },
+     "mainCause": "app",
      "extraS": 37.9,
      "extraFirstS": 16.4,
      "extraFreshS": 39
@@ -5334,6 +7014,25 @@
    "mbZoom": 3.1,
    "heapMB": 50.5,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.7,
+    "data": 1.7
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 141,
+    "basemap": 26,
+    "data": 64
+   },
+   "bigFiles": [
+    {
+     "host": "p3eplmys2rvchkjx.svcs.arcgis.com",
+     "path": "/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Continents/FeatureServer/0/query",
+     "mb": 1.4
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -5363,6 +7062,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 3.4,
+      "basemap": 3.1,
+      "data": 8.6
+     },
+     "mainCause": "data",
      "extraS": 12.1,
      "extraFirstS": 6.3,
      "extraFreshS": 12.6
@@ -5392,6 +7098,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.5,
+      "sdk": 17,
+      "basemap": 16,
+      "data": 40.5
+     },
+     "mainCause": "data",
      "extraS": 78.3,
      "extraFirstS": 30.2,
      "extraFreshS": 78.8
@@ -5421,6 +7134,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.8,
+      "sdk": 13.1,
+      "basemap": 8.9,
+      "data": 28.8
+     },
+     "mainCause": "data",
      "extraS": 45.5,
      "extraFirstS": 27.6,
      "extraFreshS": 47.2
@@ -5444,6 +7164,19 @@
    "mbZoom": 2.6,
    "heapMB": 56,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.9,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 902,
+    "sdk": 153,
+    "basemap": 65,
+    "data": 122
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -5473,6 +7206,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.7,
+      "sdk": 2.6,
+      "basemap": 9.3,
+      "data": 11.6
+     },
+     "mainCause": "data",
      "extraS": 20.5,
      "extraFirstS": 12.7,
      "extraFreshS": 21.1
@@ -5502,6 +7242,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.5,
+      "sdk": 16.9,
+      "basemap": 48.2,
+      "data": 10.9
+     },
+     "mainCause": "basemap",
      "extraS": 78.1,
      "extraFirstS": 27.4,
      "extraFreshS": 78.5
@@ -5531,6 +7278,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.9,
+      "sdk": 2.8,
+      "basemap": 23.8,
+      "data": 6.2
+     },
+     "mainCause": "basemap",
      "extraS": 34.9,
      "extraFirstS": 12,
      "extraFreshS": 38.3
@@ -5554,6 +7308,19 @@
    "mbZoom": 3,
    "heapMB": 55.1,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2.2,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 153,
+    "basemap": 86,
+    "data": 77
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 7,
    "errorHosts": [],
@@ -5583,6 +7350,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.8,
+      "sdk": 4.1,
+      "basemap": 9,
+      "data": 1.3
+     },
+     "mainCause": "basemap",
      "extraS": 11.1,
      "extraFirstS": 6.2,
      "extraFreshS": 11.7
@@ -5612,6 +7386,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.1,
+      "sdk": 17,
+      "basemap": 53.3,
+      "data": 5.3
+     },
+     "mainCause": "basemap",
      "extraS": 77.7,
      "extraFirstS": 37.7,
      "extraFreshS": 78
@@ -5641,6 +7422,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.5,
+      "sdk": 8.5,
+      "basemap": 17.4,
+      "data": 4.7
+     },
+     "mainCause": "app",
      "extraS": 31.1,
      "extraFirstS": 13.1,
      "extraFreshS": 33.9
@@ -5664,6 +7452,19 @@
    "mbZoom": 3.2,
    "heapMB": 60.7,
    "hosts": 18,
+   "mbBySource": {
+    "app": 4.6,
+    "sdk": 1.7,
+    "basemap": 1.4,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 968,
+    "sdk": 145,
+    "basemap": 71,
+    "data": 96
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -5693,6 +7494,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 8.2,
+      "sdk": 6.4,
+      "basemap": 3.2,
+      "data": 1.7
+     },
+     "mainCause": "app",
      "extraS": 11.6,
      "extraFirstS": 9,
      "extraFreshS": 11.9
@@ -5722,6 +7530,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 42.9,
+      "sdk": 33,
+      "basemap": 24.4,
+      "data": 4.1
+     },
+     "mainCause": "app",
      "extraS": 76.2,
      "extraFirstS": 42.4,
      "extraFreshS": 75.8
@@ -5751,6 +7566,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.8,
+      "sdk": 19.1,
+      "basemap": 6.8,
+      "data": 7.2
+     },
+     "mainCause": "app",
      "extraS": 33.4,
      "extraFirstS": 23.7,
      "extraFreshS": 35.9
@@ -5774,6 +7596,19 @@
    "mbZoom": 3.3,
    "heapMB": 111,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.6,
+    "data": 1.5
+   },
+   "requestsBySource": {
+    "app": 928,
+    "sdk": 142,
+    "basemap": 108,
+    "data": 63
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 19,
    "errorHosts": [],
@@ -5803,6 +7638,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.3,
+      "sdk": 2.5,
+      "basemap": 3.4,
+      "data": 6.6
+     },
+     "mainCause": "data",
      "extraS": 9.9,
      "extraFirstS": 10.1,
      "extraFreshS": 11.2
@@ -5832,6 +7674,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.3,
+      "sdk": 16.2,
+      "basemap": 17.2,
+      "data": 29.3
+     },
+     "mainCause": "data",
      "extraS": 73.7,
      "extraFirstS": 50.2,
      "extraFreshS": 77
@@ -5861,6 +7710,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.2,
+      "sdk": 10.1,
+      "basemap": 10.2,
+      "data": 24.9
+     },
+     "mainCause": "data",
      "extraS": 39.2,
      "extraFirstS": 26.8,
      "extraFreshS": 40.8
@@ -5884,6 +7740,25 @@
    "mbZoom": 2.5,
    "heapMB": 61.7,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1,
+    "basemap": 0.8,
+    "data": 1.3
+   },
+   "requestsBySource": {
+    "app": 930,
+    "sdk": 166,
+    "basemap": 79,
+    "data": 106
+   },
+   "bigFiles": [
+    {
+     "host": "services7.arcgis.com",
+     "path": "/xuAg12SDp2ow0Fb8/arcgis/rest/services/MaritimeRoutesforMail/FeatureServer/0/query",
+     "mb": 1
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 23,
    "errorHosts": [],
@@ -5913,6 +7788,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.4,
+      "sdk": 3.5,
+      "basemap": 3.4,
+      "data": 7.2
+     },
+     "mainCause": "data",
      "extraS": 13.4,
      "extraFirstS": 7.1,
      "extraFreshS": 13.9
@@ -5942,6 +7824,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.8,
+      "sdk": 17.3,
+      "basemap": 18.1,
+      "data": 29.6
+     },
+     "mainCause": "data",
      "extraS": 73.2,
      "extraFirstS": 26.9,
      "extraFreshS": 74.3
@@ -5971,6 +7860,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.1,
+      "sdk": 12.7,
+      "basemap": 10.9,
+      "data": 26.5
+     },
+     "mainCause": "data",
      "extraS": 43.1,
      "extraFirstS": 24.6,
      "extraFreshS": 45.5
@@ -5994,6 +7890,19 @@
    "mbZoom": 3.5,
    "heapMB": 58.6,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4.6,
+    "sdk": 1.9,
+    "basemap": 1.1,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 968,
+    "sdk": 182,
+    "basemap": 91,
+    "data": 91
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 2,
    "errorHosts": [],
@@ -6023,6 +7932,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 8.1,
+      "sdk": 7.4,
+      "basemap": 2,
+      "data": 0.8
+     },
+     "mainCause": "app",
      "extraS": 12.2,
      "extraFirstS": 9.2,
      "extraFreshS": 13
@@ -6052,6 +7968,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 35.4,
+      "sdk": 31.8,
+      "basemap": 13,
+      "data": 4.3
+     },
+     "mainCause": "app",
      "extraS": 72.4,
      "extraFirstS": 40.2,
      "extraFreshS": 71.9
@@ -6081,6 +8004,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.5,
+      "sdk": 30.7,
+      "basemap": 6.3,
+      "data": 5.7
+     },
+     "mainCause": "sdk",
      "extraS": 43.2,
      "extraFirstS": 27.9,
      "extraFreshS": 45.5
@@ -6104,6 +8034,19 @@
    "mbZoom": 2.4,
    "heapMB": 63.2,
    "hosts": 10,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1,
+    "data": 2.4
+   },
+   "requestsBySource": {
+    "app": 898,
+    "sdk": 101,
+    "basemap": 34,
+    "data": 65
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 9,
    "errorHosts": [],
@@ -6133,6 +8076,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 2.1,
+      "basemap": 0.6,
+      "data": 11.1
+     },
+     "mainCause": "data",
      "extraS": 10.8,
      "extraFirstS": 8.2,
      "extraFreshS": 11.2
@@ -6162,6 +8112,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.7,
+      "sdk": 9.4,
+      "basemap": 2.8,
+      "data": 56.4
+     },
+     "mainCause": "data",
      "extraS": 72.1,
      "extraFirstS": 44.7,
      "extraFreshS": 74
@@ -6191,6 +8148,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19,
+      "sdk": 8.4,
+      "basemap": 1.8,
+      "data": 36.8
+     },
+     "mainCause": "data",
      "extraS": 43.1,
      "extraFirstS": 27.1,
      "extraFreshS": 44.4
@@ -6214,6 +8178,25 @@
    "mbZoom": 2.4,
    "heapMB": 54.2,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.1,
+    "data": 1.6
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 108,
+    "basemap": 32,
+    "data": 35
+   },
+   "bigFiles": [
+    {
+     "host": "p3eplmys2rvchkjx.svcs.arcgis.com",
+     "path": "/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Continents/FeatureServer/0/query",
+     "mb": 1.4
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -6243,6 +8226,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.6,
+      "sdk": 3.3,
+      "basemap": 1.4,
+      "data": 8.1
+     },
+     "mainCause": "data",
      "extraS": 10,
      "extraFirstS": 7.3,
      "extraFreshS": 10.9
@@ -6272,6 +8262,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23,
+      "sdk": 16.4,
+      "basemap": 7.3,
+      "data": 37.8
+     },
+     "mainCause": "data",
      "extraS": 67.5,
      "extraFirstS": 35.6,
      "extraFreshS": 68.4
@@ -6301,6 +8298,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.3,
+      "sdk": 11.9,
+      "basemap": 7.1,
+      "data": 25.7
+     },
+     "mainCause": "data",
      "extraS": 38.6,
      "extraFirstS": 26.4,
      "extraFreshS": 40.2
@@ -6324,6 +8328,19 @@
    "mbZoom": 2.2,
    "heapMB": 52.4,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 2.1,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 140,
+    "basemap": 78,
+    "data": 44
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 8,
    "errorHosts": [],
@@ -6353,6 +8370,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.5,
+      "sdk": 2.2,
+      "basemap": 8,
+      "data": 0.4
+     },
+     "mainCause": "basemap",
      "extraS": 8.1,
      "extraFirstS": 3.6,
      "extraFreshS": 8.9
@@ -6382,6 +8406,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.6,
+      "sdk": 10.1,
+      "basemap": 51.4,
+      "data": 1.2
+     },
+     "mainCause": "basemap",
      "extraS": 66.7,
      "extraFirstS": 22.8,
      "extraFreshS": 66.9
@@ -6411,6 +8442,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.1,
+      "sdk": 5.7,
+      "basemap": 18.5,
+      "data": 2.3
+     },
+     "mainCause": "app",
      "extraS": 28.7,
      "extraFirstS": 13.3,
      "extraFreshS": 31.3
@@ -6434,6 +8472,19 @@
    "mbZoom": 2.4,
    "heapMB": 62,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4.4,
+    "sdk": 1.8,
+    "basemap": 1.6,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 946,
+    "sdk": 129,
+    "basemap": 43,
+    "data": 59
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -6463,6 +8514,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.3,
+      "sdk": 7.5,
+      "basemap": 2.7,
+      "data": 0.7
+     },
+     "mainCause": "sdk",
      "extraS": 10.7,
      "extraFirstS": 8.5,
      "extraFreshS": 11.4
@@ -6492,6 +8550,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 32.3,
+      "sdk": 35.1,
+      "basemap": 13.9,
+      "data": 2.3
+     },
+     "mainCause": "sdk",
      "extraS": 66.5,
      "extraFirstS": 38.6,
      "extraFreshS": 67.8
@@ -6521,6 +8586,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.5,
+      "sdk": 24.2,
+      "basemap": 5.7,
+      "data": 7.2
+     },
+     "mainCause": "sdk",
      "extraS": 39.2,
      "extraFirstS": 30.4,
      "extraFreshS": 42.3
@@ -6544,6 +8616,25 @@
    "mbZoom": 2.5,
    "heapMB": 53.9,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 1,
+    "basemap": 1.1,
+    "data": 1.7
+   },
+   "requestsBySource": {
+    "app": 897,
+    "sdk": 135,
+    "basemap": 35,
+    "data": 45
+   },
+   "bigFiles": [
+    {
+     "host": "p3eplmys2rvchkjx.svcs.arcgis.com",
+     "path": "/P3ePLMYs2RVChkJx/arcgis/rest/services/World_Regions/FeatureServer/0/query",
+     "mb": 1.6
+    }
+   ],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -6573,6 +8664,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 3.9,
+      "sdk": 3.1,
+      "basemap": 1.1,
+      "data": 7.4
+     },
+     "mainCause": "data",
      "extraS": 8,
      "extraFirstS": 6.3,
      "extraFreshS": 8.5
@@ -6602,6 +8700,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.6,
+      "sdk": 17.5,
+      "basemap": 6.2,
+      "data": 40.2
+     },
+     "mainCause": "data",
      "extraS": 66,
      "extraFirstS": 37.9,
      "extraFreshS": 67
@@ -6631,6 +8736,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.2,
+      "sdk": 19.9,
+      "basemap": 2.4,
+      "data": 24.9
+     },
+     "mainCause": "data",
      "extraS": 44.4,
      "extraFirstS": 36.5,
      "extraFreshS": 45.2
@@ -6654,6 +8766,19 @@
    "mbZoom": 4.6,
    "heapMB": 73.8,
    "hosts": 15,
+   "mbBySource": {
+    "app": 3.8,
+    "sdk": 0.4,
+    "basemap": 1.5,
+    "data": 0.9
+   },
+   "requestsBySource": {
+    "app": 877,
+    "sdk": 71,
+    "basemap": 63,
+    "data": 71
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -6683,6 +8808,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.8,
+      "sdk": 0.6,
+      "basemap": 7.3,
+      "data": 7.5
+     },
+     "mainCause": "data",
      "extraS": 8.6,
      "extraFirstS": 4.1,
      "extraFreshS": 8.5
@@ -6712,6 +8844,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 27.9,
+      "sdk": 0.8,
+      "basemap": 30.8,
+      "data": 30.6
+     },
+     "mainCause": "basemap",
      "extraS": 63.7,
      "extraFirstS": 23.5,
      "extraFreshS": 61.9
@@ -6741,6 +8880,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.7,
+      "sdk": 1.9,
+      "basemap": 10.8,
+      "data": 13.7
+     },
+     "mainCause": "app",
      "extraS": 19.6,
      "extraFirstS": 8.5,
      "extraFreshS": 21.3
@@ -6764,6 +8910,19 @@
    "mbZoom": 7,
    "heapMB": 70.2,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1.1,
+    "basemap": 1.1,
+    "data": 0.8
+   },
+   "requestsBySource": {
+    "app": 930,
+    "sdk": 162,
+    "basemap": 101,
+    "data": 255
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 15,
    "errorHosts": [],
@@ -6793,6 +8952,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.4,
+      "sdk": 3.8,
+      "basemap": 5.5,
+      "data": 4
+     },
+     "mainCause": "basemap",
      "extraS": 10.1,
      "extraFirstS": 4.6,
      "extraFreshS": 10.9
@@ -6822,6 +8988,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.3,
+      "sdk": 16.8,
+      "basemap": 27,
+      "data": 6.9
+     },
+     "mainCause": "basemap",
      "extraS": 63.6,
      "extraFirstS": 19.2,
      "extraFreshS": 65.1
@@ -6851,6 +9024,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.8,
+      "sdk": 13,
+      "basemap": 13.9,
+      "data": 12.1
+     },
+     "mainCause": "app",
      "extraS": 31.9,
      "extraFirstS": 15.9,
      "extraFreshS": 33.2
@@ -6874,6 +9054,19 @@
    "mbZoom": 3.6,
    "heapMB": 62.3,
    "hosts": 18,
+   "mbBySource": {
+    "app": 4.4,
+    "sdk": 0.7,
+    "basemap": 2.1,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 945,
+    "sdk": 132,
+    "basemap": 100,
+    "data": 78
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 32,
    "errorHosts": [],
@@ -6903,6 +9096,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 7.9,
+      "sdk": 1.8,
+      "basemap": 6.6,
+      "data": 2.3
+     },
+     "mainCause": "app",
      "extraS": 7.6,
      "extraFirstS": 6.7,
      "extraFreshS": 8.7
@@ -6932,6 +9132,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 38.3,
+      "sdk": 9.4,
+      "basemap": 34.3,
+      "data": 7.2
+     },
+     "mainCause": "app",
      "extraS": 62.7,
      "extraFirstS": 33,
      "extraFreshS": 60.9
@@ -6961,6 +9168,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.9,
+      "sdk": 4.9,
+      "basemap": 13.6,
+      "data": 6
+     },
+     "mainCause": "app",
      "extraS": 23.6,
      "extraFirstS": 18.3,
      "extraFreshS": 26
@@ -6984,6 +9198,19 @@
    "mbZoom": 2.7,
    "heapMB": 52.5,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.4,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 142,
+    "basemap": 35,
+    "data": 66
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -7013,6 +9240,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.5,
+      "sdk": 3.3,
+      "basemap": 6.6,
+      "data": 1.9
+     },
+     "mainCause": "basemap",
      "extraS": 9.4,
      "extraFirstS": 3.2,
      "extraFreshS": 10.2
@@ -7042,6 +9276,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.2,
+      "sdk": 16.3,
+      "basemap": 33.6,
+      "data": 8.1
+     },
+     "mainCause": "basemap",
      "extraS": 62.4,
      "extraFirstS": 14.1,
      "extraFreshS": 63.6
@@ -7071,6 +9312,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.2,
+      "sdk": 12,
+      "basemap": 16.1,
+      "data": 6.7
+     },
+     "mainCause": "app",
      "extraS": 33.3,
      "extraFirstS": 16.1,
      "extraFreshS": 34.8
@@ -7094,6 +9342,19 @@
    "mbZoom": 2.2,
    "heapMB": 61.1,
    "hosts": 17,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 2.1,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 159,
+    "basemap": 84,
+    "data": 83
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 6,
    "errorHosts": [],
@@ -7123,6 +9384,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.2,
+      "sdk": 3.9,
+      "basemap": 6.3,
+      "data": 1.1
+     },
+     "mainCause": "basemap",
      "extraS": 7.6,
      "extraFirstS": 5.4,
      "extraFreshS": 8.5
@@ -7152,6 +9420,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.4,
+      "sdk": 16.7,
+      "basemap": 34.2,
+      "data": 3.4
+     },
+     "mainCause": "basemap",
      "extraS": 57.4,
      "extraFirstS": 30.3,
      "extraFreshS": 57.9
@@ -7181,6 +9456,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.6,
+      "sdk": 9.2,
+      "basemap": 9.8,
+      "data": 3.8
+     },
+     "mainCause": "app",
      "extraS": 20.9,
      "extraFirstS": 15.1,
      "extraFreshS": 24.1
@@ -7204,6 +9486,19 @@
    "mbZoom": 2.9,
    "heapMB": 55.6,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.5,
+    "basemap": 0.5,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 140,
+    "basemap": 27,
+    "data": 96
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -7233,6 +9528,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.7,
+      "sdk": 2.2,
+      "basemap": 0.7,
+      "data": 5.4
+     },
+     "mainCause": "app",
      "extraS": 11.3,
      "extraFirstS": 3.9,
      "extraFreshS": 12.1
@@ -7262,6 +9564,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.3,
+      "sdk": 26.8,
+      "basemap": 10.5,
+      "data": 6.5
+     },
+     "mainCause": "app",
      "extraS": 54.3,
      "extraFirstS": 6.4,
      "extraFreshS": 55.9
@@ -7291,6 +9600,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.3,
+      "sdk": 19,
+      "basemap": 8.2,
+      "data": 8.7
+     },
+     "mainCause": "app",
      "extraS": 32.5,
      "extraFirstS": 17,
      "extraFreshS": 35.2
@@ -7314,6 +9630,19 @@
    "mbZoom": 0.5,
    "heapMB": 54.2,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4.3,
+    "sdk": 1.7,
+    "basemap": 0,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 940,
+    "sdk": 146,
+    "basemap": 4,
+    "data": 101
+   },
+   "bigFiles": [],
    "failedRequests": 1,
    "cancelledRequests": 3,
    "errorHosts": [
@@ -7345,6 +9674,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.2,
+      "sdk": 5.7,
+      "basemap": 0,
+      "data": 1.8
+     },
+     "mainCause": "app",
      "extraS": 5.6,
      "extraFirstS": -0.7,
      "extraFreshS": 6.3
@@ -7374,6 +9710,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 29.9,
+      "sdk": 31.8,
+      "basemap": 0.1,
+      "data": 9.4
+     },
+     "mainCause": "sdk",
      "extraS": 53.3,
      "extraFirstS": 5.6,
      "extraFreshS": 54.7
@@ -7403,6 +9746,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.9,
+      "sdk": 15.4,
+      "basemap": 0.2,
+      "data": 6.5
+     },
+     "mainCause": "app",
      "extraS": 24,
      "extraFirstS": 5.7,
      "extraFreshS": 26.9
@@ -7426,6 +9776,19 @@
    "mbZoom": 4.4,
    "heapMB": 54.8,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.4,
+    "basemap": 2.1,
+    "data": 0.6
+   },
+   "requestsBySource": {
+    "app": 898,
+    "sdk": 79,
+    "basemap": 77,
+    "data": 51
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -7455,6 +9818,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5,
+      "sdk": 0.6,
+      "basemap": 3.9,
+      "data": 2.9
+     },
+     "mainCause": "app",
      "extraS": 5.4,
      "extraFirstS": 3.9,
      "extraFreshS": 5.3
@@ -7484,6 +9854,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.2,
+      "sdk": 2,
+      "basemap": 36.2,
+      "data": 15.4
+     },
+     "mainCause": "basemap",
      "extraS": 53,
      "extraFirstS": 22.5,
      "extraFreshS": 52.4
@@ -7513,6 +9890,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.6,
+      "sdk": 3.4,
+      "basemap": 8.7,
+      "data": 9.1
+     },
+     "mainCause": "app",
      "extraS": 20.2,
      "extraFirstS": 14.7,
      "extraFreshS": 21.1
@@ -7536,6 +9920,19 @@
    "mbZoom": 3.4,
    "heapMB": 78.6,
    "hosts": 10,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 0.8,
+    "data": 1.8
+   },
+   "requestsBySource": {
+    "app": 885,
+    "sdk": 99,
+    "basemap": 34,
+    "data": 144
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 2,
    "errorHosts": [],
@@ -7565,6 +9962,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 3.8,
+      "sdk": 1.6,
+      "basemap": 0.5,
+      "data": 8
+     },
+     "mainCause": "data",
      "extraS": 6.4,
      "extraFirstS": 3.7,
      "extraFreshS": 7.2
@@ -7594,6 +9998,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.1,
+      "sdk": 8.2,
+      "basemap": 3.2,
+      "data": 42.6
+     },
+     "mainCause": "data",
      "extraS": 52.8,
      "extraFirstS": 22.6,
      "extraFreshS": 54.1
@@ -7623,6 +10034,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 16.5,
+      "sdk": 8.4,
+      "basemap": 0.5,
+      "data": 32.3
+     },
+     "mainCause": "data",
      "extraS": 36.2,
      "extraFirstS": 19,
      "extraFreshS": 39.2
@@ -7646,6 +10064,19 @@
    "mbZoom": 4.6,
    "heapMB": 54.2,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 0.5,
+    "data": 1.1
+   },
+   "requestsBySource": {
+    "app": 914,
+    "sdk": 139,
+    "basemap": 58,
+    "data": 137
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 15,
    "errorHosts": [],
@@ -7675,6 +10106,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5,
+      "sdk": 1.9,
+      "basemap": 2.1,
+      "data": 4.9
+     },
+     "mainCause": "app",
      "extraS": 6.4,
      "extraFirstS": 0.6,
      "extraFreshS": 7.3
@@ -7704,6 +10142,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.8,
+      "sdk": 11.5,
+      "basemap": 6.3,
+      "data": 23.7
+     },
+     "mainCause": "app",
      "extraS": 52.4,
      "extraFirstS": 2.1,
      "extraFreshS": 54.4
@@ -7733,6 +10178,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.2,
+      "sdk": 6.7,
+      "basemap": 3,
+      "data": 15.4
+     },
+     "mainCause": "app",
      "extraS": 22.4,
      "extraFirstS": -1.3,
      "extraFreshS": 25
@@ -7756,6 +10208,19 @@
    "mbZoom": 3.2,
    "heapMB": 53.5,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.3,
+    "data": 0.5
+   },
+   "requestsBySource": {
+    "app": 906,
+    "sdk": 133,
+    "basemap": 35,
+    "data": 66
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -7785,6 +10250,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.2,
+      "sdk": 1.6,
+      "basemap": 4.1,
+      "data": 2.9
+     },
+     "mainCause": "app",
      "extraS": 6.1,
      "extraFirstS": -0.3,
      "extraFreshS": 7
@@ -7814,6 +10286,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20,
+      "sdk": 8.4,
+      "basemap": 30.8,
+      "data": 10.8
+     },
+     "mainCause": "basemap",
      "extraS": 51.9,
      "extraFirstS": 3.8,
      "extraFreshS": 52.8
@@ -7843,6 +10322,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.5,
+      "sdk": 9.8,
+      "basemap": 15.2,
+      "data": 9.8
+     },
+     "mainCause": "app",
      "extraS": 31.3,
      "extraFirstS": 11.8,
      "extraFreshS": 33.4
@@ -7866,6 +10352,19 @@
    "mbZoom": 2.2,
    "heapMB": 55.1,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.6,
+    "basemap": 1.6,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 96,
+    "basemap": 21,
+    "data": 42
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -7895,6 +10394,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.5,
+      "sdk": 1.6,
+      "basemap": 6.8,
+      "data": 0.9
+     },
+     "mainCause": "basemap",
      "extraS": 7.6,
      "extraFirstS": 1.3,
      "extraFreshS": 8.1
@@ -7924,6 +10430,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.3,
+      "sdk": 7.5,
+      "basemap": 37.1,
+      "data": 1.9
+     },
+     "mainCause": "basemap",
      "extraS": 51.8,
      "extraFirstS": 2.6,
      "extraFreshS": 52.6
@@ -7953,6 +10466,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.9,
+      "sdk": 7.3,
+      "basemap": 20.3,
+      "data": 8.6
+     },
+     "mainCause": "basemap",
      "extraS": 33,
      "extraFirstS": 14.8,
      "extraFreshS": 34.3
@@ -7976,6 +10496,19 @@
    "mbZoom": 4.8,
    "heapMB": 59.3,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 0.5,
+    "data": 1.1
+   },
+   "requestsBySource": {
+    "app": 912,
+    "sdk": 139,
+    "basemap": 48,
+    "data": 157
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 12,
    "errorHosts": [],
@@ -8005,6 +10538,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.2,
+      "sdk": 2.4,
+      "basemap": 1.9,
+      "data": 6.6
+     },
+     "mainCause": "data",
      "extraS": 6.4,
      "extraFirstS": 2,
      "extraFreshS": 7
@@ -8034,6 +10574,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.1,
+      "sdk": 10.7,
+      "basemap": 12.1,
+      "data": 24.2
+     },
+     "mainCause": "data",
      "extraS": 51.8,
      "extraFirstS": 3.8,
      "extraFreshS": 51.6
@@ -8063,6 +10610,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.2,
+      "sdk": 6.9,
+      "basemap": 4,
+      "data": 15.7
+     },
+     "mainCause": "app",
      "extraS": 21.3,
      "extraFirstS": 1,
      "extraFreshS": 24.1
@@ -8086,6 +10640,19 @@
    "mbZoom": 3.1,
    "heapMB": 85,
    "hosts": 17,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 1.6,
+    "data": 1
+   },
+   "requestsBySource": {
+    "app": 901,
+    "sdk": 136,
+    "basemap": 43,
+    "data": 123
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 18,
    "errorHosts": [],
@@ -8115,6 +10682,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5,
+      "sdk": 2.1,
+      "basemap": 2.5,
+      "data": 5.8
+     },
+     "mainCause": "data",
      "extraS": 8.2,
      "extraFirstS": 6.1,
      "extraFreshS": 8.6
@@ -8144,6 +10718,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.2,
+      "sdk": 10.1,
+      "basemap": 13.9,
+      "data": 25.6
+     },
+     "mainCause": "data",
      "extraS": 49.3,
      "extraFirstS": 25.5,
      "extraFreshS": 50.4
@@ -8173,6 +10754,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.6,
+      "sdk": 5.9,
+      "basemap": 5.5,
+      "data": 19.7
+     },
+     "mainCause": "data",
      "extraS": 27.9,
      "extraFirstS": 21.1,
      "extraFreshS": 29.7
@@ -8196,6 +10784,19 @@
    "mbZoom": 1.9,
    "heapMB": 50.1,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.4,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 95,
+    "basemap": 34,
+    "data": 32
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -8225,6 +10826,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.6,
+      "sdk": 1.6,
+      "basemap": 4.3,
+      "data": 0.9
+     },
+     "mainCause": "app",
      "extraS": 4.7,
      "extraFirstS": -0.9,
      "extraFreshS": 5.8
@@ -8254,6 +10862,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.1,
+      "sdk": 8.5,
+      "basemap": 30.3,
+      "data": 3.6
+     },
+     "mainCause": "basemap",
      "extraS": 47.5,
      "extraFirstS": -0.2,
      "extraFreshS": 48.5
@@ -8283,6 +10898,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.1,
+      "sdk": 9.5,
+      "basemap": 11.5,
+      "data": 3.7
+     },
+     "mainCause": "app",
      "extraS": 28.4,
      "extraFirstS": 9.8,
      "extraFreshS": 30.3
@@ -8306,6 +10928,19 @@
    "mbZoom": 3.9,
    "heapMB": 58.7,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.6,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 132,
+    "basemap": 116,
+    "data": 71
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 9,
    "errorHosts": [],
@@ -8335,6 +10970,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.6,
+      "sdk": 2.2,
+      "basemap": 3.6,
+      "data": 2.1
+     },
+     "mainCause": "app",
      "extraS": 4.2,
      "extraFirstS": 3,
      "extraFreshS": 4.6
@@ -8364,6 +11006,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 33.3,
+      "sdk": 8.9,
+      "basemap": 27,
+      "data": 11.8
+     },
+     "mainCause": "app",
      "extraS": 46.9,
      "extraFirstS": 17.3,
      "extraFreshS": 46.6
@@ -8393,6 +11042,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.8,
+      "sdk": 5.5,
+      "basemap": 6.7,
+      "data": 4.5
+     },
+     "mainCause": "app",
      "extraS": 14.5,
      "extraFirstS": 6.6,
      "extraFreshS": 15.3
@@ -8416,6 +11072,19 @@
    "mbZoom": 2.6,
    "heapMB": 55.6,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.3,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 133,
+    "basemap": 39,
+    "data": 58
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -8445,6 +11114,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.2,
+      "sdk": 1.9,
+      "basemap": 5,
+      "data": 1.6
+     },
+     "mainCause": "app",
      "extraS": 5.8,
      "extraFirstS": -0.9,
      "extraFreshS": 6.6
@@ -8474,6 +11150,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.9,
+      "sdk": 9.5,
+      "basemap": 31.3,
+      "data": 3.6
+     },
+     "mainCause": "basemap",
      "extraS": 46.4,
      "extraFirstS": -3,
      "extraFreshS": 46.8
@@ -8503,6 +11186,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.2,
+      "sdk": 8.3,
+      "basemap": 14.1,
+      "data": 4.2
+     },
+     "mainCause": "app",
      "extraS": 24.9,
      "extraFirstS": 5.5,
      "extraFreshS": 26.5
@@ -8526,6 +11216,19 @@
    "mbZoom": 3.9,
    "heapMB": 62.9,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.7,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 132,
+    "basemap": 68,
+    "data": 54
+   },
+   "bigFiles": [],
    "failedRequests": 6,
    "cancelledRequests": 5,
    "errorHosts": [
@@ -8557,6 +11260,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.2,
+      "sdk": 1.6,
+      "basemap": 4.7,
+      "data": 2.1
+     },
+     "mainCause": "app",
      "extraS": 4.4,
      "extraFirstS": 3.5,
      "extraFreshS": 5.3
@@ -8586,6 +11296,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 25.6,
+      "sdk": 9.5,
+      "basemap": 25.1,
+      "data": 10.1
+     },
+     "mainCause": "app",
      "extraS": 46.1,
      "extraFirstS": 17,
      "extraFreshS": 45.6
@@ -8615,6 +11332,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.8,
+      "sdk": 4.8,
+      "basemap": 10.7,
+      "data": 8.4
+     },
+     "mainCause": "app",
      "extraS": 16.5,
      "extraFirstS": 14.5,
      "extraFreshS": 19.3
@@ -8638,6 +11362,19 @@
    "mbZoom": 3.8,
    "heapMB": 72,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 1.5,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 98,
+    "basemap": 63,
+    "data": 44
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 22,
    "errorHosts": [],
@@ -8667,6 +11404,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.3,
+      "sdk": 1.9,
+      "basemap": 3.8,
+      "data": 1.4
+     },
+     "mainCause": "app",
      "extraS": 6.3,
      "extraFirstS": 4.5,
      "extraFreshS": 7.1
@@ -8696,6 +11440,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 26.4,
+      "sdk": 8,
+      "basemap": 22.7,
+      "data": 7
+     },
+     "mainCause": "app",
      "extraS": 46.1,
      "extraFirstS": 14.1,
      "extraFreshS": 46.5
@@ -8725,6 +11476,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.2,
+      "sdk": 6.3,
+      "basemap": 11.5,
+      "data": 6.6
+     },
+     "mainCause": "app",
      "extraS": 21.6,
      "extraFirstS": 8.2,
      "extraFreshS": 23.5
@@ -8748,6 +11506,19 @@
    "mbZoom": 4.2,
    "heapMB": 59.7,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.6,
+    "data": 0.9
+   },
+   "requestsBySource": {
+    "app": 885,
+    "sdk": 98,
+    "basemap": 43,
+    "data": 71
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -8777,6 +11548,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.9,
+      "sdk": 1.6,
+      "basemap": 3.4,
+      "data": 4.1
+     },
+     "mainCause": "app",
      "extraS": 4.7,
      "extraFirstS": 2.5,
      "extraFreshS": 5.6
@@ -8806,6 +11584,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.8,
+      "sdk": 7.5,
+      "basemap": 14.9,
+      "data": 20.5
+     },
+     "mainCause": "data",
      "extraS": 44.6,
      "extraFirstS": 17.9,
      "extraFreshS": 45.9
@@ -8835,6 +11620,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.1,
+      "sdk": 5.3,
+      "basemap": 5.7,
+      "data": 16.9
+     },
+     "mainCause": "app",
      "extraS": 25.2,
      "extraFirstS": 15.9,
      "extraFreshS": 27.8
@@ -8858,6 +11650,19 @@
    "mbZoom": 4.5,
    "heapMB": 56.3,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.7,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 142,
+    "basemap": 63,
+    "data": 61
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 1,
    "errorHosts": [],
@@ -8887,6 +11692,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.6,
+      "sdk": 3.4,
+      "basemap": 3.9,
+      "data": 2
+     },
+     "mainCause": "app",
      "extraS": 5.2,
      "extraFirstS": 0.6,
      "extraFreshS": 6.1
@@ -8916,6 +11728,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.1,
+      "sdk": 13.7,
+      "basemap": 16.7,
+      "data": 6.7
+     },
+     "mainCause": "app",
      "extraS": 44.5,
      "extraFirstS": -4,
      "extraFreshS": 46.5
@@ -8945,6 +11764,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.2,
+      "sdk": 11,
+      "basemap": 8.4,
+      "data": 7.5
+     },
+     "mainCause": "app",
      "extraS": 23.6,
      "extraFirstS": 0.6,
      "extraFreshS": 24.8
@@ -8968,6 +11794,19 @@
    "mbZoom": 0.9,
    "heapMB": 57.2,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.4,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 923,
+    "sdk": 148,
+    "basemap": 60,
+    "data": 70
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 22,
    "errorHosts": [],
@@ -8997,6 +11836,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.9,
+      "sdk": 3.3,
+      "basemap": 1.8,
+      "data": 2.1
+     },
+     "mainCause": "app",
      "extraS": 3.2,
      "extraFirstS": -3,
      "extraFreshS": 4.3
@@ -9026,6 +11872,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 28,
+      "sdk": 10.8,
+      "basemap": 14.9,
+      "data": 1.4
+     },
+     "mainCause": "app",
      "extraS": 44.2,
      "extraFirstS": -5,
      "extraFreshS": 45.3
@@ -9055,6 +11908,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.2,
+      "sdk": 12.1,
+      "basemap": 5.4,
+      "data": 6.9
+     },
+     "mainCause": "app",
      "extraS": 17.7,
      "extraFirstS": -6,
      "extraFreshS": 20.7
@@ -9078,6 +11938,19 @@
    "mbZoom": 2.4,
    "heapMB": 55.9,
    "hosts": 11,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.3,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 907,
+    "sdk": 132,
+    "basemap": 34,
+    "data": 105
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -9107,6 +11980,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4,
+      "sdk": 1.6,
+      "basemap": 4.9,
+      "data": 1
+     },
+     "mainCause": "basemap",
      "extraS": 4,
      "extraFirstS": -1,
      "extraFreshS": 4.8
@@ -9136,6 +12016,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.4,
+      "sdk": 8.1,
+      "basemap": 29.8,
+      "data": 6
+     },
+     "mainCause": "basemap",
      "extraS": 43.6,
      "extraFirstS": -1.7,
      "extraFreshS": 44.5
@@ -9165,6 +12052,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 15.5,
+      "sdk": 4.9,
+      "basemap": 11.9,
+      "data": 5
+     },
+     "mainCause": "app",
      "extraS": 18.4,
      "extraFirstS": -1.6,
      "extraFreshS": 21.1
@@ -9188,6 +12082,19 @@
    "mbZoom": 2.1,
    "heapMB": 56.3,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 2,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 925,
+    "sdk": 116,
+    "basemap": 78,
+    "data": 39
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 6,
    "errorHosts": [],
@@ -9217,6 +12124,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.2,
+      "sdk": 2,
+      "basemap": 3.8,
+      "data": 1.1
+     },
+     "mainCause": "app",
      "extraS": 5.5,
      "extraFirstS": 2.1,
      "extraFreshS": 5.8
@@ -9246,6 +12160,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.8,
+      "sdk": 7.7,
+      "basemap": 28.7,
+      "data": 2.2
+     },
+     "mainCause": "basemap",
      "extraS": 42.7,
      "extraFirstS": 14.7,
      "extraFreshS": 42.8
@@ -9275,6 +12196,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.1,
+      "sdk": 6.1,
+      "basemap": 8.7,
+      "data": 2.9
+     },
+     "mainCause": "app",
      "extraS": 18.1,
      "extraFirstS": 18.2,
      "extraFreshS": 20.1
@@ -9298,6 +12226,19 @@
    "mbZoom": 1.9,
    "heapMB": 57.9,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.8,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 916,
+    "sdk": 158,
+    "basemap": 27,
+    "data": 78
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -9327,6 +12268,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 3.8,
+      "sdk": 3.3,
+      "basemap": 2.6,
+      "data": 1
+     },
+     "mainCause": "app",
      "extraS": 5.5,
      "extraFirstS": -0.5,
      "extraFreshS": 6.3
@@ -9356,6 +12304,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.2,
+      "sdk": 16.1,
+      "basemap": 19.7,
+      "data": 2.9
+     },
+     "mainCause": "app",
      "extraS": 41.8,
      "extraFirstS": -4.8,
      "extraFreshS": 42.7
@@ -9385,6 +12340,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 16.1,
+      "sdk": 15.3,
+      "basemap": 8.1,
+      "data": 9.1
+     },
+     "mainCause": "app",
      "extraS": 29.9,
      "extraFirstS": 14.6,
      "extraFreshS": 32.4
@@ -9408,6 +12370,19 @@
    "mbZoom": 3.1,
    "heapMB": 54.1,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.7,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 915,
+    "sdk": 99,
+    "basemap": 66,
+    "data": 35
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 6,
    "errorHosts": [],
@@ -9437,6 +12412,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.6,
+      "sdk": 2.3,
+      "basemap": 6.8,
+      "data": 1.4
+     },
+     "mainCause": "basemap",
      "extraS": 6.2,
      "extraFirstS": 3,
      "extraFreshS": 7.4
@@ -9466,6 +12448,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.3,
+      "sdk": 8.6,
+      "basemap": 26.7,
+      "data": 4.5
+     },
+     "mainCause": "basemap",
      "extraS": 41.6,
      "extraFirstS": 16,
      "extraFreshS": 42.4
@@ -9495,6 +12484,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.4,
+      "sdk": 5.8,
+      "basemap": 15.7,
+      "data": 7.2
+     },
+     "mainCause": "app",
      "extraS": 21.9,
      "extraFirstS": 8.2,
      "extraFreshS": 23
@@ -9518,6 +12514,19 @@
    "mbZoom": 3.7,
    "heapMB": 53.7,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.8,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 914,
+    "sdk": 139,
+    "basemap": 26,
+    "data": 49
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -9547,6 +12556,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.1,
+      "sdk": 2.6,
+      "basemap": 2.5,
+      "data": 1.1
+     },
+     "mainCause": "app",
      "extraS": 6.1,
      "extraFirstS": -0.8,
      "extraFreshS": 6.4
@@ -9576,6 +12592,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.3,
+      "sdk": 17.4,
+      "basemap": 16.7,
+      "data": 2.2
+     },
+     "mainCause": "app",
      "extraS": 41,
      "extraFirstS": -6.5,
      "extraFreshS": 42.8
@@ -9605,6 +12628,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.2,
+      "sdk": 12.9,
+      "basemap": 3.6,
+      "data": 6.2
+     },
+     "mainCause": "app",
      "extraS": 22.8,
      "extraFirstS": 5.4,
      "extraFreshS": 23.4
@@ -9628,6 +12658,19 @@
    "mbZoom": 3.4,
    "heapMB": 57.3,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 0.9,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 95,
+    "basemap": 72,
+    "data": 32
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 21,
    "errorHosts": [],
@@ -9657,6 +12700,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 6.3,
+      "sdk": 2,
+      "basemap": 5.9,
+      "data": 0.5
+     },
+     "mainCause": "app",
      "extraS": 4.1,
      "extraFirstS": -1.7,
      "extraFreshS": 4.5
@@ -9686,6 +12736,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 28.4,
+      "sdk": 0,
+      "basemap": 28.4,
+      "data": 0
+     },
+     "mainCause": "app",
      "extraS": 41,
      "extraFirstS": -9.7,
      "extraFreshS": 43.3
@@ -9715,6 +12772,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.5,
+      "sdk": 5.1,
+      "basemap": 12.8,
+      "data": 3.6
+     },
+     "mainCause": "app",
      "extraS": 16.9,
      "extraFirstS": -1.8,
      "extraFreshS": 20.4
@@ -9738,6 +12802,19 @@
    "mbZoom": 3.1,
    "heapMB": 51.3,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.8,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 918,
+    "sdk": 133,
+    "basemap": 128,
+    "data": 111
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -9767,6 +12844,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.5,
+      "sdk": 2,
+      "basemap": 3,
+      "data": 1.8
+     },
+     "mainCause": "app",
      "extraS": 5.4,
      "extraFirstS": 2.2,
      "extraFreshS": 5.7
@@ -9796,6 +12880,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.7,
+      "sdk": 8.8,
+      "basemap": 24.1,
+      "data": 5
+     },
+     "mainCause": "basemap",
      "extraS": 38.8,
      "extraFirstS": 14,
      "extraFreshS": 38.9
@@ -9825,6 +12916,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.9,
+      "sdk": 5.6,
+      "basemap": 5.2,
+      "data": 6.8
+     },
+     "mainCause": "app",
      "extraS": 16.3,
      "extraFirstS": 4.4,
      "extraFreshS": 17.5
@@ -9848,6 +12946,19 @@
    "mbZoom": 2.7,
    "heapMB": 62.6,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 1.3,
+    "data": 0.5
+   },
+   "requestsBySource": {
+    "app": 916,
+    "sdk": 142,
+    "basemap": 36,
+    "data": 72
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -9877,6 +12988,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5.3,
+      "sdk": 2.4,
+      "basemap": 3,
+      "data": 3.3
+     },
+     "mainCause": "app",
      "extraS": 3,
      "extraFirstS": 1.1,
      "extraFreshS": 3.5
@@ -9906,6 +13024,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.7,
+      "sdk": 11.8,
+      "basemap": 12.7,
+      "data": 15.6
+     },
+     "mainCause": "app",
      "extraS": 36.9,
      "extraFirstS": 11.1,
      "extraFreshS": 36.4
@@ -9935,6 +13060,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18,
+      "sdk": 10,
+      "basemap": 2,
+      "data": 9.7
+     },
+     "mainCause": "app",
      "extraS": 16.4,
      "extraFirstS": 12.3,
      "extraFreshS": 17.5
@@ -9958,6 +13090,19 @@
    "mbZoom": 2.8,
    "heapMB": 55.4,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 1.6,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 140,
+    "basemap": 43,
+    "data": 70
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 4,
    "errorHosts": [],
@@ -9987,6 +13132,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 2.2,
+      "basemap": 2,
+      "data": 2.2
+     },
+     "mainCause": "app",
      "extraS": 3.9,
      "extraFirstS": 2.7,
      "extraFreshS": 4.3
@@ -10016,6 +13168,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.2,
+      "sdk": 12.3,
+      "basemap": 14.2,
+      "data": 6.3
+     },
+     "mainCause": "app",
      "extraS": 36.4,
      "extraFirstS": 9.2,
      "extraFreshS": 36.4
@@ -10045,6 +13204,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.9,
+      "sdk": 9.5,
+      "basemap": 2.2,
+      "data": 8.5
+     },
+     "mainCause": "app",
      "extraS": 18,
      "extraFirstS": 17.1,
      "extraFreshS": 18
@@ -10068,6 +13234,19 @@
    "mbZoom": 1.8,
    "heapMB": 54.5,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.3,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 136,
+    "basemap": 24,
+    "data": 40
+   },
+   "bigFiles": [],
    "failedRequests": 1,
    "cancelledRequests": 0,
    "errorHosts": [
@@ -10099,6 +13278,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5.7,
+      "sdk": 2.5,
+      "basemap": 1.8,
+      "data": 1.2
+     },
+     "mainCause": "app",
      "extraS": 3.3,
      "extraFirstS": 0.7,
      "extraFreshS": 3.7
@@ -10128,6 +13314,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.1,
+      "sdk": 16.8,
+      "basemap": 11.6,
+      "data": 4
+     },
+     "mainCause": "app",
      "extraS": 35.9,
      "extraFirstS": 8.4,
      "extraFreshS": 36.3
@@ -10157,6 +13350,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.7,
+      "sdk": 10.3,
+      "basemap": 4.7,
+      "data": 6.6
+     },
+     "mainCause": "app",
      "extraS": 16.7,
      "extraFirstS": 5.2,
      "extraFreshS": 18.7
@@ -10180,6 +13380,19 @@
    "mbZoom": 2.5,
    "heapMB": 56.1,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1.1,
+    "basemap": 0.5,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 127,
+    "basemap": 28,
+    "data": 42
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -10209,6 +13422,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.4,
+      "sdk": 2.8,
+      "basemap": 2.3,
+      "data": 0.8
+     },
+     "mainCause": "app",
      "extraS": 2.6,
      "extraFirstS": -3.2,
      "extraFreshS": 3.1
@@ -10238,6 +13458,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23,
+      "sdk": 17.3,
+      "basemap": 13.2,
+      "data": 2.1
+     },
+     "mainCause": "app",
      "extraS": 35.4,
      "extraFirstS": -13,
      "extraFreshS": 35.9
@@ -10267,6 +13494,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.7,
+      "sdk": 10.2,
+      "basemap": 10.2,
+      "data": 3.8
+     },
+     "mainCause": "app",
      "extraS": 21.8,
      "extraFirstS": 3.2,
      "extraFreshS": 21.6
@@ -10290,6 +13524,19 @@
    "mbZoom": 1.8,
    "heapMB": 53.1,
    "hosts": 13,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.3,
+    "data": 0.5
+   },
+   "requestsBySource": {
+    "app": 903,
+    "sdk": 131,
+    "basemap": 35,
+    "data": 89
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -10319,6 +13566,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.6,
+      "sdk": 1.7,
+      "basemap": 2.9,
+      "data": 2.5
+     },
+     "mainCause": "app",
      "extraS": 2.7,
      "extraFirstS": 0.2,
      "extraFreshS": 3.5
@@ -10348,6 +13602,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.6,
+      "sdk": 8.2,
+      "basemap": 13.8,
+      "data": 11
+     },
+     "mainCause": "app",
      "extraS": 35.1,
      "extraFirstS": 3.9,
      "extraFreshS": 36.2
@@ -10377,6 +13638,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.7,
+      "sdk": 6.3,
+      "basemap": 5.5,
+      "data": 10.9
+     },
+     "mainCause": "app",
      "extraS": 16.7,
      "extraFirstS": 1.2,
      "extraFreshS": 17.8
@@ -10400,6 +13668,19 @@
    "mbZoom": 2.8,
    "heapMB": 163.7,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 104,
+    "basemap": 31,
+    "data": 31
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -10429,6 +13710,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5.1,
+      "sdk": 3.3,
+      "basemap": 1.8,
+      "data": 1.9
+     },
+     "mainCause": "app",
      "extraS": 2.6,
      "extraFirstS": 0.7,
      "extraFreshS": 3.7
@@ -10458,6 +13746,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23,
+      "sdk": 12.5,
+      "basemap": 7.1,
+      "data": 9.5
+     },
+     "mainCause": "app",
      "extraS": 34.9,
      "extraFirstS": 4.6,
      "extraFreshS": 36.7
@@ -10487,6 +13782,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.8,
+      "sdk": 13,
+      "basemap": 3.4,
+      "data": 5.5
+     },
+     "mainCause": "app",
      "extraS": 17.6,
      "extraFirstS": 4.8,
      "extraFreshS": 20.1
@@ -10510,6 +13812,19 @@
    "mbZoom": 2.5,
    "heapMB": 49.1,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.1,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 125,
+    "basemap": 44,
+    "data": 56
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -10539,6 +13854,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.4,
+      "sdk": 2.3,
+      "basemap": 1.8,
+      "data": 1.6
+     },
+     "mainCause": "app",
      "extraS": 4.7,
      "extraFirstS": 1.5,
      "extraFreshS": 5.3
@@ -10568,6 +13890,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.1,
+      "sdk": 15.7,
+      "basemap": 11.3,
+      "data": 5
+     },
+     "mainCause": "app",
      "extraS": 34.8,
      "extraFirstS": 1.6,
      "extraFreshS": 35.6
@@ -10597,6 +13926,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19,
+      "sdk": 8.9,
+      "basemap": 5.4,
+      "data": 7.9
+     },
+     "mainCause": "app",
      "extraS": 22.1,
      "extraFirstS": 13.1,
      "extraFreshS": 23
@@ -10620,6 +13956,19 @@
    "mbZoom": 3.2,
    "heapMB": 57.3,
    "hosts": 16,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 0.7,
+    "basemap": 0.5,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 131,
+    "basemap": 49,
+    "data": 76
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 10,
    "errorHosts": [],
@@ -10649,6 +13998,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 1.8,
+      "basemap": 2.3,
+      "data": 2.4
+     },
+     "mainCause": "app",
      "extraS": 1.9,
      "extraFirstS": -3.1,
      "extraFreshS": 2.8
@@ -10678,6 +14034,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 24.3,
+      "sdk": 8.1,
+      "basemap": 13.5,
+      "data": 8.7
+     },
+     "mainCause": "app",
      "extraS": 33.8,
      "extraFirstS": -12.7,
      "extraFreshS": 34.4
@@ -10707,6 +14070,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.9,
+      "sdk": 4.9,
+      "basemap": 3.4,
+      "data": 7.4
+     },
+     "mainCause": "app",
      "extraS": 12.3,
      "extraFirstS": -3.9,
      "extraFreshS": 15.3
@@ -10730,6 +14100,19 @@
    "mbZoom": 2,
    "heapMB": 52.7,
    "hosts": 10,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 1.3,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 926,
+    "sdk": 136,
+    "basemap": 24,
+    "data": 42
+   },
+   "bigFiles": [],
    "failedRequests": 1,
    "cancelledRequests": 0,
    "errorHosts": [
@@ -10761,6 +14144,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5.1,
+      "sdk": 2.7,
+      "basemap": 1.8,
+      "data": 1.5
+     },
+     "mainCause": "app",
      "extraS": 2.8,
      "extraFirstS": 1,
      "extraFreshS": 3.5
@@ -10790,6 +14180,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.7,
+      "sdk": 16.2,
+      "basemap": 10.6,
+      "data": 3.3
+     },
+     "mainCause": "app",
      "extraS": 33.7,
      "extraFirstS": 7.5,
      "extraFreshS": 35.1
@@ -10819,6 +14216,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.5,
+      "sdk": 9.8,
+      "basemap": 3.2,
+      "data": 5.2
+     },
+     "mainCause": "app",
      "extraS": 14.9,
      "extraFirstS": 7.7,
      "extraFreshS": 17.4
@@ -10842,6 +14246,19 @@
    "mbZoom": 3,
    "heapMB": 51.8,
    "hosts": 11,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.5,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 903,
+    "sdk": 98,
+    "basemap": 41,
+    "data": 37
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -10871,6 +14288,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 1.8,
+      "basemap": 2.4,
+      "data": 1.5
+     },
+     "mainCause": "app",
      "extraS": 4.7,
      "extraFirstS": 1.8,
      "extraFreshS": 5.2
@@ -10900,6 +14324,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.2,
+      "sdk": 7.2,
+      "basemap": 15.9,
+      "data": 3.3
+     },
+     "mainCause": "app",
      "extraS": 32.3,
      "extraFirstS": 4.2,
      "extraFreshS": 33.1
@@ -10929,6 +14360,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.8,
+      "sdk": 7.1,
+      "basemap": 4.8,
+      "data": 5.2
+     },
+     "mainCause": "app",
      "extraS": 17.5,
      "extraFirstS": 8.6,
      "extraFreshS": 18
@@ -10952,6 +14390,19 @@
    "mbZoom": 6.3,
    "heapMB": 60.1,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4.1,
+    "sdk": 1,
+    "basemap": 0.9,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 927,
+    "sdk": 142,
+    "basemap": 33,
+    "data": 114
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 17,
    "errorHosts": [],
@@ -10981,6 +14432,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 3.7,
+      "sdk": 2.8,
+      "basemap": 0.6,
+      "data": 2.1
+     },
+     "mainCause": "app",
      "extraS": 2.9,
      "extraFirstS": 0.7,
      "extraFreshS": 3.5
@@ -11010,6 +14468,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19,
+      "sdk": 15.8,
+      "basemap": 4.2,
+      "data": 10
+     },
+     "mainCause": "app",
      "extraS": 31.4,
      "extraFirstS": 2.5,
      "extraFreshS": 32
@@ -11039,6 +14504,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.6,
+      "sdk": 18.3,
+      "basemap": 2.2,
+      "data": 8.7
+     },
+     "mainCause": "app",
      "extraS": 26.2,
      "extraFirstS": 13,
      "extraFreshS": 28
@@ -11062,6 +14534,19 @@
    "mbZoom": 2.7,
    "heapMB": 59.8,
    "hosts": 15,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.8,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 926,
+    "sdk": 161,
+    "basemap": 32,
+    "data": 137
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11091,6 +14576,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 5.2,
+      "sdk": 2.6,
+      "basemap": 0.7,
+      "data": 2.2
+     },
+     "mainCause": "app",
      "extraS": 4.3,
      "extraFirstS": 0.4,
      "extraFreshS": 5.1
@@ -11120,6 +14612,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.4,
+      "sdk": 15.5,
+      "basemap": 2.9,
+      "data": 7.6
+     },
+     "mainCause": "app",
      "extraS": 30.9,
      "extraFirstS": -1.1,
      "extraFreshS": 32.3
@@ -11149,6 +14648,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.9,
+      "sdk": 9.2,
+      "basemap": 2.4,
+      "data": 7.4
+     },
+     "mainCause": "app",
      "extraS": 16.6,
      "extraFirstS": 4.9,
      "extraFreshS": 17.6
@@ -11172,6 +14678,19 @@
    "mbZoom": 2.9,
    "heapMB": 55.3,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.5,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 924,
+    "sdk": 114,
+    "basemap": 77,
+    "data": 48
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 10,
    "errorHosts": [],
@@ -11201,6 +14720,13 @@
      "rating": "Slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5,
+      "sdk": 1.5,
+      "basemap": 2.8,
+      "data": 1
+     },
+     "mainCause": "app",
      "extraS": 1.8,
      "extraFirstS": 0.8,
      "extraFreshS": 2.3
@@ -11230,6 +14756,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.8,
+      "sdk": 8,
+      "basemap": 15.2,
+      "data": 4.4
+     },
+     "mainCause": "app",
      "extraS": 30,
      "extraFirstS": 4.2,
      "extraFreshS": 30.5
@@ -11259,6 +14792,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20,
+      "sdk": 4.1,
+      "basemap": 8.4,
+      "data": 3.7
+     },
+     "mainCause": "app",
      "extraS": 12.3,
      "extraFirstS": 5.4,
      "extraFreshS": 13.9
@@ -11282,6 +14822,19 @@
    "mbZoom": 3.2,
    "heapMB": 49.7,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.8,
+    "sdk": 0.4,
+    "basemap": 1.5,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 872,
+    "sdk": 81,
+    "basemap": 116,
+    "data": 34
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11311,6 +14864,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.2,
+      "sdk": 0.1,
+      "basemap": 2.2,
+      "data": 1.6
+     },
+     "mainCause": "app",
      "extraS": 2.5,
      "extraFirstS": -1.9,
      "extraFreshS": 2.8
@@ -11340,6 +14900,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.5,
+      "sdk": 2.9,
+      "basemap": 23.3,
+      "data": 4.7
+     },
+     "mainCause": "basemap",
      "extraS": 29.9,
      "extraFirstS": -5,
      "extraFreshS": 27.1
@@ -11369,6 +14936,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 17.2,
+      "sdk": 0.7,
+      "basemap": 8.3,
+      "data": 7.5
+     },
+     "mainCause": "app",
      "extraS": 12.2,
      "extraFirstS": -3.4,
      "extraFreshS": 12.4
@@ -11392,6 +14966,19 @@
    "mbZoom": 2.6,
    "heapMB": 55.8,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 1.3,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 916,
+    "sdk": 142,
+    "basemap": 38,
+    "data": 62
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11421,6 +15008,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5.4,
+      "sdk": 2.1,
+      "basemap": 1.7,
+      "data": 2
+     },
+     "mainCause": "app",
      "extraS": 3,
      "extraFirstS": 0.3,
      "extraFreshS": 3.4
@@ -11450,6 +15044,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.5,
+      "sdk": 11.5,
+      "basemap": 9.6,
+      "data": 3.9
+     },
+     "mainCause": "app",
      "extraS": 29.1,
      "extraFirstS": 1.4,
      "extraFreshS": 29.6
@@ -11479,6 +15080,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.4,
+      "sdk": 6.7,
+      "basemap": 3.5,
+      "data": 5.6
+     },
+     "mainCause": "app",
      "extraS": 14.3,
      "extraFirstS": 8.1,
      "extraFreshS": 14.8
@@ -11502,6 +15110,19 @@
    "mbZoom": 2.9,
    "heapMB": 62.2,
    "hosts": 11,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 1,
+    "basemap": 0.8,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 141,
+    "basemap": 38,
+    "data": 50
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11531,6 +15152,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 3.8,
+      "sdk": 2,
+      "basemap": 0.5,
+      "data": 1.3
+     },
+     "mainCause": "app",
      "extraS": 2,
      "extraFirstS": -0.3,
      "extraFreshS": 3.4
@@ -11560,6 +15188,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.8,
+      "sdk": 15.4,
+      "basemap": 2.8,
+      "data": 5
+     },
+     "mainCause": "app",
      "extraS": 28.1,
      "extraFirstS": -3.7,
      "extraFreshS": 29.1
@@ -11589,6 +15224,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.2,
+      "sdk": 12.5,
+      "basemap": 1.8,
+      "data": 5.9
+     },
+     "mainCause": "app",
      "extraS": 18.3,
      "extraFirstS": 5,
      "extraFreshS": 18.9
@@ -11612,6 +15254,19 @@
    "mbZoom": 2.9,
    "heapMB": 50.1,
    "hosts": 10,
+   "mbBySource": {
+    "app": 3.8,
+    "sdk": 0.4,
+    "basemap": 1.3,
+    "data": 0.6
+   },
+   "requestsBySource": {
+    "app": 870,
+    "sdk": 78,
+    "basemap": 37,
+    "data": 86
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 10,
    "errorHosts": [],
@@ -11641,6 +15296,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.6,
+      "sdk": 0.3,
+      "basemap": 2.1,
+      "data": 3.6
+     },
+     "mainCause": "app",
      "extraS": 1.3,
      "extraFirstS": -0.7,
      "extraFreshS": 2
@@ -11670,6 +15332,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.9,
+      "sdk": 0.7,
+      "basemap": 12.6,
+      "data": 16.5
+     },
+     "mainCause": "app",
      "extraS": 27.4,
      "extraFirstS": -3.8,
      "extraFreshS": 28.1
@@ -11699,6 +15368,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 17.6,
+      "sdk": 1.6,
+      "basemap": 4.2,
+      "data": 12.8
+     },
+     "mainCause": "app",
      "extraS": 12.9,
      "extraFirstS": -2,
      "extraFreshS": 14.8
@@ -11722,6 +15398,19 @@
    "mbZoom": 2.3,
    "heapMB": 54.6,
    "hosts": 12,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1.4,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 918,
+    "sdk": 132,
+    "basemap": 61,
+    "data": 108
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11751,6 +15440,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.4,
+      "sdk": 3.4,
+      "basemap": 1.4,
+      "data": 2.8
+     },
+     "mainCause": "app",
      "extraS": 4.2,
      "extraFirstS": 0.1,
      "extraFreshS": 3.3
@@ -11780,6 +15476,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.6,
+      "sdk": 8,
+      "basemap": 9.9,
+      "data": 6.1
+     },
+     "mainCause": "app",
      "extraS": 27,
      "extraFirstS": 1.5,
      "extraFreshS": 28.4
@@ -11809,6 +15512,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 16.8,
+      "sdk": 5.2,
+      "basemap": 2.4,
+      "data": 5.8
+     },
+     "mainCause": "app",
      "extraS": 11.5,
      "extraFirstS": 0.2,
      "extraFreshS": 12.8
@@ -11832,6 +15542,19 @@
    "mbZoom": 2.8,
    "heapMB": 52.5,
    "hosts": 13,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.8,
+    "basemap": 1.1,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 913,
+    "sdk": 135,
+    "basemap": 34,
+    "data": 65
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11861,6 +15584,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.8,
+      "sdk": 1.7,
+      "basemap": 1.4,
+      "data": 1.2
+     },
+     "mainCause": "app",
      "extraS": 2.2,
      "extraFirstS": -0.8,
      "extraFreshS": 2.8
@@ -11890,6 +15620,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 23.4,
+      "sdk": 10.9,
+      "basemap": 8.8,
+      "data": 3.7
+     },
+     "mainCause": "app",
      "extraS": 26.4,
      "extraFirstS": -6.3,
      "extraFreshS": 27.1
@@ -11919,6 +15656,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19.3,
+      "sdk": 8.3,
+      "basemap": 2.8,
+      "data": 5.6
+     },
+     "mainCause": "app",
      "extraS": 13.2,
      "extraFirstS": 2.9,
      "extraFreshS": 15.6
@@ -11942,6 +15686,19 @@
    "mbZoom": 2.5,
    "heapMB": 54.3,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 0.5,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 132,
+    "basemap": 28,
+    "data": 51
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -11971,6 +15728,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.6,
+      "sdk": 1.3,
+      "basemap": 2.1,
+      "data": 1.2
+     },
+     "mainCause": "app",
      "extraS": 1.9,
      "extraFirstS": -5.3,
      "extraFreshS": 2.3
@@ -12000,6 +15764,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.6,
+      "sdk": 8.4,
+      "basemap": 12.3,
+      "data": 2.8
+     },
+     "mainCause": "app",
      "extraS": 24.5,
      "extraFirstS": -26,
      "extraFreshS": 25.1
@@ -12029,6 +15800,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 18.3,
+      "sdk": 4.9,
+      "basemap": 9.5,
+      "data": 4.2
+     },
+     "mainCause": "app",
      "extraS": 13.1,
      "extraFirstS": -5.9,
      "extraFreshS": 13.8
@@ -12052,6 +15830,19 @@
    "mbZoom": 2.2,
    "heapMB": 52.7,
    "hosts": 14,
+   "mbBySource": {
+    "app": 4,
+    "sdk": 0.7,
+    "basemap": 1,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 916,
+    "sdk": 116,
+    "basemap": 34,
+    "data": 45
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12081,6 +15872,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.1,
+      "sdk": 1.4,
+      "basemap": 0.7,
+      "data": 1.6
+     },
+     "mainCause": "app",
      "extraS": 2.7,
      "extraFirstS": -0.6,
      "extraFreshS": 3.1
@@ -12110,6 +15908,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 22.4,
+      "sdk": 8,
+      "basemap": 2.8,
+      "data": 6.5
+     },
+     "mainCause": "app",
      "extraS": 23.3,
      "extraFirstS": -3.1,
      "extraFreshS": 24.2
@@ -12139,6 +15944,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.3,
+      "sdk": 10.1,
+      "basemap": 3.6,
+      "data": 8.7
+     },
+     "mainCause": "app",
      "extraS": 23.7,
      "extraFirstS": 20.7,
      "extraFreshS": 24.4
@@ -12162,6 +15974,19 @@
    "mbZoom": 1.8,
    "heapMB": 52.3,
    "hosts": 13,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.2,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 903,
+    "sdk": 99,
+    "basemap": 38,
+    "data": 37
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12191,6 +16016,13 @@
      "rating": "OK",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.5,
+      "sdk": 1.7,
+      "basemap": 2,
+      "data": 1
+     },
+     "mainCause": "app",
      "extraS": 0.6,
      "extraFirstS": -2.6,
      "extraFreshS": 0.7
@@ -12220,6 +16052,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.5,
+      "sdk": 8.5,
+      "basemap": 9.3,
+      "data": 1.4
+     },
+     "mainCause": "app",
      "extraS": 22.7,
      "extraFirstS": -9.2,
      "extraFreshS": 23.3
@@ -12249,6 +16088,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 18.2,
+      "sdk": 7.5,
+      "basemap": 3.5,
+      "data": 4.8
+     },
+     "mainCause": "app",
      "extraS": 11.4,
      "extraFirstS": -3.3,
      "extraFreshS": 12.4
@@ -12272,6 +16118,19 @@
    "mbZoom": 2.5,
    "heapMB": 53.8,
    "hosts": 10,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.1,
+    "data": 0.2
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 97,
+    "basemap": 31,
+    "data": 32
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12301,6 +16160,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4.9,
+      "sdk": 1.5,
+      "basemap": 0.7,
+      "data": 1.6
+     },
+     "mainCause": "app",
      "extraS": 2.2,
      "extraFirstS": -1.4,
      "extraFreshS": 2.5
@@ -12330,6 +16196,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.9,
+      "sdk": 8.2,
+      "basemap": 6.5,
+      "data": 4.4
+     },
+     "mainCause": "app",
      "extraS": 21.5,
      "extraFirstS": -7.9,
      "extraFreshS": 22.6
@@ -12359,6 +16232,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.3,
+      "sdk": 8.3,
+      "basemap": 0.6,
+      "data": 7
+     },
+     "mainCause": "app",
      "extraS": 15.4,
      "extraFirstS": 6.5,
      "extraFreshS": 16.7
@@ -12382,6 +16262,19 @@
    "mbZoom": 3.5,
    "heapMB": 51.3,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1.3,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 904,
+    "sdk": 97,
+    "basemap": 38,
+    "data": 36
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12411,6 +16304,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 5,
+      "sdk": 1,
+      "basemap": 0.8,
+      "data": 1.8
+     },
+     "mainCause": "app",
      "extraS": 1.3,
      "extraFirstS": -2.3,
      "extraFreshS": 2.1
@@ -12440,6 +16340,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.7,
+      "sdk": 7.5,
+      "basemap": 8.6,
+      "data": 1.6
+     },
+     "mainCause": "app",
      "extraS": 20.2,
      "extraFirstS": -5.8,
      "extraFreshS": 21.5
@@ -12469,6 +16376,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 18.4,
+      "sdk": 5.3,
+      "basemap": 2,
+      "data": 5.8
+     },
+     "mainCause": "app",
      "extraS": 10.6,
      "extraFirstS": 3.8,
      "extraFreshS": 12.2
@@ -12492,6 +16406,19 @@
    "mbZoom": 2.7,
    "heapMB": 53.5,
    "hosts": 14,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 0.8,
+    "data": 0.4
+   },
+   "requestsBySource": {
+    "app": 903,
+    "sdk": 98,
+    "basemap": 30,
+    "data": 37
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12521,6 +16448,13 @@
      "rating": "OK",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 4,
+      "sdk": 1.2,
+      "basemap": 0.5,
+      "data": 1.8
+     },
+     "mainCause": "app",
      "extraS": -0.1,
      "extraFirstS": -3,
      "extraFreshS": 0.9
@@ -12550,6 +16484,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 21.7,
+      "sdk": 7.9,
+      "basemap": 3.5,
+      "data": 8
+     },
+     "mainCause": "app",
      "extraS": 20.1,
      "extraFirstS": -12.6,
      "extraFreshS": 20.9
@@ -12579,6 +16520,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 19,
+      "sdk": 7.3,
+      "basemap": 1.1,
+      "data": 8.9
+     },
+     "mainCause": "app",
      "extraS": 13.1,
      "extraFirstS": -2.5,
      "extraFreshS": 14.7
@@ -12602,6 +16550,19 @@
    "mbZoom": 1.9,
    "heapMB": 48.6,
    "hosts": 10,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.7,
+    "basemap": 1,
+    "data": 0.1
+   },
+   "requestsBySource": {
+    "app": 903,
+    "sdk": 99,
+    "basemap": 34,
+    "data": 34
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12631,6 +16592,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 3.8,
+      "sdk": 1.6,
+      "basemap": 0.6,
+      "data": 1.1
+     },
+     "mainCause": "app",
      "extraS": 1.4,
      "extraFirstS": -2.4,
      "extraFreshS": 1.4
@@ -12660,6 +16628,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.7,
+      "sdk": 9.1,
+      "basemap": 2.8,
+      "data": 2.6
+     },
+     "mainCause": "app",
      "extraS": 17.8,
      "extraFirstS": -10.5,
      "extraFreshS": 17.7
@@ -12689,6 +16664,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.7,
+      "sdk": 11.4,
+      "basemap": 2.4,
+      "data": 7.3
+     },
+     "mainCause": "app",
      "extraS": 20,
      "extraFirstS": 11.9,
      "extraFreshS": 18.7
@@ -12712,6 +16694,19 @@
    "mbZoom": 2.8,
    "heapMB": 50.2,
    "hosts": 13,
+   "mbBySource": {
+    "app": 3.9,
+    "sdk": 0.4,
+    "basemap": 1,
+    "data": 0.3
+   },
+   "requestsBySource": {
+    "app": 892,
+    "sdk": 70,
+    "basemap": 31,
+    "data": 50
+   },
+   "bigFiles": [],
    "failedRequests": 0,
    "cancelledRequests": 0,
    "errorHosts": [],
@@ -12741,6 +16736,13 @@
      "rating": "Slow",
      "ratingFirst": "Slow",
      "ratingFresh": "OK",
+     "bySource": {
+      "app": 3.3,
+      "sdk": 0.2,
+      "basemap": 1.1,
+      "data": 3.1
+     },
+     "mainCause": "app",
      "extraS": 1.4,
      "extraFirstS": -2.8,
      "extraFreshS": 2
@@ -12770,6 +16772,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Very slow",
+     "bySource": {
+      "app": 20.4,
+      "sdk": 0.9,
+      "basemap": 7.5,
+      "data": 6
+     },
+     "mainCause": "app",
      "extraS": 16.8,
      "extraFirstS": -14.9,
      "extraFreshS": 18.2
@@ -12799,6 +16808,13 @@
      "rating": "Very slow",
      "ratingFirst": "Very slow",
      "ratingFresh": "Slow",
+     "bySource": {
+      "app": 17.5,
+      "sdk": 0.7,
+      "basemap": 6.1,
+      "data": 10.2
+     },
+     "mainCause": "app",
      "extraS": 11.3,
      "extraFirstS": -4,
      "extraFreshS": 12.8

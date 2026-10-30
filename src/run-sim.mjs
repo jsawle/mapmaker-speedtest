@@ -6,8 +6,11 @@ import fs from "fs";
 import path from "path";
 import zlib from "zlib";
 import { simulateClass, phasesFromTrace, summarise, cacheRule, SIMULATOR_VERSION } from "./simulate.mjs";
+import { categorise, CATEGORY_LABELS, CATEGORIES_VERSION } from "./categories.mjs";
+const APP_ID = "0cd1cdee853c413a84bfe4b9a6931f0d";
+const SOURCES = Object.keys(CATEGORY_LABELS);
 
-export const APP_VERSION = "0.2.0";
+export const APP_VERSION = "0.3.0";
 const CACHEABLE = new Set(["script", "stylesheet", "font", "image", "manifest"]);
 // a request the map itself cancelled (e.g. tiles no longer needed after a zoom) is normal, not a broken layer
 const isCancelled = (r) => r.failed && (!r.failure || /ABORTED|cancel/i.test(r.failure)) && !(r.status >= 400);
@@ -32,8 +35,10 @@ export function rating(p90) {
 }
 
 function simulateTrace(trace) {
-  const phases = phasesFromTrace(trace);
   const reqs = trace.requests;
+  reqs.forEach((r) => { r.cat = categorise(r, { appId: APP_ID, mapId: trace.id }); });
+  const phases = phasesFromTrace(trace);
+  const openReqs = reqs.filter((r) => r.phase === "open");
   const out = {
     id: trace.id, title: trace.title, numViews: trace.numViews ?? null, stage1Score: trace.stage1Score ?? null,
     recordedAt: trace.recordedAt, recorderVersion: trace.recorderVersion,
@@ -43,6 +48,10 @@ function simulateTrace(trace) {
     mbWarm: round(reqs.filter((r) => r.phase === "open" && !r.appShell).reduce((a, r) => a + r.bytes, 0) / 1e6),
     mbZoom: round(reqs.filter((r) => r.phase === "zoom").reduce((a, r) => a + r.bytes, 0) / 1e6),
     heapMB: trace.heapMB, hosts: [...new Set(reqs.map((r) => r.host))].length,
+    mbBySource: Object.fromEntries(SOURCES.map((c) => [c, round(openReqs.filter((r) => r.cat === c).reduce((a, r) => a + r.bytes, 0) / 1e6)])),
+    requestsBySource: Object.fromEntries(SOURCES.map((c) => [c, openReqs.filter((r) => r.cat === c).length])),
+    bigFiles: openReqs.filter((r) => r.cat === "data" && r.bytes > 1e6).sort((a, b) => b.bytes - a.bytes).slice(0, 3)
+      .map((r) => ({ host: r.host, path: r.path, mb: round(r.bytes / 1e6) })),
     failedRequests: reqs.filter(isError).length,
     cancelledRequests: reqs.filter(isCancelled).length,
     errorHosts: [...new Set(reqs.filter(isError).map((r) => r.host))],
@@ -57,9 +66,18 @@ function simulateTrace(trace) {
     const alone = simulateClass({ ...base, cacheOf: usualRule, students: 1, staggerS: 0 })[0];
     const pick = (s) => s && { median: round(s.median), p90: round(s.p90), slowest: round(s.slowest) };
     const u = summarise(usual, "readyS"), c = summarise(first, "readyS"), f = summarise(fresh, "readyS");
+    // How much sooner 9 in 10 students would be ready if one source cost nothing (usual lesson).
+    // Sources overlap in time, so these don't add up to the total.
+    const bySource = {};
+    for (const src of SOURCES) {
+      const without = summarise(simulateClass({ ...base, cacheOf: (r) => (r.cat === src ? "free" : usualRule(r)) }), "readyS");
+      bySource[src] = u && without ? round(Math.max(0, u.p90 - without.p90)) : null;
+    }
+    const mainCause = Object.entries(bySource).sort((a, b) => (b[1] ?? 0) - (a[1] ?? 0))[0]?.[0] ?? null;
     out.profiles[prof.id] = {
       usual: pick(u), first: pick(c), fresh: pick(f), zoom: pick(summarise(usual, "zoomS")), aloneS: round(alone.readyS),
       rating: rating(u?.p90), ratingFirst: rating(c?.p90), ratingFresh: rating(f?.p90),
+      bySource, mainCause,
     };
   }
   return out;
@@ -99,7 +117,8 @@ function main() {
   }
   const result = {
     generatedAt: new Date().toISOString(),
-    versions: { app: APP_VERSION, recorder: rows[0]?.recorderVersion ?? null, simulator: SIMULATOR_VERSION, profiles: cfg.profiles_version },
+    versions: { app: APP_VERSION, recorder: rows[0]?.recorderVersion ?? null, simulator: SIMULATOR_VERSION, profiles: cfg.profiles_version, sources: CATEGORIES_VERSION },
+    sourceLabels: CATEGORY_LABELS,
     settings: { students: cfg.students, start_stagger_s: cfg.start_stagger_s, threshold_s: cfg.threshold_s,
                 usual_lesson_days_since_last_use: cfg.usual_lesson_days_since_last_use,
                 same_lesson_minutes_since_last_use: cfg.same_lesson_minutes_since_last_use,
@@ -112,6 +131,7 @@ function main() {
   fs.writeFileSync("docs/results.json", JSON.stringify(result));
 
   const cols = ["id", "title", "numViews", "stage1Score", "requests", "mbCold", "mbWarm", "mbZoom", "heapMB", "failedRequests", "cancelledRequests", "openTimedOut", "zoomOk", "error"];
+  const srcCols = SOURCES.map((src) => [`mb_${src}`, (r) => r.mbBySource?.[src]]);
   const pcols = [];
   for (const p of cfg.profiles) pcols.push(
     [`${p.id}_rating`, (r) => r.profiles[p.id]?.rating],
@@ -119,8 +139,11 @@ function main() {
     [`${p.id}_usual_slowest_s`, (r) => r.profiles[p.id]?.usual?.slowest],
     [`${p.id}_first_time_p90_s`, (r) => r.profiles[p.id]?.first?.p90], [`${p.id}_same_lesson_p90_s`, (r) => r.profiles[p.id]?.fresh?.p90],
     [`${p.id}_extra_over_mapmaker_s`, (r) => r.profiles[p.id]?.extraS],
+    [`${p.id}_main_cause`, (r) => CATEGORY_LABELS[r.profiles[p.id]?.mainCause] ?? ""],
+    ...SOURCES.map((src) => [`${p.id}_saving_if_no_${src}_s`, (r) => r.profiles[p.id]?.bySource?.[src]]),
     [`${p.id}_zoom_p90_s`, (r) => r.profiles[p.id]?.zoom?.p90], [`${p.id}_one_student_s`, (r) => r.profiles[p.id]?.aloneS]);
   const esc = (v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
+  pcols.unshift(...srcCols);
   const csv = [cols.concat(pcols.map((c) => c[0])).join(",")]
     .concat((baseline ? [{ ...baseline, id: "_baseline" }, ...rows] : rows).map((r) => cols.map((c) => esc(r[c])).concat(pcols.map(([, f]) => esc(f(r)))).join(",")));
   fs.writeFileSync("results/results.csv", csv.join("\n") + "\n");
