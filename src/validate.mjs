@@ -35,6 +35,7 @@ async function main() {
   const browser = await chromium.launch({ args: ["--ignore-gpu-blocklist", "--enable-unsafe-swiftshader"] });
   const base = await recordOne(browser, {}, new Set(), { skipZoom: true });
   const appShell = new Set(base.fullUrls.filter((u) => CACHEABLE_TYPES.has(u.type)).map((u) => u.url));
+  appShell.all = new Set(base.fullUrls.map((u) => u.url));
 
   const rows = [];
   for (const m of list) {

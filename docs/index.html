@@ -59,13 +59,14 @@ td.num { font-variant-numeric: tabular-nums; }
 <a class="skip" href="#results">Skip to results</a>
 <main>
   <h1>MapMaker classroom speed test</h1>
-  <p class="lede">How long each map takes to be ready when a whole class of students opens it at once over one shared classroom connection. A map is rated <strong>OK</strong> when 9 in 10 students have it ready within the time limit.</p>
+  <p class="lede">How long each map takes to be ready when a whole class of students opens it at once over one shared classroom connection. A map is rated <strong>OK</strong> when 9 in 10 students have it ready within the time limit. <strong>Extra over MapMaker</strong> is how much longer the map takes than MapMaker's own default map, which is the fairest way to compare maps.</p>
 
   <div class="controls" role="group" aria-label="Choose what to show">
     <label>Classroom connection <select id="profile"></select></label>
     <label>Lesson <select id="cache">
-      <option value="warm">Usual lesson (MapMaker used before on this device)</option>
-      <option value="cold">First time MapMaker is opened on the device</option>
+      <option value="usual">Usual lesson (MapMaker used on this device last week)</option>
+      <option value="first">First time MapMaker is opened on the device</option>
+      <option value="fresh">Second map in the same lesson</option>
     </select></label>
     <label>Find a map <input id="q" type="search" placeholder="Map name"></label>
   </div>
@@ -87,24 +88,26 @@ const SYM = { "OK": "✓", "Slow": "!", "Very slow": "!!", "Did not finish": "�
 const cls = (r) => "r-" + String(r).replace(/ /g, "-");
 const fmt = (x) => (x == null ? "—" : String(x));
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
-let data = null, sortKey = "p90", sortDir = -1;
+let data = null, sortKey = "extra", sortDir = -1;
 const pref = (k, v) => { try { if (v === undefined) return localStorage.getItem("mmspeed." + k); localStorage.setItem("mmspeed." + k, v); } catch { return null; } };
 
 const columns = [
   { key: "title", label: "Map", l: true, get: (m) => m.title },
   { key: "rating", label: "Rating", l: true, get: (m, p) => RATINGS.indexOf(rate(m, p)) },
+  { key: "extra", label: "Extra over MapMaker (s)", get: (m, p) => ({ usual: m.profiles?.[p]?.extraS, first: m.profiles?.[p]?.extraFirstS, fresh: m.profiles?.[p]?.extraFreshS }[cache()]) ?? null },
   { key: "p90", label: "9 in 10 students ready (s)", get: (m, p) => sv(m, p, "p90") },
   { key: "slowest", label: "Slowest student (s)", get: (m, p) => sv(m, p, "slowest") },
   { key: "median", label: "Typical student (s)", get: (m, p) => sv(m, p, "median") },
   { key: "zoom", label: "Zoom in, 9 in 10 (s)", get: (m, p) => m.profiles?.[p]?.zoom?.p90 },
-  { key: "mb", label: "Data per student (MB)", get: (m) => (cache() === "warm" ? m.mbWarm : m.mbCold) },
+  { key: "mb", label: "Data per student, first time (MB)", get: (m) => m.mbCold },
   { key: "requests", label: "Requests", get: (m) => m.requests },
   { key: "heap", label: "Memory (MB)", get: (m) => m.heapMB },
   { key: "views", label: "Views", get: (m) => m.numViews },
 ];
 const cache = () => document.getElementById("cache").value;
 const sv = (m, p, k) => m.profiles?.[p]?.[cache()]?.[k] ?? null;
-const rate = (m, p) => (cache() === "warm" ? m.profiles?.[p]?.rating : m.profiles?.[p]?.ratingFirstLesson) || "Did not finish";
+const rate = (m, p) => ({ usual: m.profiles?.[p]?.rating, first: m.profiles?.[p]?.ratingFirst, fresh: m.profiles?.[p]?.ratingFresh }[cache()]) || "Did not finish";
+const LESSON = { usual: "usual lesson", first: "first time on the device", fresh: "second map in the same lesson" };
 
 function render() {
   const p = document.getElementById("profile").value, q = document.getElementById("q").value.trim().toLowerCase();
@@ -119,12 +122,13 @@ function render() {
   document.getElementById("counts").innerHTML = RATINGS.slice().reverse().filter((r) => counts[r])
     .map((r) => `<li class="${cls(r)}">${SYM[r]} ${r}: ${counts[r]}</li>`).join("");
   const prof = data.settings.profiles.find((x) => x.id === p);
+  const ref = data.baseline?.profiles?.[p] ? { p90: data.baseline.profiles[p][cache()]?.p90, rating: rate(data.baseline, p) } : null;
   const head = columns.map((c) => `<th scope="col" class="${c.l ? "l" : ""}" aria-sort="${c.key === sortKey ? (sortDir > 0 ? "ascending" : "descending") : "none"}"><button type="button" data-k="${c.key}">${c.label}</button></th>`).join("");
   const body = rows.map((m) => {
     const flags = [];
     if (m.error) flags.push("Could not load: " + esc(m.error));
     if (m.openTimedOut) flags.push("Still loading after 2 minutes when recorded");
-    if (m.failedRequests) flags.push(m.failedRequests + " failed request(s) — a layer may be broken");
+    if (m.failedRequests) flags.push(m.failedRequests + " request(s) returned an error" + (m.errorHosts?.length ? " (" + m.errorHosts.map(esc).join(", ") + ")" : "") + " — a layer may be broken");
     if (m.zoomOk === false && !m.error) flags.push("Zoom test did not run");
     const r = rate(m, p);
     return `<tr><th scope="row" class="l"><a href="${APP}${esc(m.id)}" target="_blank" rel="noopener">${esc(m.title)}</a>${flags.map((f) => `<span class="flag">${f}</span>`).join("")}</th>
@@ -132,7 +136,7 @@ function render() {
       ${columns.slice(2).map((c) => `<td class="num">${fmt(c.get(m, p))}</td>`).join("")}</tr>`;
   }).join("");
   document.getElementById("results").innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="Results table"><table>
-    <caption>${rows.length} maps · ${esc(prof.label)} (${prof.capacity_mbps} Mbps shared by ${data.settings.students} students) · ${cache() === "warm" ? "usual lesson" : "first time on the device"} · OK = 9 in 10 ready within ${data.settings.threshold_s} s</caption>
+    <caption>${rows.length} maps · ${esc(prof.label)} (${prof.capacity_mbps} Mbps shared by ${data.settings.students} students) · ${LESSON[cache()]} · OK = 9 in 10 ready within ${data.settings.threshold_s} s${ref ? ` · <strong>MapMaker on its own: 9 in 10 ready in ${fmt(ref.p90)} s (${ref.rating})</strong>` : ""}</caption>
     <thead><tr>${head}</tr></thead><tbody>${body}</tbody></table></div>`;
   document.querySelectorAll("th button").forEach((b) => b.addEventListener("click", () => {
     const k = b.dataset.k; sortDir = k === sortKey ? -sortDir : (k === "title" ? 1 : -1); sortKey = k; render();
@@ -148,7 +152,8 @@ function renderAbout(validation) {
   <table tabindex="0"><caption>Versions</caption><tbody>${vrow("Speed test", v.app)}${vrow("Recorder", v.recorder)}${vrow("Classroom simulator", v.simulator)}${vrow("Classroom profiles", v.profiles)}${validation ? vrow("Simulator check", validation.validatorVersion) : ""}</tbody></table>
   <table tabindex="0"><caption>Classroom connections (assumptions until measured in a real classroom)</caption><thead><tr><th scope="col">Profile</th><th scope="col">Shared speed</th><th scope="col">Round trip</th><th scope="col">Jitter</th><th scope="col">Packet loss</th></tr></thead><tbody>
   ${s.profiles.map((p) => `<tr><th scope="row">${esc(p.label)}</th><td>${p.capacity_mbps} Mbps</td><td>${p.rtt_ms} ms</td><td>${p.jitter_ms} ms</td><td>${p.loss_pct}%</td></tr>`).join("")}</tbody></table>`;
-  if (data.baseline) html += `<p>Opening MapMaker itself (default map, nothing cached): ${data.baseline.mb} MB in ${data.baseline.requests} requests.</p>`;
+  if (data.baseline) html += `<p>Opening MapMaker itself (default map, nothing cached): ${fmt(data.baseline.mbCold)} MB in ${fmt(data.baseline.requests)} requests, of which ${fmt(data.baseline.appFiles)} are MapMaker's own files (${fmt(data.baseline.appFilesMB)} MB)${data.baseline.appCacheControl ? `, cached for <code>${data.baseline.appCacheControl.map(esc).join("</code>, <code>")}</code>` : ""}.</p>
+  <p>A <strong>usual lesson</strong> assumes MapMaker was last opened on the device ${fmt(s.usual_lesson_days_since_last_use)} days ago: files the browser may keep that long are reused, others are re-checked or downloaded again, following each file's own cache settings. The map's own data is always downloaded.</p>`;
   if (validation?.rows?.length) {
     html += `<table tabindex="0"><caption>Simulator check: one student, real throttled browser vs prediction</caption><thead><tr><th scope="col">Map</th><th scope="col">Line</th><th scope="col">Real (s)</th><th scope="col">Predicted (s)</th><th scope="col">Predicted ÷ real</th></tr></thead><tbody>
     ${validation.rows.map((r) => `<tr><th scope="row">${esc(r.title)}</th><td>${r.mbps} Mbps, ${r.rtt_ms} ms</td><td>${fmt(r.real_s)}${r.real_timed_out ? " (timed out)" : ""}</td><td>${fmt(r.predicted_s)}</td><td>${fmt(r.ratio)}</td></tr>`).join("")}</tbody></table>`;

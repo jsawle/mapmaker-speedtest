@@ -1,9 +1,11 @@
 {
-  "profiles_version": "0.1.0",
+  "profiles_version": "0.2.0",
   "note": "Classroom line profiles. All numbers are ASSUMPTIONS until calibrated against a real classroom. capacity_mbps is the usable throughput the whole class shares (the tighter of the classroom access point and the class's share of the school's internet link). rtt_ms is round-trip time to the servers; jitter_ms is extra random delay per request; loss_pct is packet loss.",
   "students": 30,
   "start_stagger_s": 5,
   "think_before_zoom_s": 2,
+  "usual_lesson_days_since_last_use": 7,
+  "same_lesson_minutes_since_last_use": 10,
   "threshold_s": 10,
   "threshold_percentile": 90,
   "profiles": [

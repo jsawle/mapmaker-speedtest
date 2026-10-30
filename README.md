@@ -4,10 +4,10 @@ Finds MapMaker maps that will be slow when a whole class opens them at once over
 
 | Component | Version | What it does |
 |---|---|---|
-| Speed test (app) | 0.1.0 | The whole package |
-| Recorder | 0.1.0 | Opens each map in the real MapMaker app and records every download |
-| Classroom simulator | 0.1.0 | Plays a recording out for 30 students sharing one connection |
-| Classroom profiles | 0.1.0 | The connection settings in `config/profiles.json` |
+| Speed test (app) | 0.2.0 | The whole package |
+| Recorder | 0.2.0 | Opens each map in the real MapMaker app and records every download, with its cache headers |
+| Classroom simulator | 0.2.0 | Plays a recording out for 30 students sharing one connection |
+| Classroom profiles | 0.2.0 | The connection settings in `config/profiles.json` |
 | Simulator check | 0.1.0 | Compares the simulator with a real throttled browser |
 
 Bump a component's version whenever its maths or data handling changes, and the app version on every release.
@@ -16,9 +16,12 @@ Bump a component's version whenever its maths or data handling changes, and the 
 
 1. **Record (real browser, real MapMaker).** Each map is opened once, as a map link: `…atlas/index.html?appid=…&webmap=<id>`. It opens in a fresh browser with nothing cached, at 1366 × 768, with no sign-in (students mostly use MapMaker anonymously). Every request is written down: when it started, when the first byte arrived, when it finished, and how big it was. That includes requests from the map's background workers. The map counts as loaded after 3 seconds with no network activity. The recorder then clicks **Zoom in** twice and records that as well. One browser, one map at a time: about the same traffic as one person using MapMaker.
 2. **Simulate the class.** For each map, 30 students start within 5 seconds of each other and share one classroom connection. The simulator keeps the order the recording showed (a request waits for the one it depended on), shares the bandwidth fairly, and adds latency, jitter and packet loss. It reports the typical student, the student at the 90th percentile, and the slowest student.
-   - **Usual lesson:** MapMaker's own files are already cached on the device.
+   Three lessons are simulated, using each file's own cache settings:
+   - **Usual lesson** (the rating): MapMaker was last opened on the device a week ago. Files the browser may keep that long are reused, short-lived ones are re-checked with the server (one round trip each), and the map's own data is downloaded.
    - **First time on the device:** nothing is cached.
-3. **Rate.** A map is **OK** when 9 in 10 students have it ready within **10 seconds**. It is **Slow** up to 30 s and **Very slow** beyond that. This is set in `config/profiles.json`.
+   - **Second map in the same lesson:** MapMaker was opened 10 minutes ago.
+3. **Compare with MapMaker itself.** The default MapMaker view is simulated the same way. "Extra over MapMaker" (map time minus MapMaker's own time) is the fairest way to rank maps, because no map can load faster than the app around it.
+4. **Rate.** A map is **OK** when 9 in 10 students have it ready within **10 seconds**. It is **Slow** up to 30 s and **Very slow** beyond that. This is set in `config/profiles.json`.
 
 ### Why 10 seconds, and why 9 in 10 students
 
@@ -55,14 +58,19 @@ These numbers are assumptions, not measurements. They should be replaced with fi
 ## Simulator model and its limits
 
 - **Dependencies.** Each request waits for the request that finished most recently before it started in the recording, plus the same gap. That gap is the browser's own work.
-- **Connections.** The first use of a host costs 2 round trips to set up a connection (HTTP/1.1: per connection, at most 6 per host). Each request then costs 1 round trip plus the server's recorded response time, then the download.
-- **Sharing.** Downloads share the class's capacity fairly. Each connection is also capped by the Mathis et al. (1997) packet-loss formula. HTTP/2 requests to one host share one connection. Each request has a chance of one retransmission stall, max(200 ms, 2 × RTT).
+- **Connections.** The first use of a host costs 2 round trips to set up a connection, and requests to that host wait for it (HTTP/1.1: per connection, at most 6 per host). Each request then costs 1 round trip plus the server's recorded response time, then the download.
+- **Sharing.** The class's capacity is shared fairly between connections (TCP is fair per connection, not per request). Each connection is also capped by the Mathis et al. (1997) packet-loss formula. HTTP/2 requests to one host share one connection. Each request has a chance of one retransmission stall, max(200 ms, 2 × RTT).
 - **Not modelled.** TCP slow start beyond the loss cap; wifi airtime effects beyond "shared capacity"; school web filters; time students spend reading before acting.
 - **Recorded on a cloud computer, not a Chromebook.** Without graphics hardware, the ArcGIS SDK may use a simpler drawing mode, so the browser's own work between requests may differ from a Chromebook's. Check a few maps on a real Chromebook.
 - **Memory** is the main page's JavaScript heap only; background workers use more.
 - **Not tested:** switching on hidden layers, adding layers from Browse, and third-party servers (UNEP-WCMC, NPS and others) under many simultaneous classes. Load-testing other people's servers isn't appropriate.
 
 The **simulator check** (`src/validate.mjs`) loads maps again in a browser throttled to a slow line and compares the real time with the simulator's prediction for one student. The browser's throttling can't produce packet loss or jitter, so the check covers bandwidth, latency and dependencies only.
+
+## Version history
+
+- **0.2.0.** Simulator 0.2.0: the line is shared per connection; requests wait for their connection to be set up; browser caching follows each file's recorded cache headers; it is about 100 times faster. Recorder 0.2.0: records cache headers, and separates requests the map cancelled (normal) from real errors. Profiles 0.2.0: usual lesson = MapMaker last used 7 days ago. Results: MapMaker's own default map as a reference, and "extra over MapMaker" for ranking.
+- **0.1.0.** First release.
 
 ## Files
 
